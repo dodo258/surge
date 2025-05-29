@@ -1,12 +1,44 @@
-DOMAIN-SUFFIX,appsflayer.com
-DOMAIN-SUFFIX,binance.cloud
+# Binance（币安）
 DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,binance.org
 DOMAIN-SUFFIX,binance.me
-DOMAIN-SUFFIX,binancecnt.com
-DOMAIN-SUFFIX,binancefuture.com
-DOMAIN-SUFFIX,bnappzh.co
-DOMAIN-SUFFIX,bnbstatic.com
-DOMAIN-SUFFIX,bnbzh.ac
-DOMAIN-SUFFIX,bntrace.com
-DOMAIN-SUFFIX,saasexch.cc
-DOMAIN-SUFFIX,saasexch.com
+DOMAIN-SUFFIX,binance.cloud
+DOMAIN-SUFFIX,binstatic.com
+DOMAIN-SUFFIX,binimg.com
+DOMAIN-SUFFIX,bnbchain.org
+DOMAIN-SUFFIX,bscscan.com
+
+# OKX（欧易 / OKEX）
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.us
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,web3.okx.com
+
+# Bybit
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybitglobal.com
+DOMAIN-SUFFIX,bybit.biz
+DOMAIN-SUFFIX,bybit.cloud
+DOMAIN-SUFFIX,bybit-global.com
+DOMAIN-SUFFIX,bitverse.zone
+DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bycsi.com
+DOMAIN-SUFFIX,byabcde.com
+DOMAIN-SUFFIX,byd3c3.com
+DOMAIN-SUFFIX,bybdc6.com
+
+# Bitget
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,bitgetimg.com
+DOMAIN-SUFFIX,bitgetlimited.github.io
+
+# Huobi / HTX（火币）
+DOMAIN-SUFFIX,huobi.com
+DOMAIN-SUFFIX,htx.com
+DOMAIN-SUFFIX,huobipro.com
+DOMAIN-SUFFIX,hbg.com
+DOMAIN-SUFFIX,huobi.pro
+DOMAIN-SUFFIX,hbdm.com
+DOMAIN-SUFFIX,hbdm.vn
