@@ -16,6 +16,11 @@ DOMAIN-SUFFIX,okx.us
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,web3.okx.com
+DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,walletconnect.org
+DOMAIN-SUFFIX,web3auth.io
+DOMAIN-SUFFIX,rainbow.me
+DOMAIN-SUFFIX,etherscan.io
 
 # Bybit
 DOMAIN-SUFFIX,bybit.com
