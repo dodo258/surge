@@ -15,17 +15,20 @@ def collect_urls(text: str):
 
 
 def head_or_get(url: str, timeout=12):
-    try:
-        req = Request(url, method='HEAD', headers={'User-Agent': 'surge-maintainer/1.0'})
-        with urlopen(req, timeout=timeout) as r:
-            return r.status
-    except Exception:
+    # retry twice to tolerate transient network jitter
+    for _ in range(2):
         try:
-            req = Request(url, method='GET', headers={'User-Agent': 'surge-maintainer/1.0'})
+            req = Request(url, method='HEAD', headers={'User-Agent': 'surge-maintainer/1.0'})
             with urlopen(req, timeout=timeout) as r:
                 return r.status
         except Exception:
-            return 0
+            try:
+                req = Request(url, method='GET', headers={'User-Agent': 'surge-maintainer/1.0'})
+                with urlopen(req, timeout=timeout) as r:
+                    return r.status
+            except Exception:
+                pass
+    return 0
 
 
 def main():
@@ -49,6 +52,7 @@ def main():
     print(f'\nChecked: {len(urls)} URL(s)')
     print(f'Failed : {len(bad)} URL(s)')
     if bad:
+        print('Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.')
         sys.exit(1)
 
 
