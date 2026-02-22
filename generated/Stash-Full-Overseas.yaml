@@ -10,15 +10,12 @@ dns:
     - "+.local"
 
 proxy-providers:
-  hua:
-    interval: 1440
-    url: "https://api-huacloud.dev/sub?target=clash&insert=true&emoji=true&udp=true&clash.doh=true&new_name=true&filename=Flower_SS.yaml&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Ftoken2%3Djnyzwgvq-c518fe45ebri8qxowb%26sip002%3D1"
-  klm:
-    interval: 1440
-    url: "https://resourcemap.lol/sub?token=eEgmwsvlgJD-VduhWsFrSIePN1WczueQS-ac3moSwy0&type=clash&protocol=ss2022&use=domestic&rule=default"
-  zhu:
-    interval: 1440
-    url: "https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD1jMjAyMiZlcT1pb3MmdXJrPTM0NzhlYmFiLTBiMDYtNGYyNS1hMTkyLThkYTFjODkzNTVmNyZtbT00MTUzMiZrdG1tPTl1JTJmZWxFWjlkWTFrZ0p6NVFCWGJuZyUzZCUzZCZkNTAwMDMzYjE0Y2Q="
+  Subscribe:
+    # 你用 sub-store 聚合后的订阅链接（Clash/Stash 目标）
+    url: "https://sub.store/download/collection/all?target=ClashMeta"
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
 
 proxy-groups:
   - { name: 手动切换, type: select, include-all: true, proxies: [香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT] }
