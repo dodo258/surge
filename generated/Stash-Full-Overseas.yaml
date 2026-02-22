@@ -1,76 +1,154 @@
+# Stash Full Overseas (customized for dodo258)
+# Keep functional groups + region auto/fallback/load-balance
+
 mode: rule
 log-level: info
+
 dns:
-  nameserver:
-    - 223.5.5.5
+  default-nameserver:
     - 119.29.29.29
+    - 223.5.5.5
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   fake-ip-filter:
-    - "+.lan"
     - "*"
+    - "+.lan"
     - "+.local"
 
 proxy-providers:
   Subscribe:
-    # 你用 sub-store 聚合后的订阅链接（Clash/Stash 目标）
-    url: "https://sub.store/download/collection/all?target=ClashMeta"
+    # 你的 sub-store 聚合链接（按需替换）
+    url: https://sub.store/download/collection/all?target=ClashMeta
     interval: 86400
     benchmark-url: http://www.gstatic.com/generate_204
     benchmark-timeout: 5
 
 proxy-groups:
-  - { name: 手动切换, type: select, include-all: true, proxies: [香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT] }
+  - name: Final
+    type: select
+    proxies: [Proxy, DIRECT]
 
-  - { name: 交易钱包, type: select, proxies: [手动切换, 美国节点, 狮城节点, 日本节点, 香港节点, 台湾节点] }
-  - { name: AI平台, type: select, proxies: [手动切换, 美国节点, 狮城节点, 日本节点, 香港节点, 台湾节点] }
-  - { name: 流媒体, type: select, proxies: [手动切换, 狮城节点, 美国节点, 日本节点, 香港节点, 台湾节点] }
-  - { name: 社交平台, type: select, proxies: [手动切换, 日本节点, 狮城节点, 美国节点, 香港节点, 台湾节点] }
-  - { name: Telegram, type: select, proxies: [手动切换, 香港节点, 日本节点, 狮城节点, 美国节点, 台湾节点] }
-  - { name: 游戏平台, type: select, proxies: [手动切换, 日本节点, 香港节点, 狮城节点, 美国节点, 台湾节点, DIRECT] }
+  - name: Proxy
+    type: select
+    proxies: [HongKong, TaiWan, Japan, Singapore, America, AllServer, DIRECT]
 
-  - { name: 谷歌服务, type: select, proxies: [手动切换, 美国节点, 狮城节点, 日本节点, 香港节点, 台湾节点, DIRECT] }
-  - { name: 微软服务, type: select, proxies: [手动切换, 美国节点, 日本节点, 狮城节点, 香港节点, 台湾节点, DIRECT] }
-  - { name: 苹果服务, type: select, proxies: [DIRECT, 手动切换, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点] }
+  - name: 交易钱包
+    type: select
+    proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer]
+  - name: AI
+    type: select
+    proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer]
+  - name: 流媒体
+    type: select
+    proxies: [Proxy, Singapore, America, Japan, HongKong, TaiWan, AllServer]
+  - name: 社交平台
+    type: select
+    proxies: [Proxy, Japan, Singapore, America, HongKong, TaiWan, AllServer]
+  - name: 游戏平台
+    type: select
+    proxies: [Proxy, Japan, HongKong, Singapore, America, TaiWan, AllServer, DIRECT]
 
-  - { name: 兜底分流, type: select, proxies: [手动切换, 日本节点, 狮城节点, 美国节点, 香港节点, 台湾节点, DIRECT] }
+  - name: Telegram
+    type: select
+    proxies: [Proxy, HongKong, Japan, Singapore, America, TaiWan, AllServer]
+  - name: Google
+    type: select
+    proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer, DIRECT]
+  - name: Microsoft
+    type: select
+    proxies: [DIRECT, Proxy, America, Japan, Singapore, HongKong, TaiWan, AllServer]
+  - name: Apple
+    type: select
+    proxies: [DIRECT, Proxy, HongKong, TaiWan, Japan, Singapore, America, AllServer]
 
-  - { name: 香港节点, type: url-test, interval: 300, include-all: true, filter: "(?i)🇭🇰|香港|(\b(HK|Hong)\b)" }
-  - { name: 美国节点, type: url-test, interval: 300, include-all: true, filter: "(?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)" }
-  - { name: 狮城节点, type: url-test, interval: 300, include-all: true, filter: "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)" }
-  - { name: 日本节点, type: url-test, interval: 300, include-all: true, filter: "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)" }
-  - { name: 台湾节点, type: url-test, interval: 300, include-all: true, filter: "(?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)" }
+  # Region groups (you can click and see HK-Auto/HK-FallBack/HK-LoadBalance)
+  - name: HongKong
+    type: select
+    proxies: [HK-Auto, HK-FallBack, HK-LoadBalance]
+    filter: 港|🇭🇰|HK|(?i)Hong
+    use: [Subscribe]
+  - name: TaiWan
+    type: select
+    proxies: [TW-Auto, TW-FallBack, TW-LoadBalance]
+    filter: 台|🇹🇼|湾|TW|(?i)Taiwan
+    use: [Subscribe]
+  - name: Japan
+    type: select
+    proxies: [JP-Auto, JP-FallBack, JP-LoadBalance]
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    use: [Subscribe]
+  - name: Singapore
+    type: select
+    proxies: [SG-Auto, SG-FallBack, SG-LoadBalance]
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    use: [Subscribe]
+  - name: America
+    type: select
+    proxies: [US-Auto, US-FallBack, US-LoadBalance]
+    filter: 美|🇺🇲|US|(?i)States|American
+    use: [Subscribe]
+  - name: AllServer
+    type: select
+    proxies: [All-Auto]
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
+    use: [Subscribe]
+
+  # Hidden strategy groups
+  - { name: HK-Auto, type: url-test, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, interval: 300, lazy: true }
+  - { name: TW-Auto, type: url-test, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, interval: 300, lazy: true }
+  - { name: JP-Auto, type: url-test, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, interval: 300, lazy: true }
+  - { name: SG-Auto, type: url-test, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, interval: 300, lazy: true }
+  - { name: US-Auto, type: url-test, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, interval: 300, lazy: true }
+
+  - { name: HK-FallBack, type: fallback, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, interval: 300, lazy: true }
+  - { name: TW-FallBack, type: fallback, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, interval: 300, lazy: true }
+  - { name: JP-FallBack, type: fallback, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, interval: 300, lazy: true }
+  - { name: SG-FallBack, type: fallback, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, interval: 300, lazy: true }
+  - { name: US-FallBack, type: fallback, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, interval: 300, lazy: true }
+
+  - { name: HK-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: TW-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: JP-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: SG-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: US-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, strategy: consistent-hashing, interval: 300, lazy: true }
+
+  - { name: All-Auto, type: url-test, hidden: true, include-all: true, filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$, interval: 300, lazy: true }
 
 rule-providers:
-  CryptoWallet: { behavior: classical, format: text, interval: 21600, url: "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list" }
-  AIOverseas: { behavior: classical, format: text, interval: 21600, url: "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list" }
-  StreamingOverseas: { behavior: classical, format: text, interval: 21600, url: "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list" }
-  SocialOverseas: { behavior: classical, format: text, interval: 21600, url: "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list" }
-  GamesOverseas: { behavior: classical, format: text, interval: 21600, url: "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list" }
+  CryptoWallet: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list }
+  AIOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list }
+  StreamingOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list }
+  SocialOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list }
+  GamesOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list }
 
-  Direct: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/Direct.list" }
-  Lan: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list" }
-  Reject: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list" }
-  AppleCN: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleCN.list" }
-  AppleProxy: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleServers.list" }
-  Google: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/Google.list" }
-  Microsoft: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list" }
-  CNDomain: { behavior: classical, format: text, interval: 86400, url: "https://github.com/Repcz/Tool/raw/X/Stash/Rules/ChinaDomain.list" }
+  Direct: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Direct.list }
+  Reject: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list }
+  TelegramBase: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Telegram.list }
+  GoogleBase: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Google.list }
+  MicrosoftBase: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list }
+  AppleCN: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleCN.list }
+  AppleServers: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleServers.list }
+  CN_Mainland: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/ChinaDomain.list }
+  LAN: { behavior: classical, format: text, interval: 86400, url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list }
 
 rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Reject,REJECT
 
   - RULE-SET,CryptoWallet,交易钱包
-  - RULE-SET,AIOverseas,AI平台
+  - RULE-SET,AIOverseas,AI
   - RULE-SET,StreamingOverseas,流媒体
   - RULE-SET,SocialOverseas,社交平台
   - RULE-SET,GamesOverseas,游戏平台
 
-  - RULE-SET,Google,谷歌服务
-  - RULE-SET,Microsoft,微软服务
-  - RULE-SET,AppleCN,DIRECT
-  - RULE-SET,AppleProxy,苹果服务
+  - RULE-SET,TelegramBase,Telegram
+  - RULE-SET,GoogleBase,Google
+  - RULE-SET,MicrosoftBase,Microsoft
+  - RULE-SET,AppleCN,Apple
+  - RULE-SET,AppleServers,Proxy
 
-  - RULE-SET,CNDomain,DIRECT
-  - RULE-SET,Lan,DIRECT
+  - RULE-SET,CN_Mainland,DIRECT
+  - RULE-SET,LAN,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,兜底分流
+  - MATCH,Final
