@@ -78,17 +78,11 @@ proxy-groups:
 
 rule-providers:
   CryptoWallet: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list }
-  CryptoWalletBackup: { behavior: classical, format: text, interval: 21600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/crypto-wallet.list }
   AIOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list }
-  AIOverseasBackup: { behavior: classical, format: text, interval: 21600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/ai.list }
   StreamingOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list }
-  StreamingOverseasBackup: { behavior: classical, format: text, interval: 21600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/streaming.list }
   SocialOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list }
-  SocialOverseasBackup: { behavior: classical, format: text, interval: 21600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/social.list }
   GamesOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list }
-  GamesOverseasBackup: { behavior: classical, format: text, interval: 21600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/games.list }
   AutoBackfill: { behavior: classical, format: text, interval: 3600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list }
-  AutoBackfillBackup: { behavior: classical, format: text, interval: 3600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/auto-backfill.list }
 
   Direct: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list }
   Reject: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list }
@@ -101,39 +95,25 @@ rule-providers:
   LAN: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list }
 
   BM7Telegram: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list }
-  BM7TelegramBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list }
   BM7Google: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list }
-  BM7GoogleBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list }
   BM7Microsoft: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list }
-  BM7MicrosoftBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list }
   BM7Apple: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list }
-  BM7AppleBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list }
 
 rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Reject,REJECT
 
   - RULE-SET,CryptoWallet,交易钱包
-  - RULE-SET,CryptoWalletBackup,交易钱包
   - RULE-SET,AIOverseas,AI
-  - RULE-SET,AIOverseasBackup,AI
   - RULE-SET,StreamingOverseas,流媒体
-  - RULE-SET,StreamingOverseasBackup,流媒体
   - RULE-SET,SocialOverseas,社交平台
-  - RULE-SET,SocialOverseasBackup,社交平台
   - RULE-SET,GamesOverseas,游戏平台
-  - RULE-SET,GamesOverseasBackup,游戏平台
   - RULE-SET,AutoBackfill,Proxy
-  - RULE-SET,AutoBackfillBackup,Proxy
 
   - RULE-SET,BM7Telegram,Telegram
-  - RULE-SET,BM7TelegramBackup,Telegram
   - RULE-SET,BM7Google,Google
-  - RULE-SET,BM7GoogleBackup,Google
   - RULE-SET,BM7Microsoft,Microsoft
-  - RULE-SET,BM7MicrosoftBackup,Microsoft
   - RULE-SET,BM7Apple,Apple
-  - RULE-SET,BM7AppleBackup,Apple
   - RULE-SET,TelegramBase,Telegram
   - RULE-SET,GoogleBase,Google
   - RULE-SET,MicrosoftBase,Microsoft
