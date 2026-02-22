@@ -81,6 +81,7 @@ rule-providers:
   StreamingOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list }
   SocialOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list }
   GamesOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list }
+  AutoBackfill: { behavior: classical, format: text, interval: 3600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list }
 
   Direct: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list }
   Reject: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list }
@@ -106,6 +107,7 @@ rules:
   - RULE-SET,StreamingOverseas,流媒体
   - RULE-SET,SocialOverseas,社交平台
   - RULE-SET,GamesOverseas,游戏平台
+  - RULE-SET,AutoBackfill,Proxy
 
   - RULE-SET,BM7Telegram,Telegram
   - RULE-SET,BM7Google,Google
