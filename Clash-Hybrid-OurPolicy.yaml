@@ -1,6 +1,3 @@
-# Hybrid config: Universal Clash runtime(base) + Our strategy/rules(core)
-# Replace Subscribe.url with your own subscription URL.
-
 mode: rule
 log-level: info
 mixed-port: 7890
@@ -70,6 +67,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
   proxies:
+  - 💱 交易地区锁定
   - Proxy
   - America
   - Singapore
@@ -81,6 +79,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
   proxies:
+  - 🤖 AI地区锁定
   - Proxy
   - America
   - Singapore
@@ -92,6 +91,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
   proxies:
+  - 🎬 流媒体地区锁定
   - Proxy
   - Singapore
   - America
@@ -103,6 +103,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
   proxies:
+  - 💬 社交地区锁定
   - Proxy
   - Japan
   - Singapore
@@ -114,6 +115,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
   proxies:
+  - 🎮 游戏地区锁定
   - Proxy
   - Japan
   - HongKong
@@ -126,6 +128,7 @@ proxy-groups:
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
   proxies:
+  - 💬 社交地区锁定
   - Proxy
   - HongKong
   - Japan
@@ -351,6 +354,90 @@ proxy-groups:
   filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$
   interval: 300
   lazy: true
+- name: Korea
+  type: select
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+  proxies:
+  - KR-Auto
+  - KR-FallBack
+  - KR-LoadBalance
+  - KR-List
+- name: KR-List
+  type: select
+  include-all: true
+  filter: 韩|🇰🇷|KR|(?i)Korea
+- name: KR-Auto
+  type: url-test
+  hidden: true
+  include-all: true
+  filter: 韩|🇰🇷|KR|(?i)Korea
+  interval: 300
+  lazy: true
+- name: KR-FallBack
+  type: fallback
+  hidden: true
+  include-all: true
+  filter: 韩|🇰🇷|KR|(?i)Korea
+  interval: 300
+  lazy: true
+- name: KR-LoadBalance
+  type: load-balance
+  hidden: true
+  include-all: true
+  filter: 韩|🇰🇷|KR|(?i)Korea
+  strategy: consistent-hashing
+  interval: 300
+  lazy: true
+- name: 💱 交易地区锁定
+  type: select
+  proxies:
+  - TaiWan
+  - Singapore
+  - Japan
+  - America
+- name: 🤖 AI地区锁定
+  type: select
+  proxies:
+  - America
+  - Singapore
+- name: 🎬 流媒体地区锁定
+  type: select
+  proxies:
+  - Singapore
+  - Japan
+  - HongKong
+  - America
+- name: 📉 TV地区锁定
+  type: select
+  proxies:
+  - Singapore
+  - Japan
+  - HongKong
+  - America
+- name: 💬 社交地区锁定
+  type: select
+  proxies:
+  - Japan
+  - HongKong
+  - Singapore
+  - America
+- name: 🎮 游戏地区锁定
+  type: select
+  proxies:
+  - Japan
+  - Korea
+  - HongKong
+  - Singapore
+  - America
+- name: TradingView
+  type: select
+  proxies:
+  - 📉 TV地区锁定
+  - Proxy
+  - HongKong
+  - Japan
+  - Singapore
+  - America
 rule-providers:
   CryptoWallet:
     behavior: classical
@@ -447,7 +534,18 @@ rule-providers:
     format: text
     interval: 86400
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+  TradingViewLocal:
+    behavior: classical
+    format: text
+    interval: 21600
+    url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/tradingview.list
 rules:
+- RULE-SET,TradingViewLocal,TradingView
+- DOMAIN-SUFFIX,tradingview.com,TradingView
+- DOMAIN,scanner.tradingview.com,TradingView
+- DOMAIN,data.tradingview.com,TradingView
+- DOMAIN,widgetdata.tradingview.com,TradingView
+- DOMAIN,tvd-pricing.tradingview.com,TradingView
 - RULE-SET,Direct,DIRECT
 - RULE-SET,Reject,REJECT
 - RULE-SET,CryptoWallet,交易钱包
