@@ -25,7 +25,7 @@ proxy-providers:
     benchmark-timeout: 5
 
 proxy-groups:
-  - { name: Final, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png, proxies: [Proxy, DIRECT] }
+  - { name: Final, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png, proxies: [Proxy] }
   - { name: Proxy, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [HongKong, TaiWan, Japan, Singapore, America, AllServer, DIRECT] }
 
   - { name: 交易钱包, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
