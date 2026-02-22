@@ -42,8 +42,6 @@ dns:
   - '*.msftncsi.com'
 proxy-providers:
   Subscribe:
-    # 这里改成你自己的订阅地址（sub-store 聚合链接）
-    # 示例: http://sub.store/download/collection/你的集合名?target=Stash
     url: http://sub.store/download/collection/all?target=Stash
     interval: 86400
     benchmark-url: http://www.gstatic.com/generate_204
@@ -181,7 +179,6 @@ proxy-groups:
   - HK-Auto
   - HK-FallBack
   - HK-LoadBalance
-  - HK-List
 - name: TaiWan
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
@@ -189,7 +186,6 @@ proxy-groups:
   - TW-Auto
   - TW-FallBack
   - TW-LoadBalance
-  - TW-List
 - name: Japan
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
@@ -197,7 +193,6 @@ proxy-groups:
   - JP-Auto
   - JP-FallBack
   - JP-LoadBalance
-  - JP-List
 - name: Singapore
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
@@ -205,7 +200,6 @@ proxy-groups:
   - SG-Auto
   - SG-FallBack
   - SG-LoadBalance
-  - SG-List
 - name: America
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
@@ -213,7 +207,13 @@ proxy-groups:
   - US-Auto
   - US-FallBack
   - US-LoadBalance
-  - US-List
+- name: Korea
+  type: select
+  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+  proxies:
+  - KR-Auto
+  - KR-FallBack
+  - KR-LoadBalance
 - name: AllServer
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
@@ -223,22 +223,27 @@ proxy-groups:
   type: select
   include-all: true
   filter: '港|🇭🇰|HK|(?i)Hong '
+  hidden: true
 - name: TW-List
   type: select
   include-all: true
   filter: '台|🇹🇼|湾|TW|(?i)Taiwan '
+  hidden: true
 - name: JP-List
   type: select
   include-all: true
   filter: '日|🇯🇵|东京|JP|(?i)Japan '
+  hidden: true
 - name: SG-List
   type: select
   include-all: true
   filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore '
+  hidden: true
 - name: US-List
   type: select
   include-all: true
   filter: '美|🇺🇲|US|(?i)States|American '
+  hidden: true
 - name: HK-Auto
   type: url-test
   hidden: true
@@ -356,18 +361,11 @@ proxy-groups:
   filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$
   interval: 300
   lazy: true
-- name: Korea
-  type: select
-  icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-  proxies:
-  - KR-Auto
-  - KR-FallBack
-  - KR-LoadBalance
-  - KR-List
 - name: KR-List
   type: select
   include-all: true
   filter: 韩|🇰🇷|KR|(?i)Korea
+  hidden: true
 - name: KR-Auto
   type: url-test
   hidden: true
