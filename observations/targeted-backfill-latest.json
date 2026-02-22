@@ -1,0 +1,202 @@
+{
+  "ai": {
+    "chatgpt.com": {
+      "hosts": [
+        "ab.chatgpt.com",
+        "chatgpt.com",
+        "www.chatgpt.com"
+      ],
+      "ips": []
+    },
+    "openai.com": {
+      "hosts": [
+        "openai.com",
+        "www.openai.com"
+      ],
+      "ips": []
+    },
+    "claude.ai": {
+      "hosts": [
+        "claude.ai"
+      ],
+      "ips": []
+    },
+    "anthropic.com": {
+      "hosts": [
+        "anthropic.com",
+        "www.anthropic.com"
+      ],
+      "ips": []
+    },
+    "perplexity.ai": {
+      "hosts": [
+        "perplexity.ai",
+        "www.perplexity.ai"
+      ],
+      "ips": []
+    },
+    "deepseek.com": {
+      "hosts": [
+        "deepseek.com",
+        "www.deepseek.com"
+      ],
+      "ips": [
+        "221.204.210.57",
+        "60.204.2.5"
+      ]
+    },
+    "gemini.google.com": {
+      "hosts": [
+        "gemini.google.com"
+      ],
+      "ips": []
+    },
+    "poe.com": {
+      "hosts": [
+        "poe.com",
+        "www.poe.com"
+      ],
+      "ips": [
+        "103.252.115.53",
+        "98.159.108.57"
+      ]
+    }
+  },
+  "crypto": {
+    "binance.com": {
+      "hosts": [
+        "binance.com",
+        "www.binance.com"
+      ],
+      "ips": []
+    },
+    "okx.com": {
+      "hosts": [
+        "okx.com",
+        "www.okx.com"
+      ],
+      "ips": []
+    },
+    "bybit.com": {
+      "hosts": [
+        "bybit.com",
+        "www.bybit.com"
+      ],
+      "ips": [
+        "162.125.32.15",
+        "199.59.149.206"
+      ]
+    },
+    "bitget.com": {
+      "hosts": [
+        "bitget.com",
+        "www.bitget.com"
+      ],
+      "ips": [
+        "104.18.8.145"
+      ]
+    },
+    "kraken.com": {
+      "hosts": [
+        "kraken.com",
+        "www.kraken.com"
+      ],
+      "ips": [
+        "157.240.2.50",
+        "4.78.139.50"
+      ]
+    },
+    "hyperliquid.xyz": {
+      "hosts": [
+        "hyperliquid.xyz",
+        "www.hyperliquid.xyz"
+      ],
+      "ips": [
+        "108.138.26.45",
+        "18.245.31.78"
+      ]
+    },
+    "lighter.xyz": {
+      "hosts": [
+        "lighter.xyz"
+      ],
+      "ips": [
+        "31.43.161.6"
+      ]
+    },
+    "polymarket.com": {
+      "hosts": [
+        "polymarket.com"
+      ],
+      "ips": [
+        "179.60.193.16"
+      ]
+    },
+    "tradingview.com": {
+      "hosts": [
+        "tradingview.com",
+        "www.tradingview.com"
+      ],
+      "ips": [
+        "199.59.149.231",
+        "202.160.130.145"
+      ]
+    },
+    "coinglass.com": {
+      "hosts": [
+        "coinglass.com",
+        "www.coinglass.com"
+      ],
+      "ips": [
+        "65.9.175.3",
+        "65.9.175.76"
+      ]
+    },
+    "coinmarketcap.com": {
+      "hosts": [
+        "coinmarketcap.com"
+      ],
+      "ips": [
+        "96.44.137.28"
+      ]
+    },
+    "rabby.io": {
+      "hosts": [
+        "rabby.io",
+        "www.rabby.io"
+      ],
+      "ips": [
+        "18.155.68.115",
+        "18.66.122.4"
+      ]
+    },
+    "onekey.so": {
+      "hosts": [
+        "onekey.so"
+      ],
+      "ips": [
+        "128.242.240.91"
+      ]
+    },
+    "ledger.com": {
+      "hosts": [
+        "ledger.com",
+        "www.ledger.com"
+      ],
+      "ips": [
+        "157.240.11.40",
+        "162.125.2.5"
+      ]
+    },
+    "tronlink.org": {
+      "hosts": [
+        "tronlink.org",
+        "www.tronlink.org"
+      ],
+      "ips": [
+        "157.240.17.36",
+        "199.59.149.235"
+      ]
+    }
+  }
+}
