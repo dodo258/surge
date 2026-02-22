@@ -1,15 +1,16 @@
 # tradingview.list
-# Local-first TradingView rules (mobile TLS issue hardening)
-# Region lock target group: 📉 TradingView
+# Local-first + upstream supplement (ACL4SSR + blackmatrix7)
+# Strategy: only add/merge, never shrink existing local coverage
+# Run: python3 scripts/maintenance/sync_custom_rules.py
 
 DOMAIN-SUFFIX,tradingview.com
-DOMAIN,www.tradingview.com
 DOMAIN,cn.tradingview.com
-DOMAIN,scanner.tradingview.com
 DOMAIN,data.tradingview.com
-DOMAIN,widgetdata.tradingview.com
-DOMAIN,tvd-pricing.tradingview.com
-DOMAIN,ws.tradingview.com
 DOMAIN,prodata.tradingview.com
-DOMAIN,static.tradingview.com
 DOMAIN,s.tradingview.com
+DOMAIN,scanner.tradingview.com
+DOMAIN,static.tradingview.com
+DOMAIN,tvd-pricing.tradingview.com
+DOMAIN,widgetdata.tradingview.com
+DOMAIN,ws.tradingview.com
+DOMAIN,www.tradingview.com

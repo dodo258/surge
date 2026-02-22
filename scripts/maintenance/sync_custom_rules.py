@@ -59,6 +59,10 @@ SOURCES = {
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list',
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list',
     ],
+    'tradingview.list': [
+        'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TradingView/TradingView.list',
+        'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TradingView/TradingView.list',
+    ],
 }
 
 ALLOW = ('DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'IP-CIDR6,')
@@ -66,9 +70,15 @@ ORDER = {'DOMAIN-SUFFIX,': 0, 'DOMAIN,': 1, 'DOMAIN-KEYWORD,': 2, 'IP-CIDR,': 3,
 
 
 def fetch(url: str) -> str:
-    req = Request(url, headers={'User-Agent': 'surge-maintainer/1.0'})
-    with urlopen(req, timeout=20) as r:
-        return r.read().decode('utf-8', errors='ignore')
+    last = None
+    for _ in range(3):
+        try:
+            req = Request(url, headers={'User-Agent': 'surge-maintainer/1.0'})
+            with urlopen(req, timeout=20) as r:
+                return r.read().decode('utf-8', errors='ignore')
+        except Exception as e:
+            last = e
+    raise last
 
 
 def normalize(line: str) -> str:
