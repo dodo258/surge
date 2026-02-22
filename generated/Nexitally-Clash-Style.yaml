@@ -1,0 +1,130 @@
+# Nexitally Clash-style (rebuilt to our universal Stash format)
+# 说明：这是通用 Clash/Stash 风格，不是 Nexitally 原始大而全模板。
+# 订阅地址请改为你自己的。
+
+# Stash Full Overseas (customized for dodo258)
+# Keep functional groups + region auto/fallback/load-balance
+
+mode: rule
+log-level: info
+
+dns:
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+
+proxy-providers:
+  Subscribe:
+    # 这里改成你自己的订阅地址（推荐 sub-store 聚合链接）
+    # 示例: http://sub.store/download/collection/你的集合名?target=Stash
+    url: http://sub.store/download/collection/all?target=Stash
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+
+proxy-groups:
+  - { name: Final, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png, proxies: [Proxy] }
+  - { name: Proxy, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [HongKong, TaiWan, Japan, Singapore, America, AllServer, DIRECT] }
+
+  - { name: 交易钱包, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
+  - { name: AI, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
+  - { name: 流媒体, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png, proxies: [Proxy, Singapore, America, Japan, HongKong, TaiWan, AllServer] }
+  - { name: 社交平台, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png, proxies: [Proxy, Japan, Singapore, America, HongKong, TaiWan, AllServer] }
+  - { name: 游戏平台, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png, proxies: [Proxy, Japan, HongKong, Singapore, America, TaiWan, AllServer, DIRECT] }
+
+  - { name: Telegram, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png, proxies: [Proxy, HongKong, Japan, Singapore, America, TaiWan, AllServer] }
+  - { name: Google, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer, DIRECT] }
+  - { name: Microsoft, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png, proxies: [DIRECT, Proxy, America, Japan, Singapore, HongKong, TaiWan, AllServer] }
+  - { name: Apple, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png, proxies: [DIRECT, Proxy, HongKong, TaiWan, Japan, Singapore, America, AllServer] }
+
+  # 地区分组（显示模式 + 全部地区线路）
+  - { name: HongKong, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png, proxies: [HK-Auto, HK-FallBack, HK-LoadBalance, HK-List] }
+  - { name: TaiWan, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png, proxies: [TW-Auto, TW-FallBack, TW-LoadBalance, TW-List] }
+  - { name: Japan, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png, proxies: [JP-Auto, JP-FallBack, JP-LoadBalance, JP-List] }
+  - { name: Singapore, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png, proxies: [SG-Auto, SG-FallBack, SG-LoadBalance, SG-List] }
+  - { name: America, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png, proxies: [US-Auto, US-FallBack, US-LoadBalance, US-List] }
+  - { name: AllServer, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png, proxies: [All-Auto] }
+
+  # 地区线路列表（可直接看到该地区所有线路）
+  - { name: HK-List, type: select, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong '}
+  - { name: TW-List, type: select, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan '}
+  - { name: JP-List, type: select, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan '}
+  - { name: SG-List, type: select, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore '}
+  - { name: US-List, type: select, include-all: true, filter: '美|🇺🇲|US|(?i)States|American '}
+
+  # Hidden strategy groups
+  - { name: HK-Auto, type: url-test, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', interval: 300, lazy: true }
+  - { name: TW-Auto, type: url-test, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', interval: 300, lazy: true }
+  - { name: JP-Auto, type: url-test, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', interval: 300, lazy: true }
+  - { name: SG-Auto, type: url-test, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', interval: 300, lazy: true }
+  - { name: US-Auto, type: url-test, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', interval: 300, lazy: true }
+
+  - { name: HK-FallBack, type: fallback, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', interval: 300, lazy: true }
+  - { name: TW-FallBack, type: fallback, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', interval: 300, lazy: true }
+  - { name: JP-FallBack, type: fallback, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', interval: 300, lazy: true }
+  - { name: SG-FallBack, type: fallback, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', interval: 300, lazy: true }
+  - { name: US-FallBack, type: fallback, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', interval: 300, lazy: true }
+
+  - { name: HK-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: TW-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: JP-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: SG-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: US-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', strategy: consistent-hashing, interval: 300, lazy: true }
+
+  - { name: All-Auto, type: url-test, hidden: true, include-all: true, filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$', interval: 300, lazy: true }
+
+rule-providers:
+  CryptoWallet: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list }
+  AIOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list }
+  StreamingOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list }
+  SocialOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list }
+  GamesOverseas: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list }
+  AutoBackfill: { behavior: classical, format: text, interval: 3600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list }
+
+  Direct: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list }
+  Reject: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list }
+  TelegramBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list }
+  GoogleBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list }
+  MicrosoftBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list }
+  AppleCN: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list }
+  AppleServers: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list }
+  CN_Mainland: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list }
+  LAN: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list }
+
+  BM7Telegram: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list }
+  BM7Google: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list }
+  BM7Microsoft: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list }
+  BM7Apple: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list }
+
+rules:
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Reject,REJECT
+
+  - RULE-SET,CryptoWallet,交易钱包
+  - RULE-SET,AIOverseas,AI
+  - RULE-SET,StreamingOverseas,流媒体
+  - RULE-SET,SocialOverseas,社交平台
+  - RULE-SET,GamesOverseas,游戏平台
+  - RULE-SET,AutoBackfill,Proxy
+
+  - RULE-SET,BM7Telegram,Telegram
+  - RULE-SET,BM7Google,Google
+  - RULE-SET,BM7Microsoft,Microsoft
+  - RULE-SET,BM7Apple,Apple
+  - RULE-SET,TelegramBase,Telegram
+  - RULE-SET,GoogleBase,Google
+  - RULE-SET,MicrosoftBase,Microsoft
+  - RULE-SET,AppleCN,Apple
+  - RULE-SET,AppleServers,Proxy
+
+  - RULE-SET,CN_Mainland,DIRECT
+  - RULE-SET,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
