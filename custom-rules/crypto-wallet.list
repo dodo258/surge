@@ -1,30 +1,37 @@
-# Crypto Exchanges + Wallets (maintained)
+# crypto-wallet.list
+# Updated from blackmatrix7 + local observations
 # Updated: 2026-02-22
 
-# Exchanges
+DOMAIN-SUFFIX,appsflayer.com
+DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.me
 DOMAIN-SUFFIX,binance.us
-DOMAIN-SUFFIX,okx.com
-DOMAIN-SUFFIX,okx.network
-DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,binancecnt.com
+DOMAIN-SUFFIX,binancefuture.com
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,bnappzh.co
+DOMAIN-SUFFIX,bnbstatic.com
+DOMAIN-SUFFIX,bnbzh.ac
+DOMAIN-SUFFIX,bntrace.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,bybitglobal.com
-DOMAIN-SUFFIX,bitget.com
-DOMAIN-SUFFIX,kraken.com
-DOMAIN-SUFFIX,coinmarketcap.com
-DOMAIN-SUFFIX,tradingview.com
 DOMAIN-SUFFIX,coinglass.com
-
-# Wallets
-DOMAIN-SUFFIX,ledger.com
-DOMAIN-SUFFIX,rabby.io
+DOMAIN-SUFFIX,coinmarketcap.com
 DOMAIN-SUFFIX,debank.com
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,ledger.com
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.network
 DOMAIN-SUFFIX,onekey.so
 DOMAIN-SUFFIX,onekeycn.com
-DOMAIN-SUFFIX,tronlink.org
-
-# Common APIs/CDN used by wallets/exchanges (keep narrow)
-DOMAIN-KEYWORD,walletconnect
-DOMAIN-SUFFIX,web3auth.io
+DOMAIN-SUFFIX,rabby.io
+DOMAIN-SUFFIX,saasexch.cc
+DOMAIN-SUFFIX,saasexch.com
 DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN-SUFFIX,tronlink.org
+DOMAIN-SUFFIX,web3auth.io
+DOMAIN-KEYWORD,walletconnect
