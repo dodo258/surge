@@ -1,6 +1,6 @@
 # Auto backfill rules (generated)
-# Last-Update: 2026-02-22T17:11:35.684431
-# Added this run: 5
+# Last-Update: 2026-02-22T21:14:17.820652
+# Added this run: 0
 # Source: Stash /connections MATCH hits
 
 DOMAIN,raw.githubusercontent.com

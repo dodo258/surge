@@ -1,0 +1,355 @@
+crypto-wallet.list: 3 lines
+ai.list: 50 lines
+streaming.list: 699 lines
+social.list: 37 lines
+games.list: 54 lines
+connections=72
+new_rules=5
+/Users/risk/.openclaw/workspace/surge/custom-rules/auto-backfill.list
+[200] http://sub.store/download/collection/all?target=Stash
+[200] http://sub.store/download/collection/all?target=Surge
+[ERR] http://sub.store/download/collection/你的集合名?target=Stash
+[ERR] http://sub.store/download/collection/你的集合名?target=Surge
+[200] http://www.baidu.com
+[204] http://www.gstatic.com/generate_204
+[SKIP] https://dns.alidns.com/dns-query (DoH endpoint)
+[SKIP] https://doh.pub/dns-query (DoH endpoint)
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
+[ERR] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Apple/Apple.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Google/Google.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Microsoft/Microsoft.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Telegram/Telegram.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/ai.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/auto-backfill.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/crypto-wallet.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/games.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/social.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/streaming.list
+[200] https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+[ERR] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list
+
+Checked: 72 URL(s)
+Failed : 13 URL(s)
+Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.
+crypto-wallet.list: local=69 upstream=0 merged=69
+ai.list: local=95 upstream=50 merged=95
+streaming.list: local=699 upstream=677 merged=699
+social.list: local=70 upstream=598 merged=668
+games.list: local=263 upstream=202 merged=263
+connections=67
+new_rules=0
+/Users/risk/.openclaw/workspace/surge/custom-rules/auto-backfill.list
+[200] http://sub.store/download/collection/all?target=Stash
+[200] http://sub.store/download/collection/all?target=Surge
+[ERR] http://sub.store/download/collection/你的集合名?target=Stash
+[ERR] http://sub.store/download/collection/你的集合名?target=Surge
+[200] http://www.baidu.com
+[204] http://www.gstatic.com/generate_204
+[SKIP] https://dns.alidns.com/dns-query (DoH endpoint)
+[SKIP] https://doh.pub/dns-query (DoH endpoint)
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+[ERR] https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Apple/Apple.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Google/Google.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Microsoft/Microsoft.list
+[200] https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Surge/Telegram/Telegram.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/ai.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/auto-backfill.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/crypto-wallet.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/games.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/social.list
+[200] https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/streaming.list
+[200] https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+[ERR] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+[ERR] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list
+[ERR] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list
+
+Checked: 72 URL(s)
+Failed : 14 URL(s)
+Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.
+crypto-wallet.list: local=136 upstream=12 merged=136
+ai.list: local=111 upstream=34 merged=111
+streaming.list: local=699 upstream=1370 merged=1815
+social.list: local=668 upstream=633 merged=668
+games.list: local=263 upstream=77 merged=307
+connections=63
+new_rules=0
+/Users/risk/.openclaw/workspace/surge/custom-rules/auto-backfill.list
+[ERR] http://sub.store/download/collection/all?target=Stash
+[200] http://sub.store/download/collection/all?target=Surge
+[SKIP] http://sub.store/download/collection/你的集合名?target=Stash (example placeholder)
+[SKIP] http://sub.store/download/collection/你的集合名?target=Surge (example placeholder)
+[200] http://www.baidu.com
+[204] http://www.gstatic.com/generate_204
+[SKIP] https://dns.alidns.com/dns-query (DoH endpoint)
+[SKIP] https://doh.pub/dns-query (DoH endpoint)
+[200] https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+[ERR] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+[ERR] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
+[ERR] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list
+
+Checked: 49 URL(s)
+Failed : 4 URL(s)
+Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.
+crypto-wallet.list: local=136 upstream=15 merged=136
+ai.list: local=111 upstream=81 merged=137
+streaming.list: local=1815 upstream=1815 merged=1815
+social.list: local=668 upstream=666 merged=668
+games.list: local=307 upstream=247 merged=307
+tradingview.list: local=11 upstream=0 merged=11
+connections=58
+new_rules=0
+/Users/risk/.openclaw/workspace/surge/custom-rules/auto-backfill.list
+[200] http://sub.store/download/collection/all?target=Stash
+[200] http://sub.store/download/collection/all?target=Surge
+[SKIP] http://sub.store/download/collection/你的集合名?target=Stash (example placeholder)
+[SKIP] http://sub.store/download/collection/你的集合名?target=Surge (example placeholder)
+[200] http://www.baidu.com
+[204] http://www.gstatic.com/generate_204
+[SKIP] https://dns.alidns.com/dns-query (DoH endpoint)
+[SKIP] https://doh.pub/dns-query (DoH endpoint)
+[200] https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+[ERR] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+[ERR] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/tradingview.list
+
+Checked: 50 URL(s)
+Failed : 2 URL(s)
+Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.
+crypto-wallet.list: local=136 upstream=15 merged=136
+ai.list: local=137 upstream=81 merged=137
+streaming.list: local=1815 upstream=1815 merged=1815
+social.list: local=668 upstream=639 merged=668
+games.list: local=307 upstream=139 merged=307
+tradingview.list: local=11 upstream=0 merged=11
+connections=63
+new_rules=0
+/Users/risk/.openclaw/workspace/surge/custom-rules/auto-backfill.list
+[200] http://sub.store/download/collection/all?target=Stash
+[200] http://sub.store/download/collection/all?target=Surge
+[SKIP] http://sub.store/download/collection/你的集合名?target=Stash (example placeholder)
+[SKIP] http://sub.store/download/collection/你的集合名?target=Surge (example placeholder)
+[200] http://www.baidu.com
+[204] http://www.gstatic.com/generate_204
+[SKIP] https://dns.alidns.com/dns-query (DoH endpoint)
+[SKIP] https://doh.pub/dns-query (DoH endpoint)
+[200] https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
+[ERR] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+[200] https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+[200] https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
+[200] https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/ai.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/auto-backfill.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/games.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/social.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/streaming.list
+[200] https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/tradingview.list
+
+Checked: 50 URL(s)
+Failed : 1 URL(s)
+Note: network jitter/proxy switching can cause transient ERR; rerun once before concluding hard failure.
