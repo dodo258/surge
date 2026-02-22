@@ -1,37 +1,19 @@
 # crypto-wallet.list
-# Updated from blackmatrix7 + local observations
-# Updated: 2026-02-22
+# Synced from ACL4SSR + blackmatrix7
+# Run: python3 scripts/maintenance/sync_custom_rules.py
 
 DOMAIN-SUFFIX,appsflayer.com
 DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.me
-DOMAIN-SUFFIX,binance.us
 DOMAIN-SUFFIX,binancecnt.com
 DOMAIN-SUFFIX,binancefuture.com
-DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bnappzh.co
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,bnbzh.ac
 DOMAIN-SUFFIX,bntrace.com
-DOMAIN-SUFFIX,bybit.com
-DOMAIN-SUFFIX,bybitglobal.com
-DOMAIN-SUFFIX,coinglass.com
-DOMAIN-SUFFIX,coinmarketcap.com
-DOMAIN-SUFFIX,debank.com
-DOMAIN-SUFFIX,kraken.com
-DOMAIN-SUFFIX,ledger.com
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx.com
-DOMAIN-SUFFIX,okx.network
-DOMAIN-SUFFIX,onekey.so
-DOMAIN-SUFFIX,onekeycn.com
-DOMAIN-SUFFIX,rabby.io
 DOMAIN-SUFFIX,saasexch.cc
 DOMAIN-SUFFIX,saasexch.com
-DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,tradingview.com
-DOMAIN-SUFFIX,tronlink.org
-DOMAIN-SUFFIX,web3auth.io
-DOMAIN-KEYWORD,walletconnect

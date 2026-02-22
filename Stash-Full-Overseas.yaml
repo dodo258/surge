@@ -28,7 +28,7 @@ proxy-groups:
   - { name: Final, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png, proxies: [Proxy, DIRECT] }
   - { name: Proxy, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [HongKong, TaiWan, Japan, Singapore, America, AllServer, DIRECT] }
 
-  - { name: 交易钱包, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bitcoin.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
+  - { name: 交易钱包, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
   - { name: AI, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png, proxies: [Proxy, America, Singapore, Japan, HongKong, TaiWan, AllServer] }
   - { name: 流媒体, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png, proxies: [Proxy, Singapore, America, Japan, HongKong, TaiWan, AllServer] }
   - { name: 社交平台, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png, proxies: [Proxy, Japan, Singapore, America, HongKong, TaiWan, AllServer] }
