@@ -77,3 +77,36 @@ DOMAIN-KEYWORD,openai
 DOMAIN-KEYWORD,openaicom-api
 IP-CIDR,24.199.123.28/32,no-resolve
 IP-CIDR,64.23.132.171/32,no-resolve
+
+# AI API + WS + edge/CDN hardening
+DOMAIN,api.openai.com
+DOMAIN,auth.openai.com
+DOMAIN,chat.openai.com
+DOMAIN,ab.chatgpt.com
+DOMAIN,cdn.oaistatic.com
+DOMAIN,files.oaiusercontent.com
+DOMAIN,browser-intake-datadoghq.com
+
+DOMAIN,api.anthropic.com
+DOMAIN,console.anthropic.com
+
+DOMAIN,api.perplexity.ai
+DOMAIN,www.perplexity.ai
+
+DOMAIN,api.deepseek.com
+DOMAIN,chat.deepseek.com
+
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,aistudio.google.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+
+DOMAIN,api.poe.com
+DOMAIN,www.poe.com
+
+DOMAIN-SUFFIX,openai.azure.com
+DOMAIN-SUFFIX,azureedge.net
+DOMAIN-SUFFIX,livekit.cloud
+
+# Observed edge nodes (subject to change)
+IP-CIDR,104.18.20.178/32,no-resolve
+IP-CIDR,104.18.21.178/32,no-resolve
