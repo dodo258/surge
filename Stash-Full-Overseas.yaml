@@ -48,32 +48,32 @@ proxy-groups:
   - { name: AllServer, type: select, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png, proxies: [All-Auto] }
 
   # 地区线路列表（可直接看到该地区所有线路）
-  - { name: HK-List, type: select, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong }
-  - { name: TW-List, type: select, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan }
-  - { name: JP-List, type: select, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan }
-  - { name: SG-List, type: select, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore }
-  - { name: US-List, type: select, include-all: true, filter: 美|🇺🇲|US|(?i)States|American }
+  - { name: HK-List, type: select, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong '}
+  - { name: TW-List, type: select, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan '}
+  - { name: JP-List, type: select, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan '}
+  - { name: SG-List, type: select, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore '}
+  - { name: US-List, type: select, include-all: true, filter: '美|🇺🇲|US|(?i)States|American '}
 
   # Hidden strategy groups
-  - { name: HK-Auto, type: url-test, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, interval: 300, lazy: true }
-  - { name: TW-Auto, type: url-test, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, interval: 300, lazy: true }
-  - { name: JP-Auto, type: url-test, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, interval: 300, lazy: true }
-  - { name: SG-Auto, type: url-test, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, interval: 300, lazy: true }
-  - { name: US-Auto, type: url-test, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, interval: 300, lazy: true }
+  - { name: HK-Auto, type: url-test, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', interval: 300, lazy: true }
+  - { name: TW-Auto, type: url-test, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', interval: 300, lazy: true }
+  - { name: JP-Auto, type: url-test, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', interval: 300, lazy: true }
+  - { name: SG-Auto, type: url-test, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', interval: 300, lazy: true }
+  - { name: US-Auto, type: url-test, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', interval: 300, lazy: true }
 
-  - { name: HK-FallBack, type: fallback, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, interval: 300, lazy: true }
-  - { name: TW-FallBack, type: fallback, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, interval: 300, lazy: true }
-  - { name: JP-FallBack, type: fallback, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, interval: 300, lazy: true }
-  - { name: SG-FallBack, type: fallback, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, interval: 300, lazy: true }
-  - { name: US-FallBack, type: fallback, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, interval: 300, lazy: true }
+  - { name: HK-FallBack, type: fallback, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', interval: 300, lazy: true }
+  - { name: TW-FallBack, type: fallback, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', interval: 300, lazy: true }
+  - { name: JP-FallBack, type: fallback, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', interval: 300, lazy: true }
+  - { name: SG-FallBack, type: fallback, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', interval: 300, lazy: true }
+  - { name: US-FallBack, type: fallback, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', interval: 300, lazy: true }
 
-  - { name: HK-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 港|🇭🇰|HK|(?i)Hong, strategy: consistent-hashing, interval: 300, lazy: true }
-  - { name: TW-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 台|🇹🇼|湾|TW|(?i)Taiwan, strategy: consistent-hashing, interval: 300, lazy: true }
-  - { name: JP-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 日|🇯🇵|东京|JP|(?i)Japan, strategy: consistent-hashing, interval: 300, lazy: true }
-  - { name: SG-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore, strategy: consistent-hashing, interval: 300, lazy: true }
-  - { name: US-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: 美|🇺🇲|US|(?i)States|American, strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: HK-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '港|🇭🇰|HK|(?i)Hong', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: TW-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '台|🇹🇼|湾|TW|(?i)Taiwan', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: JP-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '日|🇯🇵|东京|JP|(?i)Japan', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: SG-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore', strategy: consistent-hashing, interval: 300, lazy: true }
+  - { name: US-LoadBalance, type: load-balance, hidden: true, include-all: true, filter: '美|🇺🇲|US|(?i)States|American', strategy: consistent-hashing, interval: 300, lazy: true }
 
-  - { name: All-Auto, type: url-test, hidden: true, include-all: true, filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$, interval: 300, lazy: true }
+  - { name: All-Auto, type: url-test, hidden: true, include-all: true, filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入)).*$', interval: 300, lazy: true }
 
 rule-providers:
   CryptoWallet: { behavior: classical, format: text, interval: 21600, url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/crypto-wallet.list }
