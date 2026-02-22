@@ -40,7 +40,11 @@ def main():
 
     bad = []
     ignore_prefixes = ('https://dns.alidns.com/dns-query', 'https://doh.pub/dns-query')
+    ignore_contains = ('你的集合名',)
     for u in urls:
+        if any(x in u for x in ignore_contains):
+            print(f'[SKIP] {u} (example placeholder)')
+            continue
         if u.startswith(ignore_prefixes):
             print(f'[SKIP] {u} (DoH endpoint)')
             continue

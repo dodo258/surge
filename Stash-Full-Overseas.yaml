@@ -91,22 +91,14 @@ rule-providers:
   AutoBackfillBackup: { behavior: classical, format: text, interval: 3600, url: https://fastly.jsdelivr.net/gh/dodo258/surge@main/custom-rules/auto-backfill.list }
 
   Direct: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list }
-  DirectBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list }
   Reject: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list }
-  RejectBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list }
   TelegramBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list }
-  TelegramBaseBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list }
   GoogleBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list }
-  GoogleBaseBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list }
   MicrosoftBase: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list }
-  MicrosoftBaseBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list }
   AppleCN: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list }
-  AppleCNBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list }
   AppleServers: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list }
   CN_Mainland: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list }
-  CN_MainlandBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list }
   LAN: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list }
-  LANBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list }
 
   BM7Telegram: { behavior: classical, format: text, interval: 86400, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list }
   BM7TelegramBackup: { behavior: classical, format: text, interval: 86400, url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list }
@@ -119,9 +111,7 @@ rule-providers:
 
 rules:
   - RULE-SET,Direct,DIRECT
-  - RULE-SET,DirectBackup,DIRECT
   - RULE-SET,Reject,REJECT
-  - RULE-SET,RejectBackup,REJECT
 
   - RULE-SET,CryptoWallet,交易钱包
   - RULE-SET,CryptoWalletBackup,交易钱包
@@ -145,18 +135,12 @@ rules:
   - RULE-SET,BM7Apple,Apple
   - RULE-SET,BM7AppleBackup,Apple
   - RULE-SET,TelegramBase,Telegram
-  - RULE-SET,TelegramBaseBackup,Telegram
   - RULE-SET,GoogleBase,Google
-  - RULE-SET,GoogleBaseBackup,Google
   - RULE-SET,MicrosoftBase,Microsoft
-  - RULE-SET,MicrosoftBaseBackup,Microsoft
   - RULE-SET,AppleCN,Apple
-  - RULE-SET,AppleCNBackup,Apple
   - RULE-SET,AppleServers,Proxy
 
   - RULE-SET,CN_Mainland,DIRECT
-  - RULE-SET,CN_MainlandBackup,DIRECT
   - RULE-SET,LAN,DIRECT
-  - RULE-SET,LANBackup,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Final
