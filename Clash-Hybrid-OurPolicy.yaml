@@ -99,6 +99,15 @@ proxy-groups:
   - HongKong
   - TaiWan
   - AllServer
+- name: TradingView
+  type: select
+  proxies:
+  - 📉 TV地区锁定
+  - Proxy
+  - HongKong
+  - Japan
+  - Singapore
+  - America
 - name: 社交平台
   type: select
   icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
@@ -427,15 +436,6 @@ proxy-groups:
   - Japan
   - Korea
   - HongKong
-  - Singapore
-  - America
-- name: TradingView
-  type: select
-  proxies:
-  - 📉 TV地区锁定
-  - Proxy
-  - HongKong
-  - Japan
   - Singapore
   - America
 rule-providers:
