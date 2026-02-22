@@ -1,0 +1,400 @@
+[
+  {
+    "category": "crypto",
+    "domain": "binance.com",
+    "request": "https://binance.com",
+    "status": "202",
+    "matched_host": "binance.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "binance.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "okx.com",
+    "request": "https://okx.com",
+    "status": "200",
+    "matched_host": "okx.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "okx.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "bybit.com",
+    "request": "https://bybit.com",
+    "status": "200",
+    "matched_host": "bybit.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "bybit.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "bitget.com",
+    "request": "https://bitget.com",
+    "status": "403",
+    "matched_host": "bitget.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "bitget.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "coinmarketcap.com",
+    "request": "https://coinmarketcap.com",
+    "status": "200",
+    "matched_host": "coinmarketcap.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "coinmarketcap.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "tradingview.com",
+    "request": "https://tradingview.com",
+    "status": "200",
+    "matched_host": "tradingview.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "tradingview.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "coinglass.com",
+    "request": "https://coinglass.com",
+    "status": "200",
+    "matched_host": "coinglass.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "coinglass.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "ledger.com",
+    "request": "https://ledger.com",
+    "status": "200",
+    "matched_host": "ledger.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "ledger.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "rabby.io",
+    "request": "https://rabby.io",
+    "status": "200",
+    "matched_host": "rabby.io",
+    "destination_ip": "3.175.207.64",
+    "rule": "MATCH",
+    "rule_payload": "",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "✈️Final"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "onekey.so",
+    "request": "https://onekey.so",
+    "status": "200",
+    "matched_host": "onekey.so",
+    "destination_ip": "104.18.20.178",
+    "rule": "MATCH",
+    "rule_payload": "",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "✈️Final"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "kraken.com",
+    "request": "https://kraken.com",
+    "status": "403",
+    "matched_host": "kraken.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "kraken.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "crypto",
+    "domain": "tronlink.org",
+    "request": "https://tronlink.org",
+    "status": "200",
+    "matched_host": "tronlink.org",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "tronlink.org",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Crypto"
+    ]
+  },
+  {
+    "category": "social",
+    "domain": "t.me",
+    "request": "https://t.me",
+    "status": "200",
+    "matched_host": "t.me",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "t.me",
+    "chains": [
+      "🇭🇰 Hong Kong 06",
+      "Telegram"
+    ]
+  },
+  {
+    "category": "social",
+    "domain": "discord.com",
+    "request": "https://discord.com",
+    "status": "200",
+    "matched_host": "discord.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "discord.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies"
+    ]
+  },
+  {
+    "category": "social",
+    "domain": "facebook.com",
+    "request": "https://facebook.com",
+    "status": "200",
+    "matched_host": "facebook.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-KEYWORD",
+    "rule_payload": "facebook",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies"
+    ]
+  },
+  {
+    "category": "social",
+    "domain": "x.com",
+    "request": "https://x.com",
+    "status": "200",
+    "matched_host": "x.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "x.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies"
+    ]
+  },
+  {
+    "category": "social",
+    "domain": "whatsapp.com",
+    "request": "https://whatsapp.com",
+    "status": "200",
+    "matched_host": "whatsapp.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-KEYWORD",
+    "rule_payload": "whatsapp",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies"
+    ]
+  },
+  {
+    "category": "streaming",
+    "domain": "tiktok.com",
+    "request": "https://tiktok.com",
+    "status": "200",
+    "matched_host": "tiktok.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "tiktok.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Tiktok"
+    ]
+  },
+  {
+    "category": "streaming",
+    "domain": "netflix.com",
+    "request": "https://www.netflix.com",
+    "status": "200",
+    "matched_host": "netflix.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "netflix.com",
+    "chains": [
+      "🇸🇬 Singapore 06",
+      "Netflix"
+    ]
+  },
+  {
+    "category": "streaming",
+    "domain": "disneyplus.com",
+    "request": "https://disneyplus.com",
+    "status": "200",
+    "matched_host": "disneyplus.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "disneyplus.com",
+    "chains": [
+      "🇸🇬 Singapore 06",
+      "DisneyPlus"
+    ]
+  },
+  {
+    "category": "streaming",
+    "domain": "youtube.com",
+    "request": "https://youtube.com",
+    "status": "200",
+    "matched_host": "youtube.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-KEYWORD",
+    "rule_payload": "youtube",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "YouTube"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "steampowered.com",
+    "request": "https://steampowered.com",
+    "status": "200",
+    "matched_host": "steampowered.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "steampowered.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Steam"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "epicgames.com",
+    "request": "https://epicgames.com",
+    "status": "403",
+    "matched_host": "epicgames.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "epicgames.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Epic"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "riotgames.com",
+    "request": "https://riotgames.com",
+    "status": "200",
+    "matched_host": "riotgames.com",
+    "destination_ip": "184.51.102.105",
+    "rule": "MATCH",
+    "rule_payload": "",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "✈️Final"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "ea.com",
+    "request": "https://ea.com",
+    "status": "200",
+    "matched_host": "ea.com",
+    "destination_ip": "23.15.140.190",
+    "rule": "MATCH",
+    "rule_payload": "",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "✈️Final"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "playstation.com",
+    "request": "https://playstation.com",
+    "status": "200",
+    "matched_host": "playstation.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "playstation.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "PlayStation"
+    ]
+  },
+  {
+    "category": "games",
+    "domain": "xbox.com",
+    "request": "https://xbox.com",
+    "status": "200",
+    "matched_host": "xbox.com",
+    "destination_ip": "",
+    "rule": "DOMAIN-SUFFIX",
+    "rule_payload": "xbox.com",
+    "chains": [
+      "🇯🇵 Japan 05",
+      "Proxies",
+      "Xbox"
+    ]
+  }
+]

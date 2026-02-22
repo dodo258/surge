@@ -1,0 +1,30 @@
+# Crypto Exchanges + Wallets (maintained)
+# Updated: 2026-02-22
+
+# Exchanges
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.me
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.network
+DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybitglobal.com
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,coinmarketcap.com
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN-SUFFIX,coinglass.com
+
+# Wallets
+DOMAIN-SUFFIX,ledger.com
+DOMAIN-SUFFIX,rabby.io
+DOMAIN-SUFFIX,debank.com
+DOMAIN-SUFFIX,onekey.so
+DOMAIN-SUFFIX,onekeycn.com
+DOMAIN-SUFFIX,tronlink.org
+
+# Common APIs/CDN used by wallets/exchanges (keep narrow)
+DOMAIN-KEYWORD,walletconnect
+DOMAIN-SUFFIX,web3auth.io
+DOMAIN-SUFFIX,sentry.io
