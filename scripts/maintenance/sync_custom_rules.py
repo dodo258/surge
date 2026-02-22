@@ -90,7 +90,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
 
     for fn, urls in SOURCES.items():
-        rows = []
+        upstream_rows = []
         for u in urls:
             try:
                 txt = fetch(u)
@@ -99,17 +99,28 @@ def main():
             for ln in txt.splitlines():
                 n = normalize(ln)
                 if n:
-                    rows.append(n)
+                    upstream_rows.append(n)
 
-        uniq = sorted(set(rows), key=sort_key)
+        local_rows = []
+        p = OUT / fn
+        if p.exists():
+            for ln in p.read_text(encoding='utf-8', errors='ignore').splitlines():
+                n = normalize(ln)
+                if n:
+                    local_rows.append(n)
+
+        # IMPORTANT: supplement model (never delete local coverage)
+        merged = sorted(set(local_rows).union(set(upstream_rows)), key=sort_key)
+
         body = [
             f'# {fn}',
-            '# Synced from ACL4SSR + blackmatrix7',
+            '# Local-first + upstream supplement (ACL4SSR + blackmatrix7)',
+            '# Strategy: only add/merge, never shrink existing local coverage',
             '# Run: python3 scripts/maintenance/sync_custom_rules.py',
             ''
-        ] + uniq + ['']
-        (OUT / fn).write_text('\n'.join(body), encoding='utf-8')
-        print(f'{fn}: {len(uniq)} lines')
+        ] + merged + ['']
+        p.write_text('\n'.join(body), encoding='utf-8')
+        print(f'{fn}: local={len(set(local_rows))} upstream={len(set(upstream_rows))} merged={len(merged)}')
 
 
 if __name__ == '__main__':

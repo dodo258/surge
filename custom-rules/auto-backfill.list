@@ -1,7 +1,12 @@
 # Auto backfill rules (generated)
-# Last-Update: 2026-02-22T16:11:13.122908
-# Added this run: 0
+# Last-Update: 2026-02-22T17:11:35.684431
+# Added this run: 5
 # Source: Stash /connections MATCH hits
 
+DOMAIN,raw.githubusercontent.com
 IP-CIDR,104.18.21.233/32,no-resolve
+IP-CIDR,185.199.108.133/32,no-resolve
+IP-CIDR,185.199.109.133/32,no-resolve
+IP-CIDR,185.199.110.133/32,no-resolve
+IP-CIDR,185.199.111.133/32,no-resolve
 IP-CIDR,5.28.195.2/32,no-resolve
