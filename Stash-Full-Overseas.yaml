@@ -19,8 +19,8 @@ dns:
 proxy-providers:
   Subscribe:
     # 这里改成你自己的订阅地址（推荐 sub-store 聚合链接）
-    # 示例: http://sub.store/download/collection/你的集合名?target=ClashMeta
-    url: http://sub.store/download/collection/all?target=ClashMeta
+    # 示例: http://sub.store/download/collection/你的集合名?target=Stash
+    url: http://sub.store/download/collection/all?target=Stash
     interval: 86400
     benchmark-url: http://www.gstatic.com/generate_204
     benchmark-timeout: 5
