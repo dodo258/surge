@@ -19,8 +19,6 @@
 
 1. 直接导入：`Surge-Full-Overseas-Hardened.conf`
 2. 把配置中 `policy-path` 的订阅链接改成你自己的。
-   - 建议用统一域名（如 `https://sub.yourdomain.com/...`），不要写死本地 IP。
-   - 本地/远程切换时只改 DNS 指向，不改配置文件。
 3. 导入后先确认以下策略组可正常加载：
    - `♻️ 自动选择`
    - `🇺🇲 美国节点`
