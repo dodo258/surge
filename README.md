@@ -3,8 +3,7 @@
 ## 当前保留的主配置
 
 - `Surge-Full-Overseas.conf`（Surge，原版）
-- `Surge-Full-Overseas-Hardened.conf`（Surge，增强版）
-- `Surge-Full-Overseas-Hardened-iOS.conf`（Surge iOS 兼容增强版）
+- `Surge-Full-Overseas-Hardened.conf`（Surge，增强版，不覆盖原版）
 - `Clash-Hybrid-OurPolicy.yaml`（Clash/Stash 通用）
 
 ## 说明
