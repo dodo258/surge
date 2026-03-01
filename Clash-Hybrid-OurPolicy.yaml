@@ -409,6 +409,7 @@ proxy-groups:
   proxies:
   - America
   - Singapore
+  - Japan
 - name: 🎬 流媒体地区锁定
   type: select
   proxies:
