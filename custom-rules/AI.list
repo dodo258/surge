@@ -1,0 +1,104 @@
+# AI.list
+# Cleaned: removed deprecated domains (bard.google.com), enhanced with latest AI services
+# Strategy: Local-first + upstream supplement
+
+# === Core AI Platforms ===
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,deepseek.com
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,ai21.com
+
+# === AI Accessories & Tools ===
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,writeathon.ai
+DOMAIN-SUFFIX,notion.so
+DOMAIN-SUFFIX,raycast.com
+DOMAIN-SUFFIX,loom.com
+
+# === Microsoft AI ===
+DOMAIN-SUFFIX,copilot.microsoft.com
+DOMAIN-SUFFIX,copilot.cloud.microsoft
+DOMAIN-SUFFIX,api.statsig.com
+DOMAIN-SUFFIX,launchdarkly.com
+
+# === Google AI ===
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,deepmind.com
+
+# === Azure OpenAI ===
+DOMAIN-SUFFIX,azure.com
+DOMAIN-SUFFIX,ai.azure.com
+DOMAIN-SUFFIX,openai.azure.com
+
+# === Infrastructure ===
+DOMAIN-SUFFIX,livekit.cloud
+DOMAIN-SUFFIX,algolia.net
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+
+# === Full Domain Matches ===
+DOMAIN,api.anthropic.com
+DOMAIN,api.deepseek.com
+DOMAIN,api.openai.com
+DOMAIN,api.perplexity.ai
+DOMAIN,api.groq.com
+DOMAIN,api.together.xyz
+DOMAIN,auth.openai.com
+DOMAIN,chat.deepseek.com
+DOMAIN,chat.openai.com
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,chatgpt.com
+DOMAIN,claude.ai
+DOMAIN,console.anthropic.com
+DOMAIN,console.groq.com
+DOMAIN,deepseek.com
+DOMAIN,files.oaiusercontent.com
+DOMAIN,gemini.google.com
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,makersuite.google.com
+DOMAIN,notebooklm.google.com
+DOMAIN,openai.com
+DOMAIN,perplexity.ai
+DOMAIN,poe.com
+DOMAIN,www.anthropic.com
+DOMAIN,www.chatgpt.com
+DOMAIN,www.deepseek.com
+DOMAIN,www.openai.com
+DOMAIN,www.perplexity.ai
+DOMAIN,www.poe.com
+DOMAIN,aistudio.google.com
+DOMAIN,chatgpt.com
+
+# === Static Assets ===
+DOMAIN,cdn.oaistatic.com
+DOMAIN,cdn.usefathom.com
+
+# === Keywords ===
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,colab
+DOMAIN-KEYWORD,openai
+
+# === IP Addresses ===
+IP-CIDR,103.252.115.53/32,no-resolve
+IP-CIDR,104.18.20.178/32,no-resolve
+IP-CIDR,104.18.21.178/32,no-resolve
+IP-CIDR,221.204.210.57/32,no-resolve
+IP-CIDR,24.199.123.28/32,no-resolve
+IP-CIDR,60.204.2.5/32,no-resolve
+IP-CIDR,64.23.132.171/32,no-resolve
+IP-CIDR,98.159.108.57/32,no-resolve

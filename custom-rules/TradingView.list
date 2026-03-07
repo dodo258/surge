@@ -1,0 +1,15 @@
+# TradingView.list
+# Priority: HIGH (user highlighted frustration with TradingView blocking)
+# Strategy: Local-first + upstream supplement
+
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN,cn.tradingview.com
+DOMAIN,data.tradingview.com
+DOMAIN,prodata.tradingview.com
+DOMAIN,s.tradingview.com
+DOMAIN,scanner.tradingview.com
+DOMAIN,static.tradingview.com
+DOMAIN,tvd-pricing.tradingview.com
+DOMAIN,widgetdata.tradingview.com
+DOMAIN,ws.tradingview.com
+DOMAIN,www.tradingview.com
