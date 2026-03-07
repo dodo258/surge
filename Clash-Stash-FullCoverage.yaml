@@ -205,6 +205,14 @@ rule-providers:
     path: ./providers/rule/banad.yaml
     interval: 86400
 
+  # 用户直连白名单
+  MyDirect:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/My-Direct.list
+    path: ./providers/rule/mydirect.yaml
+    interval: 86400
+
 # 代理组
 proxy-groups:
   # 漏网之鱼
@@ -588,6 +596,9 @@ rules:
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+
+  # 用户直连白名单 (香港银行等)
+  - RULE-SET,MyDirect,DIRECT
 
   # 国内直连
   - RULE-SET,BM7China,DIRECT

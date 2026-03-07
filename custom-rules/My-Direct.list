@@ -19,5 +19,18 @@
 # DOMAIN,192.168.1.1
 
 # Add your custom domains below:
-# DOMAIN-SUFFIX,yourdomain.com
-# DOMAIN,yourservice.local
+# ==== 香港银行 - 直连不走 VPN ====
+# 蚂蚁银行 (Ant Bank HK)
+DOMAIN-SUFFIX,antfin.hk
+DOMAIN-SUFFIX,antbank.hk
+# 支付宝香港
+DOMAIN-SUFFIX,alipay.hk
+# 汇丰银行香港
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hangseng.com
+# 中国银行香港
+DOMAIN-SUFFIX,boc.hk
+# 恒生银行
+DOMAIN-SUFFIX,hengseng.com
+# 花旗银行香港
+DOMAIN-SUFFIX,citibank.com.hk
