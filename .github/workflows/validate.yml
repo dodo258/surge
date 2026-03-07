@@ -1,0 +1,85 @@
+name: Config Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Validate Surge Config Syntax
+      run: |
+        # Check Surge config has required sections
+        grep -q "^\[General\]" Surge-Full-Overseas-FullCoverage.conf || exit 1
+        grep -q "^\[Proxy Group\]" Surge-Full-Overseas-FullCoverage.conf || exit 1
+        grep -q "^\[Rule\]" Surge-Full-Overseas-FullCoverage.conf || exit 1
+        echo "✅ Surge config sections valid"
+    
+    - name: Validate Clash YAML Syntax
+      run: |
+        python3 -c "import yaml; yaml.safe_load(open('Clash-Stash-FullCoverage.yaml'))"
+        echo "✅ Clash YAML syntax valid"
+    
+    - name: Check for Duplicate Proxy Groups
+      run: |
+        # Surge
+        SURGE_DUPS=$(grep "^[^#].*= select" Surge-Full-Overseas-FullCoverage.conf | sort | uniq -d)
+        if [ -n "$SURGE_DUPS" ]; then
+          echo "❌ Duplicate proxy groups in Surge:"
+          echo "$SURGE_DUPS"
+          exit 1
+        fi
+        
+        # Clash
+        CLASH_DUPS=$(grep "^  - name:" Clash-Stash-FullCoverage.yaml | sort | uniq -d)
+        if [ -n "$CLASH_DUPS" ]; then
+          echo "❌ Duplicate proxy groups in Clash:"
+          echo "$CLASH_DUPS"
+          exit 1
+        fi
+        
+        echo "✅ No duplicate proxy groups"
+    
+    - name: Check RULE-SET References
+      run: |
+        # Extract all proxy groups from Surge
+        SURGE_GROUPS=$(grep "^[^#].*= select" Surge-Full-Overseas-FullCoverage.conf | cut -d'=' -f1 | tr -d ' ')
+        
+        # Check each RULE-SET references exists
+        RULESETS=$(grep "^RULE-SET," Surge-Full-Overseas-FullCoverage.conf | cut -d',' -f3 | sort | uniq)
+        
+        for group in $RULESETS; do
+          if ! echo "$SURGE_GROUPS" | grep -q "^$group$"; then
+            echo "⚠️ Warning: RULE-SET references unknown group: $group"
+          fi
+        done
+        
+        echo "✅ RULE-SET references checked"
+    
+    - name: Test URL Accessibility
+      run: |
+        # Extract URLs from configs
+        URLS=$(grep -oE "https?://[^ ]+\.(list|yaml)" *.conf *.yaml | sort | uniq)
+        
+        FAILED=0
+        for url in $URLS; do
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+          if [ "$HTTP_CODE" = "404" ]; then
+            echo "❌ URL 404: $url"
+            FAILED=1
+          elif [ "$HTTP_CODE" != "200" ]; then
+            echo "⚠️ URL $HTTP_CODE: $url"
+          fi
+        done
+        
+        if [ $FAILED -eq 1 ]; then
+          exit 1
+        fi
+        
+        echo "✅ URL accessibility checked"
