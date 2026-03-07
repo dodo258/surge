@@ -1,5 +1,5 @@
 # Stash/Stash-Clash 全量配置
-# 基于 Surge-Full-Overseas-FullCoverage 等效配置
+# 基于 Clash-Hybrid-OurPolicy.yaml 重构
 # 适合重度 VPN 用户
 
 port: 7890
@@ -26,7 +26,6 @@ dns:
     geoip: true
 
 # 代理节点（使用你的订阅）
-# 请在 Sub-store 中配置订阅链接
 proxy-providers:
   🚀 节点:
     type: http
@@ -59,36 +58,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list
     path: ./providers/rule/okx.yaml
     interval: 86400
-  Bybit:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bybit/Bybit.list
-    path: ./providers/rule/bybit.yaml
-    interval: 86400
-  Bitget:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bitget/Bitget.list
-    path: ./providers/rule/bitget.yaml
-    interval: 86400
-  Kraken:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Kraken/Kraken.list
-    path: ./providers/rule/kraken.yaml
-    interval: 86400
-  CoinMarketCap:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/CoinMarketCap/CoinMarketCap.list
-    path: ./providers/rule/coinmarketcap.yaml
-    interval: 86400
-  TradingView:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TradingView/TradingView.list
-    path: ./providers/rule/tradingview.yaml
-    interval: 86400
 
   # AI
   OpenAI:
@@ -108,12 +77,6 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
     path: ./providers/rule/gemini.yaml
-    interval: 86400
-  Perplexity:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Perplexity/Perplexity.list
-    path: ./providers/rule/perplexity.yaml
     interval: 86400
 
   # 流媒体
@@ -161,6 +124,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
     path: ./providers/rule/twitter.yaml
     interval: 86400
+  Facebook:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
+    path: ./providers/rule/facebook.yaml
+    interval: 86400
 
   # 购物支付
   PayPal:
@@ -174,20 +143,6 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.list
     path: ./providers/rule/amazon.yaml
-    interval: 86400
-
-  # 海外银行
-  BankOfAmerica:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BankOfAmerica/BankOfAmerica.list
-    path: ./providers/rule/bankofamerica.yaml
-    interval: 86400
-  Chase:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Chase/Chase.list
-    path: ./providers/rule/chase.yaml
     interval: 86400
 
   # 游戏
@@ -208,6 +163,18 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PlayStation/PlayStation.list
     path: ./providers/rule/playstation.yaml
+    interval: 86400
+  Xbox:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox.list
+    path: ./providers/rule/xbox.yaml
+    interval: 86400
+  Nintendo:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list
+    path: ./providers/rule/nintendo.yaml
     interval: 86400
 
   # 基础设施
@@ -240,159 +207,358 @@ rule-providers:
 
 # 代理组
 proxy-groups:
-  # 节点选择
-  - name: 🚀 手动切换
-    type: select
-    proxies:
-      - 🚀 节点
-
-  - name: ♻️ 自动选择
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  # 地区节点
-  - name: 🇭🇰 香港
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  - name: 🇹🇼 台湾
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  - name: 🇸🇬 新加坡
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  - name: 🇺🇸 美国
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  - name: 🇯🇵 日本
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🚀 节点
-
-  # 场景分流
-  - name: 📈 加密货币
-    type: select
-    proxies:
-      - 🇸🇬 新加坡
-      - 🇭🇰 香港
-      - 🇺🇸 美国
-      - 🚀 手动切换
-
-  - name: 🤖 AI平台
-    type: select
-    proxies:
-      - 🇺🇸 美国
-      - 🇸🇬 新加坡
-      - 🚀 手动切换
-
-  - name: 📺 流媒体
-    type: select
-    proxies:
-      - 🇸🇬 新加坡
-      - 🇹🇼 台湾
-      - 🇭🇰 香港
-      - 🚀 手动切换
-
-  - name: 📊 TradingView
-    type: select
-    proxies:
-      - 🇸🇬 新加坡
-      - 🇭🇰 香港
-      - 🇺🇸 美国
-      - 🚀 手动切换
-
-  - name: 📱 社交媒体
-    type: select
-    proxies:
-      - 🇭🇰 香港
-      - 🇺🇸 美国
-      - 🚀 手动切换
-
-  - name: 🛒 购物支付
-    type: select
-    proxies:
-      - 🇺🇸 美国
-      - 🇭🇰 香港
-      - 🚀 手动切换
-
-  - name: 🏦 海外银行
-    type: select
-    proxies:
-      - 🇭🇰 香港
-      - 🇺🇸 美国
-      - 🚀 手动切换
-
-  - name: 🎮 游戏平台
-    type: select
-    proxies:
-      - 🇯🇵 日本
-      - 🇭🇰 香港
-      - 🚀 手动切换
-
-  # 基础设施
-  - name: 🍎 苹果服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🇺🇸 美国
-      - 🇭🇰 香港
-
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🇺🇸 美国
-
-  - name: 🌐 谷歌服务
-    type: select
-    proxies:
-      - 🇺🇸 美国
-      - 🇸🇬 新加坡
-
-  # 兜底
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 手动切换
-
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
+  # 漏网之鱼
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🚀 手动切换
+      - 🚀 节点选择
       - DIRECT
+
+  # 节点选择
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - Korea
+      - AllServer
+      - DIRECT
+
+  # 自动选择
+  - name: ♻️ 自动选择
+    type: url-test
+    include-all: true
+    exclude-filter: '(?i)(群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新，作者|加入)'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  # 交易钱包
+  - name: 交易钱包
+    type: select
+    proxies:
+      - 💱 交易地区锁定
+      - 🚀 节点选择
+      - America
+      - Singapore
+      - Japan
+      - HongKong
+      - TaiWan
+
+  # AI
+  - name: AI
+    type: select
+    proxies:
+      - 🤖 AI地区锁定
+      - 🚀 节点选择
+      - America
+      - Singapore
+      - Japan
+
+  # 流媒体
+  - name: 流媒体
+    type: select
+    proxies:
+      - 🎬 流媒体地区锁定
+      - 🚀 节点选择
+      - Singapore
+      - Japan
+      - America
+      - HongKong
+      - TaiWan
+
+  # TradingView
+  - name: TradingView
+    type: select
+    proxies:
+      - 📉 TV地区锁定
+      - 🚀 节点选择
+      - HongKong
+      - Japan
+      - Singapore
+      - America
+
+  # 社交平台
+  - name: 社交平台
+    type: select
+    proxies:
+      - 💬 社交地区锁定
+      - 🚀 节点选择
+      - Japan
+      - Singapore
+      - America
+      - HongKong
+      - TaiWan
+
+  # 游戏平台
+  - name: 游戏平台
+    type: select
+    proxies:
+      - 🎮 游戏地区锁定
+      - 🚀 节点选择
+      - Japan
+      - Korea
+      - HongKong
+      - Singapore
+      - America
+      - DIRECT
+
+  # Telegram
+  - name: Telegram
+    type: select
+    proxies:
+      - 💬 社交地区锁定
+      - 🚀 节点选择
+      - HongKong
+      - Japan
+      - Singapore
+      - America
+      - TaiWan
+
+  # Google
+  - name: Google
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - America
+      - Singapore
+      - Japan
+      - HongKong
+      - TaiWan
+      - AllServer
+
+  # Microsoft
+  - name: Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - America
+      - Japan
+      - Singapore
+      - HongKong
+      - TaiWan
+
+  # Apple
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - America
+      - Japan
+      - HongKong
+      - TaiWan
+
+  # 购物支付
+  - name: 购物支付
+    type: select
+    proxies:
+      - 🛒 支付地区锁定
+      - 🚀 节点选择
+      - America
+      - HongKong
+      - Singapore
+
+  # 海外银行
+  - name: 海外银行
+    type: select
+    proxies:
+      - 🏦 银行地区锁定
+      - 🚀 节点选择
+      - HongKong
+      - TaiWan
+      - America
+
+  # ===== 地区节点 =====
+  - name: HongKong
+    type: select
+    proxies:
+      - HK-Auto
+      - HK-FallBack
+
+  - name: TaiWan
+    type: select
+    proxies:
+      - TW-Auto
+      - TW-FallBack
+
+  - name: Japan
+    type: select
+    proxies:
+      - JP-Auto
+      - JP-FallBack
+
+  - name: Singapore
+    type: select
+    proxies:
+      - SG-Auto
+      - SG-FallBack
+
+  - name: America
+    type: select
+    proxies:
+      - US-Auto
+      - US-FallBack
+
+  - name: Korea
+    type: select
+    proxies:
+      - KR-Auto
+      - KR-FallBack
+
+  - name: AllServer
+    type: select
+    proxies:
+      - All-Auto
+
+  # ===== 地区自动选择 =====
+  - name: HK-Auto
+    type: url-test
+    include-all: true
+    filter: '港|🇭🇰|HK|(?i)Hong'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: TW-Auto
+    type: url-test
+    include-all: true
+    filter: '台|🇹🇼|TW|(?i)Tai'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: JP-Auto
+    type: url-test
+    include-all: true
+    filter: '日|🇯🇵|JP|(?i)Japan'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: SG-Auto
+    type: url-test
+    include-all: true
+    filter: '新|🇸🇬|SG|(?i)Singap'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: US-Auto
+    type: url-test
+    include-all: true
+    filter: '美|🇺🇸|US|(?i)Americ'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: KR-Auto
+    type: url-test
+    include-all: true
+    filter: '韩|🇰🇷|KR|(?i)Korea'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: All-Auto
+    type: url-test
+    include-all: true
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  # ===== Fallback 组 =====
+  - name: HK-FallBack
+    type: fallback
+    include-all: true
+    filter: '港|🇭🇰|HK|(?i)Hong'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: TW-FallBack
+    type: fallback
+    include-all: true
+    filter: '台|🇹🇼|TW|(?i)Tai'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: JP-FallBack
+    type: fallback
+    include-all: true
+    filter: '日|🇯🇵|JP|(?i)Japan'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: SG-FallBack
+    type: fallback
+    include-all: true
+    filter: '新|🇸🇬|SG|(?i)Singap'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: US-FallBack
+    type: fallback
+    include-all: true
+    filter: '美|🇺🇸|US|(?i)Americ'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  - name: KR-FallBack
+    type: fallback
+    include-all: true
+    filter: '韩|🇰🇷|KR|(?i)Korea'
+    url: http://www.google.com/generate_204
+    interval: 300
+
+  # ===== 场景地区锁定 =====
+  - name: 💱 交易地区锁定
+    type: select
+    proxies:
+      - Singapore
+      - HongKong
+      - America
+
+  - name: 🤖 AI地区锁定
+    type: select
+    proxies:
+      - America
+      - Singapore
+
+  - name: 🎬 流媒体地区锁定
+    type: select
+    proxies:
+      - Singapore
+      - Japan
+      - HongKong
+
+  - name: 📉 TV地区锁定
+    type: select
+    proxies:
+      - Singapore
+      - HongKong
+
+  - name: 💬 社交地区锁定
+    type: select
+    proxies:
+      - HongKong
+      - Japan
+      - America
+
+  - name: 🎮 游戏地区锁定
+    type: select
+    proxies:
+      - Japan
+      - Korea
+      - HongKong
+
+  - name: 🛒 支付地区锁定
+    type: select
+    proxies:
+      - HongKong
+      - TaiWan
+
+  - name: 🏦 银行地区锁定
+    type: select
+    proxies:
+      - HongKong
+      - TaiWan
 
 # 规则
 rules:
@@ -407,51 +573,44 @@ rules:
   - GEOIP,CN,DIRECT
 
   # 加密货币
-  - RULE-SET,Binance,📈 加密货币
-  - RULE-SET,OKX,📈 加密货币
-  - RULE-SET,Bybit,📈 加密货币
-  - RULE-SET,Bitget,📈 加密货币
-  - RULE-SET,Kraken,📈 加密货币
-  - RULE-SET,CoinMarketCap,📈 加密货币
-  - RULE-SET,TradingView,📊 TradingView
+  - RULE-SET,Binance,交易钱包
+  - RULE-SET,OKX,交易钱包
 
   # AI
-  - RULE-SET,OpenAI,🤖 AI平台
-  - RULE-SET,Claude,🤖 AI平台
-  - RULE-SET,Gemini,🤖 AI平台
-  - RULE-SET,Perplexity,🤖 AI平台
+  - RULE-SET,OpenAI,AI
+  - RULE-SET,Claude,AI
+  - RULE-SET,Gemini,AI
 
   # 流媒体
-  - RULE-SET,Netflix,📺 流媒体
-  - RULE-SET,Disney,📺 流媒体
-  - RULE-SET,YouTube,📺 流媒体
-  - RULE-SET,TikTok,📺 流媒体
+  - RULE-SET,Netflix,流媒体
+  - RULE-SET,Disney,流媒体
+  - RULE-SET,YouTube,流媒体
+  - RULE-SET,TikTok,流媒体
 
   # 社交
-  - RULE-SET,Telegram,📱 社交媒体
-  - RULE-SET,Discord,📱 社交媒体
-  - RULE-SET,Twitter,📱 社交媒体
+  - RULE-SET,Telegram,社交平台
+  - RULE-SET,Discord,社交平台
+  - RULE-SET,Twitter,社交平台
+  - RULE-SET,Facebook,社交平台
 
   # 购物支付
-  - RULE-SET,PayPal,🛒 购物支付
-  - RULE-SET,Amazon,🛒 购物支付
-
-  # 海外银行
-  - RULE-SET,BankOfAmerica,🏦 海外银行
-  - RULE-SET,Chase,🏦 海外银行
+  - RULE-SET,PayPal,购物支付
+  - RULE-SET,Amazon,购物支付
 
   # 游戏
-  - RULE-SET,Steam,🎮 游戏平台
-  - RULE-SET,Epic,🎮 游戏平台
-  - RULE-SET,PlayStation,🎮 游戏平台
+  - RULE-SET,Steam,游戏平台
+  - RULE-SET,Epic,游戏平台
+  - RULE-SET,PlayStation,游戏平台
+  - RULE-SET,Xbox,游戏平台
+  - RULE-SET,Nintendo,游戏平台
 
   # 基础设施
-  - RULE-SET,Google,🌐 谷歌服务
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Google,Google
+  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,Apple,Apple
 
   # 广告拦截
-  - RULE-SET,BanAD,🛑 广告拦截
+  - RULE-SET,BanAD,REJECT
 
   # 兜底
   - MATCH,🐟 漏网之鱼
