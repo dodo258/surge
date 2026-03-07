@@ -322,19 +322,6 @@ proxy-groups:
       - America
       - DIRECT
 
-  # Telegram
-  - name: Telegram
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
-    proxies:
-      - 💬 社交地区锁定
-      - 🚀 节点选择
-      - HongKong
-      - Japan
-      - Singapore
-      - America
-      - TaiWan
-
   # Google
   - name: Google
     type: select
