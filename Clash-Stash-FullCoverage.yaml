@@ -384,17 +384,6 @@ proxy-groups:
       - HongKong
       - Singapore
 
-  # 海外银行
-  - name: 海外银行
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bank.png
-    proxies:
-      - 🏦 银行地区锁定
-      - 🚀 节点选择
-      - HongKong
-      - TaiWan
-      - America
-
   # ===== 地区节点 =====
   - name: HongKong
     type: select
@@ -578,12 +567,6 @@ proxy-groups:
       - HongKong
 
   - name: 🛒 支付地区锁定
-    type: select
-    proxies:
-      - HongKong
-      - TaiWan
-
-  - name: 🏦 银行地区锁定
     type: select
     proxies:
       - HongKong
