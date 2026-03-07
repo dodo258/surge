@@ -1,9 +1,8 @@
-# crypto-wallet.list
-# Local-first + upstream supplement (ACL4SSR + blackmatrix7)
-# Strategy: only add/merge, never shrink existing local coverage
-# Run: python3 scripts/maintenance/sync_custom_rules.py
+# Crypto.list
+# Merged: crypto-wallet + exchanges
+# Strategy: Local-first + upstream supplement
 
-DOMAIN-SUFFIX,appsflayer.com
+# === Exchanges ===
 DOMAIN-SUFFIX,binance.cloud
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.me
@@ -14,34 +13,37 @@ DOMAIN-SUFFIX,binancefuture.com
 DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bnappzh.co
 DOMAIN-SUFFIX,bnbstatic.com
-DOMAIN-SUFFIX,bnbzh.ac
+DOMAIN-SUFFIX,bnzh.ac
 DOMAIN-SUFFIX,bntrace.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,bybitglobal.com
 DOMAIN-SUFFIX,bytick.com
 DOMAIN-SUFFIX,coinglass.com
 DOMAIN-SUFFIX,coinmarketcap.com
-DOMAIN-SUFFIX,debank.com
 DOMAIN-SUFFIX,hyperliquid.xyz
 DOMAIN-SUFFIX,kraken.com
-DOMAIN-SUFFIX,ledger.com
-DOMAIN-SUFFIX,lighter.xyz
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx.com
 DOMAIN-SUFFIX,okx.network
+DOMAIN-SUFFIX,polymarket.com
+DOMAIN-SUFFIX,polymarket.xyz
+
+# === Wallets ===
+DOMAIN-SUFFIX,appsflayer.com
+DOMAIN-SUFFIX,ledger.com
+DOMAIN-SUFFIX,lighter.xyz
 DOMAIN-SUFFIX,onekey.so
 DOMAIN-SUFFIX,onekeycn.com
 DOMAIN-SUFFIX,onekeyimg.com
-DOMAIN-SUFFIX,polymarket.com
-DOMAIN-SUFFIX,polymarket.xyz
 DOMAIN-SUFFIX,rabby.io
 DOMAIN-SUFFIX,saasexch.cc
 DOMAIN-SUFFIX,saasexch.com
-DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,tradingview.com
 DOMAIN-SUFFIX,tronlink.org
 DOMAIN-SUFFIX,web3auth.io
+DOMAIN-SUFFIX,debank.com
+
+# === API Endpoints ===
 DOMAIN,api-gcp.binance.com
 DOMAIN,api.binance.com
 DOMAIN,api.bitget.com
@@ -74,7 +76,6 @@ DOMAIN,coinmarketcap.com
 DOMAIN,dapi.binance.com
 DOMAIN,data-api.binance.vision
 DOMAIN,data-api.polymarket.com
-DOMAIN,data.tradingview.com
 DOMAIN,fapi.binance.com
 DOMAIN,futures.kraken.com
 DOMAIN,gamma-api.polymarket.com
@@ -88,13 +89,9 @@ DOMAIN,onekey.so
 DOMAIN,polymarket.com
 DOMAIN,rabby.io
 DOMAIN,rpc.onekey.so
-DOMAIN,scanner.tradingview.com
 DOMAIN,stream.binance.com
 DOMAIN,stream.bybit.com
 DOMAIN,stream.bytick.com
-DOMAIN,tradingview.com
-DOMAIN,tronlink.org
-DOMAIN,widgetdata.tradingview.com
 DOMAIN,ws-api.binance.com
 DOMAIN,ws-auth.kraken.com
 DOMAIN,ws-subscriptions-clob.polymarket.com
@@ -103,7 +100,6 @@ DOMAIN,ws.hyperliquid.xyz
 DOMAIN,ws.kraken.com
 DOMAIN,ws.lighter.xyz
 DOMAIN,ws.okx.com
-DOMAIN,ws.tradingview.com
 DOMAIN,www.binance.com
 DOMAIN,www.bitget.com
 DOMAIN,www.bybit.com
@@ -113,8 +109,9 @@ DOMAIN,www.kraken.com
 DOMAIN,www.ledger.com
 DOMAIN,www.okx.com
 DOMAIN,www.rabby.io
-DOMAIN,www.tradingview.com
 DOMAIN,www.tronlink.org
+
+# === Keywords & IP ===
 DOMAIN-KEYWORD,walletconnect
 IP-CIDR,104.18.0.0/15,no-resolve
 IP-CIDR,104.18.8.145/32,no-resolve

@@ -1,7 +1,6 @@
-# tradingview.list
-# Local-first + upstream supplement (ACL4SSR + blackmatrix7)
-# Strategy: only add/merge, never shrink existing local coverage
-# Run: python3 scripts/maintenance/sync_custom_rules.py
+# TradingView.list
+# Priority: HIGH (user highlighted frustration with TradingView blocking)
+# Strategy: Local-first + upstream supplement
 
 DOMAIN-SUFFIX,tradingview.com
 DOMAIN,cn.tradingview.com

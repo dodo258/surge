@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'custom-rules'
 
 SOURCES = {
-    'crypto-wallet.list': [
+    'Crypto.list': [
         # blackmatrix7
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list',
@@ -24,14 +24,14 @@ SOURCES = {
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Ledger/Ledger.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TRONLink/TRONLink.list',
     ],
-    'ai.list': [
+    'AI.list': [
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Perplexity/Perplexity.list',
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list',
     ],
-    'streaming.list': [
+    'Streaming.list': [
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list',
@@ -39,7 +39,7 @@ SOURCES = {
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTubeMusic/YouTubeMusic.list',
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list',
     ],
-    'social.list': [
+    'Social.list': [
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list',
@@ -47,7 +47,7 @@ SOURCES = {
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WhatsApp/WhatsApp.list',
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list',
     ],
-    'games.list': [
+    'Games.list': [
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.list',
@@ -59,10 +59,11 @@ SOURCES = {
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list',
         'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list',
     ],
-    'tradingview.list': [
+    'TradingView.list': [
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TradingView/TradingView.list',
         'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TradingView/TradingView.list',
     ],
+    # My-Direct.list - no upstream sync (private whitelist)
 }
 
 ALLOW = ('DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'IP-CIDR6,')
