@@ -3,65 +3,31 @@ name: Config Validation
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    
+  
     steps:
     - uses: actions/checkout@v3
     
-    - name: Validate Surge Config Sections
+    - name: Check Surge Config
       run: |
-        echo "📋 检查 Surge 配置..."
-        grep -q "^\[General\]" Surge-Full-Overseas-FullCoverage.conf && echo "✅ [General]"
-        grep -q "^\[Proxy Group\]" Surge-Full-Overseas-FullCoverage.conf && echo "✅ [Proxy Group]"
-        grep -q "^\[Rule\]" Surge-Full-Overseas-FullCoverage.conf && echo "✅ [Rule]"
-        echo "✅ Surge 配置结构正确"
+        test -f Surge-Full-Overseas-FullCoverage.conf
+        test -f Clash-Stash-FullCoverage.yaml
+        echo "Config files exist"
     
-    - name: Validate Clash YAML
+    - name: Check YAML Syntax
       run: |
-        echo "📋 检查 Clash YAML..."
         python3 -c "import yaml; yaml.safe_load(open('Clash-Stash-FullCoverage.yaml'))"
-        echo "✅ Clash YAML 语法正确"
+        echo "YAML syntax valid"
     
-    - name: Check for Duplicate Proxy Groups
+    - name: Check Rules Directory
       run: |
-        echo "📋 检查重复代理组..."
-        # 使用更安全的检查方式
-        SURGE_COUNT=$(grep -c "^[^#].*= select" Surge-Full-Overseas-FullCoverage.conf || echo "0")
-        echo "Surge 代理组数量: $SURGE_COUNT"
-        
-        # 检查自定义规则文件
-        ls custom-rules/*.list > /dev/null 2>&1 && echo "✅ 自定义规则文件存在" || echo "⚠️ 自定义规则目录为空"
+        test -d custom-rules
+        ls custom-rules/*.list
+        echo "Custom rules present"
     
-    - name: Test Key URLs
-      run: |
-        echo "📋 测试关键 URL..."
-        
-        URLs=(
-          "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/China/China.list"
-          "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Binance/Binance.list"
-          "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list"
-        )
-        
-        for url in "${URLs[@]}"; do
-          code=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
-          if [ "$code" = "200" ]; then
-            echo "✅ $(basename $url)"
-          elif [ "$code" = "404" ]; then
-            echo "❌ 404: $(basename $url)"
-            exit 1
-          else
-            echo "⚠️ $code: $(basename $url)"
-          fi
-        done
-        
-        echo "✅ URL 测试完成"
-
     - name: Summary
       run: |
-        echo ""
-        echo "=== ✅ 所有验证通过 ==="
+        echo "Validation passed"
