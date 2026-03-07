@@ -1,0 +1,457 @@
+# Stash/Stash-Clash 全量配置
+# 基于 Surge-Full-Overseas-FullCoverage 等效配置
+# 适合重度 VPN 用户
+
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: warning
+external-controller: :9090
+
+# DNS 配置
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+  fallback-filter:
+    geoip: true
+
+# 代理节点（使用你的订阅）
+# 请在 Sub-store 中配置订阅链接
+proxy-providers:
+  🚀 节点:
+    type: http
+    url: https://sub.store/download/collection/all?target=Clash
+    interval: 86400
+    health-check:
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+# 规则提供商
+rule-providers:
+  # 国内直连
+  BM7China:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+    path: ./providers/rule/bm7china.yaml
+    interval: 86400
+
+  # 加密货币
+  Binance:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list
+    path: ./providers/rule/binance.yaml
+    interval: 86400
+  OKX:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list
+    path: ./providers/rule/okx.yaml
+    interval: 86400
+  Bybit:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bybit/Bybit.list
+    path: ./providers/rule/bybit.yaml
+    interval: 86400
+  Bitget:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bitget/Bitget.list
+    path: ./providers/rule/bitget.yaml
+    interval: 86400
+  Kraken:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Kraken/Kraken.list
+    path: ./providers/rule/kraken.yaml
+    interval: 86400
+  CoinMarketCap:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/CoinMarketCap/CoinMarketCap.list
+    path: ./providers/rule/coinmarketcap.yaml
+    interval: 86400
+  TradingView:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TradingView/TradingView.list
+    path: ./providers/rule/tradingview.yaml
+    interval: 86400
+
+  # AI
+  OpenAI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+    path: ./providers/rule/openai.yaml
+    interval: 86400
+  Claude:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+    path: ./providers/rule/claude.yaml
+    interval: 86400
+  Gemini:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
+    path: ./providers/rule/gemini.yaml
+    interval: 86400
+  Perplexity:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Perplexity/Perplexity.list
+    path: ./providers/rule/perplexity.yaml
+    interval: 86400
+
+  # 流媒体
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list
+    path: ./providers/rule/netflix.yaml
+    interval: 86400
+  Disney:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list
+    path: ./providers/rule/disney.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list
+    path: ./providers/rule/youtube.yaml
+    interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+    path: ./providers/rule/tiktok.yaml
+    interval: 86400
+
+  # 社交媒体
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+    path: ./providers/rule/telegram.yaml
+    interval: 86400
+  Discord:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list
+    path: ./providers/rule/discord.yaml
+    interval: 86400
+  Twitter:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+    path: ./providers/rule/twitter.yaml
+    interval: 86400
+
+  # 购物支付
+  PayPal:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.list
+    path: ./providers/rule/paypal.yaml
+    interval: 86400
+  Amazon:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.list
+    path: ./providers/rule/amazon.yaml
+    interval: 86400
+
+  # 海外银行
+  BankOfAmerica:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BankOfAmerica/BankOfAmerica.list
+    path: ./providers/rule/bankofamerica.yaml
+    interval: 86400
+  Chase:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Chase/Chase.list
+    path: ./providers/rule/chase.yaml
+    interval: 86400
+
+  # 游戏
+  Steam:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.list
+    path: ./providers/rule/steam.yaml
+    interval: 86400
+  Epic:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list
+    path: ./providers/rule/epic.yaml
+    interval: 86400
+  PlayStation:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PlayStation/PlayStation.list
+    path: ./providers/rule/playstation.yaml
+    interval: 86400
+
+  # 基础设施
+  Google:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+    path: ./providers/rule/google.yaml
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+    path: ./providers/rule/microsoft.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+    path: ./providers/rule/apple.yaml
+    interval: 86400
+
+  # 广告拦截
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./providers/rule/banad.yaml
+    interval: 86400
+
+# 代理组
+proxy-groups:
+  # 节点选择
+  - name: 🚀 手动切换
+    type: select
+    proxies:
+      - 🚀 节点
+
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  # 地区节点
+  - name: 🇭🇰 香港
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  - name: 🇹🇼 台湾
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  - name: 🇸🇬 新加坡
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  - name: 🇺🇸 美国
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  - name: 🇯🇵 日本
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🚀 节点
+
+  # 场景分流
+  - name: 📈 加密货币
+    type: select
+    proxies:
+      - 🇸🇬 新加坡
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+      - 🚀 手动切换
+
+  - name: 🤖 AI平台
+    type: select
+    proxies:
+      - 🇺🇸 美国
+      - 🇸🇬 新加坡
+      - 🚀 手动切换
+
+  - name: 📺 流媒体
+    type: select
+    proxies:
+      - 🇸🇬 新加坡
+      - 🇹🇼 台湾
+      - 🇭🇰 香港
+      - 🚀 手动切换
+
+  - name: 📊 TradingView
+    type: select
+    proxies:
+      - 🇸🇬 新加坡
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+      - 🚀 手动切换
+
+  - name: 📱 社交媒体
+    type: select
+    proxies:
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+      - 🚀 手动切换
+
+  - name: 🛒 购物支付
+    type: select
+    proxies:
+      - 🇺🇸 美国
+      - 🇭🇰 香港
+      - 🚀 手动切换
+
+  - name: 🏦 海外银行
+    type: select
+    proxies:
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+      - 🚀 手动切换
+
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - 🇯🇵 日本
+      - 🇭🇰 香港
+      - 🚀 手动切换
+
+  # 基础设施
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🇺🇸 美国
+      - 🇭🇰 香港
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🇺🇸 美国
+
+  - name: 🌐 谷歌服务
+    type: select
+    proxies:
+      - 🇺🇸 美国
+      - 🇸🇬 新加坡
+
+  # 兜底
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 手动切换
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - DIRECT
+
+# 规则
+rules:
+  # 本地网络
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+
+  # 国内直连
+  - RULE-SET,BM7China,DIRECT
+  - GEOIP,CN,DIRECT
+
+  # 加密货币
+  - RULE-SET,Binance,📈 加密货币
+  - RULE-SET,OKX,📈 加密货币
+  - RULE-SET,Bybit,📈 加密货币
+  - RULE-SET,Bitget,📈 加密货币
+  - RULE-SET,Kraken,📈 加密货币
+  - RULE-SET,CoinMarketCap,📈 加密货币
+  - RULE-SET,TradingView,📊 TradingView
+
+  # AI
+  - RULE-SET,OpenAI,🤖 AI平台
+  - RULE-SET,Claude,🤖 AI平台
+  - RULE-SET,Gemini,🤖 AI平台
+  - RULE-SET,Perplexity,🤖 AI平台
+
+  # 流媒体
+  - RULE-SET,Netflix,📺 流媒体
+  - RULE-SET,Disney,📺 流媒体
+  - RULE-SET,YouTube,📺 流媒体
+  - RULE-SET,TikTok,📺 流媒体
+
+  # 社交
+  - RULE-SET,Telegram,📱 社交媒体
+  - RULE-SET,Discord,📱 社交媒体
+  - RULE-SET,Twitter,📱 社交媒体
+
+  # 购物支付
+  - RULE-SET,PayPal,🛒 购物支付
+  - RULE-SET,Amazon,🛒 购物支付
+
+  # 海外银行
+  - RULE-SET,BankOfAmerica,🏦 海外银行
+  - RULE-SET,Chase,🏦 海外银行
+
+  # 游戏
+  - RULE-SET,Steam,🎮 游戏平台
+  - RULE-SET,Epic,🎮 游戏平台
+  - RULE-SET,PlayStation,🎮 游戏平台
+
+  # 基础设施
+  - RULE-SET,Google,🌐 谷歌服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+
+  # 广告拦截
+  - RULE-SET,BanAD,🛑 广告拦截
+
+  # 兜底
+  - MATCH,🐟 漏网之鱼
