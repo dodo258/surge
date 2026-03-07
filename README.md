@@ -7,9 +7,7 @@
 | 文件 | 说明 | 推荐度 |
 |------|------|--------|
 | `Surge-Full-Overseas-FullCoverage.conf` | ⭐ 全量版（重度 VPN 用户） | ⭐⭐⭐ |
-| `Surge-Full-Overseas-Hardened.conf` | 增强版（日常使用） | ⭐⭐ |
-| `Surge-Full-Overseas.conf` | 原版（保留历史习惯） | ⭐ |
-| `Clash-Hybrid-OurPolicy.yaml` | Clash/Stash 通用版 | - |
+| `Clash-Stash-FullCoverage.yaml` | Clash/Stash 全量版 | ⭐⭐⭐ |
 
 ## 目录结构
 
@@ -23,7 +21,6 @@
 │   ├── Streaming.list      # 流媒体（Netflix / Disney / YouTube）
 │   ├── Games.list          # 游戏平台（Steam / Epic / PlayStation）
 │   └── My-Direct.list      # 私有直连白名单（用户自定义）
-├── legacy/                 # 历史配置备份
 ├── observations/           # 观测与分析输出
 ├── scripts/                # 维护脚本
 │   └── maintenance/
@@ -45,36 +42,24 @@
 
 > **注意**：规则文件命名采用 CamelCase（如 `AI.list`），与上游同步脚本配合使用。
 
-## 推荐使用方式（Surge）
+## 推荐使用方式
 
-### ⭐ 推荐：全量版（适合重度 VPN 用户）
+### Surge 用户
 
 1. 直接导入：`Surge-Full-Overseas-FullCoverage.conf`
 2. 把配置中 `policy-path` 的订阅链接改成你自己的。
 3. 全量版特点：
    - 基于 Blackmatrix7 全量规则
-   - 覆盖：加密货币、AI、TradingView、流媒体、社交、购物支付、海外银行、游戏、CDN 等
+   - 覆盖：加密货币、AI、TradingView、流媒体、社交、购物支付、游戏、CDN 等
    - 流媒体优先：新加坡 → 台湾 → 香港
    - 智能分流：国内直连，海外按场景选节点
+   - 香港银行直连（不走 VPN）
 
-### 备选：增强版
+### Clash/Stash 用户
 
-1. 导入：`Surge-Full-Overseas-Hardened.conf`
-2. 特点：经典自维护规则，适合轻量使用
-
-## AI 纯净 IP（两跳链式）快速说明
-
-增强版配置里已内置注释模板，按注释启用即可：
-
-- 在 `[Proxy]` 增加你的纯净 IP 节点（示例名：`AI-Pure-IP`）
-- 在 `[Proxy Group]` 启用：
-  - `🤖 AI链式 = relay, "🇺🇲 美国节点", AI-Pure-IP`
-  - `🤖 AI平台 = select, "🤖 AI链式", ...`
-- 将旧的 `🤖 AI平台` 默认行注释掉，避免同名冲突
-
-链路目标：
-
-`设备 -> 机场美国线路（自动） -> 纯净IP出口 -> AI平台`
+1. 导入：`Clash-Stash-FullCoverage.yaml`
+2. 把配置中订阅链接改成你自己的。
+3. 功能与 Surge 版一致
 
 ## 规则同步（维护）
 
@@ -88,7 +73,6 @@ python3 sync_custom_rules.py
 
 ## 维护原则
 
-- 不覆盖原版配置，增强版独立维护。
 - 非必要不改动大框架，优先做可回滚的增量改动。
 - 规则问题和链路问题分开处理，便于排障。
 - 规则文件标准化：CamelCase 命名，与上游脚本配套。
@@ -96,5 +80,5 @@ python3 sync_custom_rules.py
 ## 备注
 
 - iOS 端测试 URL 使用 HTTP（兼容性考虑）。
-- 如需回滚，可直接切回 `Surge-Full-Overseas.conf`。
 - `My-Direct.list` 为私有白名单模板，请根据需要添加自己的域名。
+- 香港银行（蚂蚁银行、汇丰等）已加入直连，绕过 VPN 检测。
