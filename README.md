@@ -4,16 +4,45 @@
 
 ## 配置文件说明
 
-- `Surge-Full-Overseas.conf`：Surge 原版（保留历史使用习惯）
-- `Surge-Full-Overseas-Hardened.conf`：Surge 增强版（建议日常使用）
-- `Clash-Hybrid-OurPolicy.yaml`：Clash/Stash 通用版
+| 文件 | 说明 |
+|------|------|
+| `Surge-Full-Overseas.conf` | Surge 原版（保留历史使用习惯） |
+| `Surge-Full-Overseas-Hardened.conf` | Surge 增强版（建议日常使用） |
+| `Clash-Hybrid-OurPolicy.yaml` | Clash/Stash 通用版 |
 
 ## 目录结构
 
-- `custom-rules/`：自维护规则（交易 / AI / TV / 流媒体 / 社交 / 游戏 / 自动回灌）
-- `legacy/`：历史配置备份（如 Stash 旧版）
-- `observations/`：观测与分析输出
-- `scripts/`：维护脚本
+```
+.
+├── custom-rules/           # 自维护规则（核心规则）
+│   ├── TradingView.list    # TradingView 图表（高优先级）
+│   ├── Crypto.list         # 加密货币（交易所 + 钱包）
+│   ├── AI.list             # AI 平台（OpenAI / Claude / DeepSeek 等）
+│   ├── Social.list         # 社交平台（Telegram / Discord / Twitter）
+│   ├── Streaming.list      # 流媒体（Netflix / Disney / YouTube）
+│   ├── Games.list          # 游戏平台（Steam / Epic / PlayStation）
+│   └── My-Direct.list      # 私有直连白名单（用户自定义）
+├── legacy/                 # 历史配置备份
+├── observations/           # 观测与分析输出
+├── scripts/                # 维护脚本
+│   └── maintenance/
+│       └── sync_custom_rules.py  # 规则同步脚本
+└── MAINTENANCE.md          # 维护手册
+```
+
+## 自维护规则说明
+
+| 规则文件 | 用途 | 上游来源 |
+|----------|------|----------|
+| TradingView.list | 交易图表 | Blackmatrix7 |
+| Crypto.list | 加密货币交易所+钱包 | Blackmatrix7 |
+| AI.list | AI 服务平台 | Blackmatrix7 + ACL4SSR |
+| Social.list | 社交平台 | Blackmatrix7 + ACL4SSR |
+| Streaming.list | 流媒体 | Blackmatrix7 + ACL4SSR |
+| Games.list | 游戏平台 | Blackmatrix7 + ACL4SSR |
+| My-Direct.list | 私有白名单 | 用户自定义 |
+
+> **注意**：规则文件命名采用 CamelCase（如 `AI.list`），与上游同步脚本配合使用。
 
 ## 推荐使用方式（Surge）
 
@@ -38,13 +67,25 @@
 
 `设备 -> 机场美国线路（自动） -> 纯净IP出口 -> AI平台`
 
+## 规则同步（维护）
+
+```bash
+# 手动同步上游规则
+cd scripts/maintenance
+python3 sync_custom_rules.py
+```
+
+同步策略：**本地优先**（只补充，不删除本地规则）
+
 ## 维护原则
 
 - 不覆盖原版配置，增强版独立维护。
 - 非必要不改动大框架，优先做可回滚的增量改动。
 - 规则问题和链路问题分开处理，便于排障。
+- 规则文件标准化：CamelCase 命名，与上游脚本配套。
 
 ## 备注
 
 - iOS 端测试 URL 使用 HTTP（兼容性考虑）。
 - 如需回滚，可直接切回 `Surge-Full-Overseas.conf`。
+- `My-Direct.list` 为私有白名单模板，请根据需要添加自己的域名。

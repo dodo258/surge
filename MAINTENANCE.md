@@ -16,26 +16,24 @@ surge/
 │   ├── Surge-Full-Overseas.conf              # 原版配置（保留历史习惯）
 │   ├── Surge-Full-Overseas-Hardened.conf     # 增强版（推荐日常使用）
 │   ├── Clash-Hybrid-OurPolicy.yaml           # Clash/Stash 通用版
-│   └── legacy/Stash-Full-Overseas.yaml       # 历史备份
+│   └── legacy/                               # 历史备份
 │
-├── custom-rules/                              # 自维护规则（3116 行）
-│   ├── ai.list                              # AI 平台规则（142行）
-│   ├── crypto-wallet.list                    # 加密货币钱包（141行）
-│   ├── streaming.list                        # 流媒体（1820行）
-│   ├── social.list                           # 社交媒体（673行）
-│   ├── games.list                            # 游戏（312行）
-│   ├── tradingview.list                      # 交易工具（16行）
-│   └── auto-backfill.list                    # 自动回灌规则（12行）
+├── custom-rules/                              # 自维护规则
+│   ├── TradingView.list                      # TradingView 图表（高优先级）
+│   ├── Crypto.list                           # 加密货币（交易所 + 钱包）
+│   ├── AI.list                               # AI 平台（OpenAI/Claude/DeepSeek）
+│   ├── Social.list                           # 社交媒体（Telegram/Discord/Twitter）
+│   ├── Streaming.list                        # 流媒体（Netflix/Disney/YouTube）
+│   ├── Games.list                            # 游戏平台（Steam/Epic/PlayStation）
+│   └── My-Direct.list                        # 私有直连白名单（用户自定义）
 │
 ├── scripts/maintenance/                       # 维护脚本
-│   ├── sync_custom_rules.py                  # 同步上游规则
-│   ├── auto_backfill_rules.py                # 自动回灌规则
+│   ├── sync_custom_rules.py                  # 同步上游规则（主要维护方式）
 │   ├── check_rule_urls.py                    # 检查规则 URL 有效性
 │   ├── analyze_match_hits.py                 # 分析规则匹配
 │   └── *.sh                                  # 安装/更新脚本
 │
 ├── observations/                             # 观测与分析
-│   └── targeted-backfill-latest.json         # 回灌分析数据
 │
 ├── CHANGELOG.md                              # 版本变更记录
 └── README.md                                 # 使用说明
@@ -67,23 +65,21 @@ surge/
 
 ## 规则分类统计
 
-| 规则文件 | 行数 | 用途 |
-|---------|------|------|
-| streaming.list | 1820 | Netflix/Disney/TikTok/YouTube |
-| social.list | 673 | Telegram/Discord/Facebook/Twitter |
-| games.list | 312 | 游戏平台 |
-| ai.list | 142 | OpenAI/Claude/Gemini/Perplexity |
-| crypto-wallet.list | 141 | Binance/OKX/Bybit/TradingView |
-| tradingview.list | 16 | TradingView |
-| auto-backfill.list | 12 | 自动回灌 |
-
-**总计：** 3116 行规则
+| 规则文件 | 用途 | 上游来源 |
+|----------|------|----------|
+| Streaming.list | Netflix/Disney/TikTok/YouTube | Blackmatrix7 + ACL4SSR |
+| Social.list | Telegram/Discord/Facebook/Twitter | Blackmatrix7 + ACL4SSR |
+| Games.list | Steam/Epic/PlayStation | Blackmatrix7 + ACL4SSR |
+| AI.list | OpenAI/Claude/Gemini/DeepSeek/Perplexity | Blackmatrix7 + ACL4SSR |
+| Crypto.list | Binance/OKX/Bybit/Kraken/钱包 | Blackmatrix7 |
+| TradingView.list | TradingView 图表 | Blackmatrix7 |
+| My-Direct.list | 私有直连白名单 | 用户自定义 |
 
 ---
 
 ## 维护任务
 
-### 1. 同步上游规则
+### 1. 同步上游规则（主要维护方式）
 
 ```bash
 cd scripts/maintenance
@@ -97,6 +93,7 @@ python3 sync_custom_rules.py
 **同步策略：**
 - 只增不减（合并，不删除现有本地覆盖）
 - 自动去重
+- 文件名采用 CamelCase 命名规范
 
 ### 2. 检查规则 URL 有效性
 
@@ -104,13 +101,7 @@ python3 sync_custom_rules.py
 python3 check_rule_urls.py
 ```
 
-### 3. 自动回灌规则
-
-```bash
-python3 auto_backfill_rules.py
-```
-
-### 4. 分析规则匹配
+### 3. 分析规则匹配
 
 ```bash
 python3 analyze_match_hits.py
