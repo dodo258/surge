@@ -4,11 +4,12 @@
 
 ## 配置文件说明
 
-| 文件 | 说明 |
-|------|------|
-| `Surge-Full-Overseas.conf` | Surge 原版（保留历史使用习惯） |
-| `Surge-Full-Overseas-Hardened.conf` | Surge 增强版（建议日常使用） |
-| `Clash-Hybrid-OurPolicy.yaml` | Clash/Stash 通用版 |
+| 文件 | 说明 | 推荐度 |
+|------|------|--------|
+| `Surge-Full-Overseas-FullCoverage.conf` | ⭐ 全量版（重度 VPN 用户） | ⭐⭐⭐ |
+| `Surge-Full-Overseas-Hardened.conf` | 增强版（日常使用） | ⭐⭐ |
+| `Surge-Full-Overseas.conf` | 原版（保留历史习惯） | ⭐ |
+| `Clash-Hybrid-OurPolicy.yaml` | Clash/Stash 通用版 | - |
 
 ## 目录结构
 
@@ -46,12 +47,20 @@
 
 ## 推荐使用方式（Surge）
 
-1. 直接导入：`Surge-Full-Overseas-Hardened.conf`
+### ⭐ 推荐：全量版（适合重度 VPN 用户）
+
+1. 直接导入：`Surge-Full-Overseas-FullCoverage.conf`
 2. 把配置中 `policy-path` 的订阅链接改成你自己的。
-3. 导入后先确认以下策略组可正常加载：
-   - `♻️ 自动选择`
-   - `🇺🇲 美国节点`
-   - `🤖 AI平台`
+3. 全量版特点：
+   - 基于 Blackmatrix7 全量规则
+   - 覆盖：加密货币、AI、TradingView、流媒体、社交、购物支付、海外银行、游戏、CDN 等
+   - 流媒体优先：新加坡 → 台湾 → 香港
+   - 智能分流：国内直连，海外按场景选节点
+
+### 备选：增强版
+
+1. 导入：`Surge-Full-Overseas-Hardened.conf`
+2. 特点：经典自维护规则，适合轻量使用
 
 ## AI 纯净 IP（两跳链式）快速说明
 
