@@ -46,20 +46,38 @@
 
 ### Surge 用户
 
-1. 直接导入：`Surge-Full-Overseas-FullCoverage.conf`
+**一键导入链接：**
+```
+https://raw.githubusercontent.com/dodo258/surge/main/Surge-Full-Overseas-FullCoverage.conf
+```
+
+在 Surge App 中：配置 → 从 URL 下载配置 → 粘贴上方链接
+
+**手动导入：**
+1. 下载：`Surge-Full-Overseas-FullCoverage.conf`
 2. 把配置中 `policy-path` 的订阅链接改成你自己的。
-3. 全量版特点：
-   - 基于 Blackmatrix7 全量规则
-   - 覆盖：加密货币、AI、TradingView、流媒体、社交、购物支付、游戏、CDN 等
-   - 流媒体优先：新加坡 → 台湾 → 香港
-   - 智能分流：国内直连，海外按场景选节点
-   - 香港银行直连（不走 VPN）
+
+**全量版特点：**
+- 基于 Blackmatrix7 全量规则
+- 覆盖：加密货币、AI、TradingView、流媒体、社交、购物支付、游戏、CDN 等
+- 流媒体优先：新加坡 → 台湾 → 香港
+- 智能分流：国内直连，海外按场景选节点
+- 香港银行直连（不走 VPN）
 
 ### Clash/Stash 用户
 
-1. 导入：`Clash-Stash-FullCoverage.yaml`
+**一键导入链接：**
+```
+https://raw.githubusercontent.com/dodo258/surge/main/Clash-Stash-FullCoverage.yaml
+```
+
+在 Stash App 中：配置 → 从 URL 下载 → 粘贴上方链接
+
+**手动导入：**
+1. 下载：`Clash-Stash-FullCoverage.yaml`
 2. 把配置中订阅链接改成你自己的。
-3. 功能与 Surge 版一致
+
+**功能与 Surge 版一致**
 
 ## 规则同步（维护）
 
