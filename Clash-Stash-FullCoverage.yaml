@@ -9,17 +9,23 @@ mode: rule
 log-level: warning
 external-controller: :9090
 
-# DNS 配置
+# 连接优化 (优化: 提高并发和超时)
+tcp-concurrency: 8
+http-timeout: 30000
+
+# DNS 配置 (优化: 添加 DoH 加速)
 dns:
   enable: true
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://dns.cloudflare.com/dns-query
     - 223.5.5.5
     - 119.29.29.29
-    - 8.8.8.8
-    - 1.1.1.1
   fallback:
+    - https://dns.alidns.com/dns-query
+    - https://dns.cloudflare.com/dns-query
     - 8.8.8.8
     - 1.1.1.1
   fallback-filter:
@@ -41,7 +47,7 @@ rule-providers:
   BM7China:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list
     path: ./providers/rule/bm7china.yaml
     interval: 86400
 
@@ -49,13 +55,13 @@ rule-providers:
   Binance:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.list
     path: ./providers/rule/binance.yaml
     interval: 86400
   OKX:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OKX/OKX.list
     path: ./providers/rule/okx.yaml
     interval: 86400
 
@@ -63,19 +69,19 @@ rule-providers:
   OpenAI:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
     path: ./providers/rule/openai.yaml
     interval: 86400
   Claude:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list
     path: ./providers/rule/claude.yaml
     interval: 86400
   Gemini:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
     path: ./providers/rule/gemini.yaml
     interval: 86400
 
@@ -83,25 +89,25 @@ rule-providers:
   Netflix:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list
     path: ./providers/rule/netflix.yaml
     interval: 86400
   Disney:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.list
     path: ./providers/rule/disney.yaml
     interval: 86400
   YouTube:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
     path: ./providers/rule/youtube.yaml
     interval: 86400
   TikTok:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
     path: ./providers/rule/tiktok.yaml
     interval: 86400
 
@@ -109,25 +115,25 @@ rule-providers:
   Telegram:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
     path: ./providers/rule/telegram.yaml
     interval: 86400
   Discord:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.list
     path: ./providers/rule/discord.yaml
     interval: 86400
   Twitter:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
     path: ./providers/rule/twitter.yaml
     interval: 86400
   Facebook:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.list
     path: ./providers/rule/facebook.yaml
     interval: 86400
 
@@ -135,13 +141,13 @@ rule-providers:
   PayPal:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PayPal/PayPal.list
     path: ./providers/rule/paypal.yaml
     interval: 86400
   Amazon:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.list
     path: ./providers/rule/amazon.yaml
     interval: 86400
 
@@ -149,31 +155,31 @@ rule-providers:
   Steam:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.list
     path: ./providers/rule/steam.yaml
     interval: 86400
   Epic:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.list
     path: ./providers/rule/epic.yaml
     interval: 86400
   PlayStation:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PlayStation/PlayStation.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PlayStation/PlayStation.list
     path: ./providers/rule/playstation.yaml
     interval: 86400
   Xbox:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Xbox/Xbox.list
     path: ./providers/rule/xbox.yaml
     interval: 86400
   Nintendo:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.list
     path: ./providers/rule/nintendo.yaml
     interval: 86400
 
@@ -181,19 +187,19 @@ rule-providers:
   Google:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
     path: ./providers/rule/google.yaml
     interval: 86400
   Microsoft:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
     path: ./providers/rule/microsoft.yaml
     interval: 86400
   Apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
     path: ./providers/rule/apple.yaml
     interval: 86400
 
@@ -201,7 +207,7 @@ rule-providers:
   BanAD:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
     path: ./providers/rule/banad.yaml
     interval: 86400
 
@@ -209,7 +215,7 @@ rule-providers:
   MyDirect:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/My-Direct.list
+    url: https://cdn.jsdelivr.net/gh/dodo258/surge@main/custom-rules/My-Direct.list
     path: ./providers/rule/mydirect.yaml
     interval: 86400
 
