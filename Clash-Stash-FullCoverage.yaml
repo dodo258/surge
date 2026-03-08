@@ -289,13 +289,6 @@ proxy-groups:
       - HongKong
       - TaiWan
 
-  # TradingView
-  - name: TradingView
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Chart.png
-    proxies:
-      - 📉 TV地区锁定
-      - 🚀 节点选择
       - HongKong
       - Japan
       - Singapore
@@ -537,12 +530,6 @@ proxy-groups:
     proxies:
       - Singapore
       - Japan
-      - HongKong
-
-  - name: 📉 TV地区锁定
-    type: select
-    proxies:
-      - Singapore
       - HongKong
 
   - name: 💬 社交地区锁定
