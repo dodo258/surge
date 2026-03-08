@@ -224,7 +224,7 @@ proxy-groups:
   # 漏网之鱼
   - name: 🐟 漏网之鱼
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     proxies:
       - 🚀 节点选择
       - DIRECT
@@ -232,7 +232,7 @@ proxy-groups:
   # 节点选择
   - name: 🚀 节点选择
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
     proxies:
       - ♻️ 自动选择
       - HongKong
@@ -255,7 +255,7 @@ proxy-groups:
   # 交易钱包
   - name: 交易钱包
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
     proxies:
       - 💱 交易地区锁定
       - 🚀 节点选择
@@ -268,7 +268,7 @@ proxy-groups:
   # AI
   - name: AI
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png
     proxies:
       - 🤖 AI地区锁定
       - 🚀 节点选择
@@ -279,7 +279,7 @@ proxy-groups:
   # 流媒体
   - name: 流媒体
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Streaming.png
     proxies:
       - 🎬 流媒体地区锁定
       - 🚀 节点选择
@@ -292,7 +292,7 @@ proxy-groups:
   # TradingView
   - name: TradingView
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Chart.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Chart.png
     proxies:
       - 📉 TV地区锁定
       - 🚀 节点选择
@@ -304,7 +304,7 @@ proxy-groups:
   # 社交平台
   - name: 社交平台
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/X.png
     proxies:
       - 💬 社交地区锁定
       - 🚀 节点选择
@@ -317,7 +317,7 @@ proxy-groups:
   # 游戏平台
   - name: 游戏平台
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     proxies:
       - 🎮 游戏地区锁定
       - 🚀 节点选择
@@ -331,7 +331,7 @@ proxy-groups:
   # Google
   - name: Google
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     proxies:
       - 🚀 节点选择
       - America
@@ -344,7 +344,7 @@ proxy-groups:
   # Microsoft
   - name: Microsoft
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Windows_11.png
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -357,7 +357,7 @@ proxy-groups:
   # Apple
   - name: Apple
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -369,7 +369,7 @@ proxy-groups:
   # 购物支付
   - name: 购物支付
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/PayPal.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/PayPal.png
     proxies:
       - 🛒 支付地区锁定
       - 🚀 节点选择
@@ -380,49 +380,49 @@ proxy-groups:
   # ===== 地区节点 =====
   - name: HongKong
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     proxies:
       - HK-Auto
       - HK-FallBack
 
   - name: TaiWan
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png
     proxies:
       - TW-Auto
       - TW-FallBack
 
   - name: Japan
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     proxies:
       - JP-Auto
       - JP-FallBack
 
   - name: Singapore
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     proxies:
       - SG-Auto
       - SG-FallBack
 
   - name: America
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     proxies:
       - US-Auto
       - US-FallBack
 
   - name: Korea
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     proxies:
       - KR-Auto
       - KR-FallBack
 
   - name: AllServer
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
     proxies:
       - All-Auto
 
