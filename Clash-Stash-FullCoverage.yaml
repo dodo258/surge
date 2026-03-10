@@ -371,7 +371,6 @@ proxy-groups:
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     proxies:
-      - DIRECT
       - ♻️ 自动选择
       - 🚀 节点选择
       - 🇺🇲 美国节点
@@ -379,6 +378,7 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
+      - DIRECT
 
   - name: Ⓜ️ 微软服务
     type: select
