@@ -34,3 +34,52 @@ DOMAIN-SUFFIX,boc.hk
 DOMAIN-SUFFIX,hengseng.com
 # 花旗银行香港
 DOMAIN-SUFFIX,citibank.com.hk
+
+# ==== 海外券商 - 直连不走 VPN ====
+# 盈透 Interactive Brokers (IBKR)
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,ibkr.com.au
+DOMAIN-SUFFIX,ibkr.co.uk
+DOMAIN-SUFFIX,ibkr.ie
+DOMAIN-SUFFIX,ibkr.ca
+DOMAIN-SUFFIX,ibkr.com.hk
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN-SUFFIX,ib-insync.com
+
+# 长桥 Longbridge
+DOMAIN-SUFFIX,longbridge.com
+DOMAIN-SUFFIX,longbridgeapp.com
+DOMAIN-SUFFIX,lbpkg.com
+DOMAIN-SUFFIX,longbridge.hk
+DOMAIN-SUFFIX,longbridge.com.hk
+DOMAIN-SUFFIX,api.longbridge.com
+DOMAIN-SUFFIX,web.longbridge.com
+DOMAIN-SUFFIX,openapi.longbridge.com
+
+# 嘉信 Charles Schwab
+DOMAIN-SUFFIX,schwab.com
+DOMAIN-SUFFIX,schwabplan.com
+DOMAIN-SUFFIX,schwaballiance.com
+DOMAIN-SUFFIX,schwabfinancialnetwork.com
+DOMAIN-SUFFIX,schwabeverywhere.com
+DOMAIN-SUFFIX,schwabinvestor.com
+DOMAIN-SUFFIX,schwabbrokerage.com
+DOMAIN-SUFFIX,schwab.com.au
+
+# 富途 Futu (含 moomoo)
+DOMAIN-SUFFIX,futu.com
+DOMAIN-SUFFIX,futuhk.com
+DOMAIN-SUFFIX,futuinc.com
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,moomoo.com
+DOMAIN-SUFFIX,moomoo.io
+DOMAIN-SUFFIX,moomoo.com.hk
+DOMAIN-SUFFIX,moomoo.sg
+
+# 老虎 TigerFintech (补充 bm7 未覆盖的)
+DOMAIN-SUFFIX,tiger.com
+DOMAIN-SUFFIX,tigerfintech.hk
+DOMAIN-SUFFIX,tigersecurities.com
+DOMAIN-SUFFIX,tigerbrokers.com
