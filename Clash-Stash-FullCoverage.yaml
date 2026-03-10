@@ -232,6 +232,32 @@ rule-providers:
     path: ./providers/rule/mydirect.yaml
     interval: 86400
 
+  # 自定义规则（本地文件）
+  MyAI:
+    type: file
+    behavior: classical
+    path: ./custom-rules/AI.list
+  MyCrypto:
+    type: file
+    behavior: classical
+    path: ./custom-rules/Crypto.list
+  MyStreaming:
+    type: file
+    behavior: classical
+    path: ./custom-rules/Streaming.list
+  MySocial:
+    type: file
+    behavior: classical
+    path: ./custom-rules/Social.list
+  MyGames:
+    type: file
+    behavior: classical
+    path: ./custom-rules/Games.list
+  MyTradingView:
+    type: file
+    behavior: classical
+    path: ./custom-rules/TradingView.list
+
 # 代理组（扁平化，命名与规则一致）
 proxy-groups:
   # ===== 主节点选择 =====
@@ -465,6 +491,9 @@ rules:
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 
+  # 广告拦截（提前拦截，减少代理开销）
+  - RULE-SET,BanAD,🛑 广告拦截
+
   # 用户直连白名单
   - RULE-SET,MyDirect,DIRECT
 
@@ -512,8 +541,13 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
 
-  # 广告拦截
-  - RULE-SET,BanAD,🛑 广告拦截
+  # 自定义规则补充（本地规则 + 上游补充）
+  - RULE-SET,MyAI,🤖 AI平台
+  - RULE-SET,MyCrypto,📈 加密货币
+  - RULE-SET,MyStreaming,📺 流媒体
+  - RULE-SET,MySocial,📱 社交媒体
+  - RULE-SET,MyGames,🎮 游戏平台
+  - RULE-SET,MyTradingView,🛒 购物支付
 
   # 兜底
   - MATCH,🐟 漏网之鱼
