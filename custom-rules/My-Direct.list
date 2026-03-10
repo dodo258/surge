@@ -83,3 +83,13 @@ DOMAIN-SUFFIX,tiger.com
 DOMAIN-SUFFIX,tigerfintech.hk
 DOMAIN-SUFFIX,tigersecurities.com
 DOMAIN-SUFFIX,tigerbrokers.com
+
+# 盈立证券 uSMART
+DOMAIN-SUFFIX,usmart.com
+DOMAIN-SUFFIX,usmarthk.com
+DOMAIN-SUFFIX,usmartsecurities.com
+DOMAIN-SUFFIX,usmartgroup.com
+DOMAIN-SUFFIX,usmartmobile.com
+DOMAIN-SUFFIX,api.usmart.com
+DOMAIN-SUFFIX,app.usmart.com
+DOMAIN-SUFFIX,web.usmart.com
