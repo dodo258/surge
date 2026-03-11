@@ -20,20 +20,68 @@
 
 # Add your custom domains below:
 # ==== 香港银行 - 直连不走 VPN ====
-# 蚂蚁银行 (Ant Bank HK)
+# 蚂蚁银行 (Ant Bank HK) - 蚂蚁集团
 DOMAIN-SUFFIX,antfin.hk
 DOMAIN-SUFFIX,antbank.hk
+DOMAIN-SUFFIX,antbank.com
 # 支付宝香港
 DOMAIN-SUFFIX,alipay.hk
-# 汇丰银行香港
+# 汇丰银行 HSBC 香港
 DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com
+DOMAIN-SUFFIX,hsbc.co.uk
+DOMAIN-SUFFIX,hsbc.com.au
+DOMAIN-SUFFIX,hsbc.com.cn
+DOMAIN-SUFFIX,hsbc.com.sg
+DOMAIN-SUFFIX,hsbcnet.com
 DOMAIN-SUFFIX,hangseng.com
+DOMAIN-SUFFIX,hengseng.com
 # 中国银行香港
 DOMAIN-SUFFIX,boc.hk
+DOMAIN-SUFFIX,bankofchina.com
+DOMAIN,bocg.com
 # 恒生银行
 DOMAIN-SUFFIX,hengseng.com
 # 花旗银行香港
 DOMAIN-SUFFIX,citibank.com.hk
+DOMAIN-SUFFIX,citibank.com
+# 众安银行 ZA Bank 香港虚拟银行
+DOMAIN-SUFFIX,zabank.com
+DOMAIN-SUFFIX,zabank.com.hk
+DOMAIN-SUFFIX,zabank.hk
+DOMAIN-SUFFIX,za.group
+DOMAIN,www.zabank.com
+# 天星银行 Airstar Bank 香港虚拟银行
+DOMAIN-SUFFIX,airstarbank.com
+DOMAIN-SUFFIX,airstarbank.com.hk
+DOMAIN,www.airstarbank.com
+# 汇立银行 Mox Bank 香港虚拟银行
+DOMAIN-SUFFIX,mox.com
+DOMAIN-SUFFIX,mox.com.hk
+DOMAIN,www.mox.com
+# 平安壹账通银行 Ping An OneConnect Bank 香港虚拟银行
+DOMAIN-SUFFIX,oneconnect.com
+DOMAIN-SUFFIX,oneconnectbank.com
+DOMAIN-SUFFIX,oneconnectbank.com.hk
+# 工银亚洲 ICBC 香港
+DOMAIN-SUFFIX,icbc.com.hk
+DOMAIN-SUFFIX,icbcasia.com
+# 招商银行香港
+DOMAIN-SUFFIX,cmbchina.com
+DOMAIN-SUFFIX,cmbhl.com
+DOMAIN-SUFFIX,cmbchk.com
+# 东亚银行
+DOMAIN-SUFFIX,hkbea.com
+DOMAIN-SUFFIX,bea.com.hk
+# 渣打银行香港
+DOMAIN-SUFFIX,sc.com.hk
+DOMAIN-SUFFIX,sc.com
+# 星展银行香港
+DOMAIN-SUFFIX,dbs.com.hk
+DOMAIN-SUFFIX,dbs.com
+# 交通银行香港
+DOMAIN-SUFFIX,bankcomm.com.hk
+DOMAIN-SUFFIX,bankcomm.com
 
 # ==== 海外券商 - 直连不走 VPN ====
 # 盈透 Interactive Brokers (IBKR)
