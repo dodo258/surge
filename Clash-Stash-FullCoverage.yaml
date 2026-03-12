@@ -31,10 +31,14 @@ dns:
   fallback-filter:
     geoip: true
 
-# 代理节点
+# 代理节点（订阅链接）
+# ⚠️ 重要：将下面的 url 替换为你自己的订阅链接！
+# 订阅链接通常在你的机场/代理服务商处获取
+# 格式示例：https://example.com/api/v1/client/subscribe?token=xxxxx
 proxy-providers:
   🚀 节点:
     type: http
+    # 👇👇👇 在这里粘贴你的订阅链接（替换下面这行）👇👇👇
     url: https://sub.store/download/collection/all?target=Clash
     interval: 86400
     health-check:
