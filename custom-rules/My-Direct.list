@@ -84,17 +84,8 @@ DOMAIN-SUFFIX,bankcomm.com.hk
 DOMAIN-SUFFIX,bankcomm.com
 
 # ==== 海外券商 - 直连不走 VPN ====
-# 盈透 Interactive Brokers (IBKR)
-DOMAIN-SUFFIX,ibkr.com
-DOMAIN-SUFFIX,interactivebrokers.com
-DOMAIN-SUFFIX,ibkr.com.au
-DOMAIN-SUFFIX,ibkr.co.uk
-DOMAIN-SUFFIX,ibkr.ie
-DOMAIN-SUFFIX,ibkr.ca
-DOMAIN-SUFFIX,ibkr.com.hk
-DOMAIN-SUFFIX,interactivebrokers.com.au
-DOMAIN-SUFFIX,interactivebrokers.co.uk
-DOMAIN-SUFFIX,ib-insync.com
+# ⚠️ 盈透 Interactive Brokers 已移除（直连有问题，改用代理）
+# 如后续测试正常可再加回
 
 # 长桥 Longbridge
 DOMAIN-SUFFIX,longbridge.com
@@ -106,15 +97,8 @@ DOMAIN-SUFFIX,api.longbridge.com
 DOMAIN-SUFFIX,web.longbridge.com
 DOMAIN-SUFFIX,openapi.longbridge.com
 
-# 嘉信 Charles Schwab
-DOMAIN-SUFFIX,schwab.com
-DOMAIN-SUFFIX,schwabplan.com
-DOMAIN-SUFFIX,schwaballiance.com
-DOMAIN-SUFFIX,schwabfinancialnetwork.com
-DOMAIN-SUFFIX,schwabeverywhere.com
-DOMAIN-SUFFIX,schwabinvestor.com
-DOMAIN-SUFFIX,schwabbrokerage.com
-DOMAIN-SUFFIX,schwab.com.au
+# ⚠️ 嘉信 Charles Schwab 已移除（待测试，避免类似盈透问题）
+# 如直连正常可再加回
 
 # 富途 Futu (含 moomoo)
 DOMAIN-SUFFIX,futu.com
