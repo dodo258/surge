@@ -84,17 +84,6 @@ DOMAIN-SUFFIX,bankcomm.com.hk
 DOMAIN-SUFFIX,bankcomm.com
 
 # ==== 海外券商 - 直连不走 VPN ====
-# 盈透 Interactive Brokers (IBKR)
-DOMAIN-SUFFIX,ibkr.com
-DOMAIN-SUFFIX,interactivebrokers.com
-DOMAIN-SUFFIX,ibkr.com.au
-DOMAIN-SUFFIX,ibkr.co.uk
-DOMAIN-SUFFIX,ibkr.ie
-DOMAIN-SUFFIX,ibkr.ca
-DOMAIN-SUFFIX,ibkr.com.hk
-DOMAIN-SUFFIX,interactivebrokers.com.au
-DOMAIN-SUFFIX,interactivebrokers.co.uk
-DOMAIN-SUFFIX,ib-insync.com
 
 # 长桥 Longbridge
 DOMAIN-SUFFIX,longbridge.com
