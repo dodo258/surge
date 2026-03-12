@@ -147,54 +147,8 @@ DOMAIN-SUFFIX,myifast.com
 DOMAIN-SUFFIX,app.ifastglobalbank.com
 DOMAIN-SUFFIX,portal.ifastglobalbank.com
 
-# ==== 国内常用 App - 直连更流畅 ====
-# 微信
-DOMAIN-SUFFIX,wechat.com
-DOMAIN-SUFFIX,qq.com
-DOMAIN-SUFFIX,weixin.qq.com
+# ==== 补充直连（China.list 未覆盖或需特别保障）====
+# 微信支付（部分接口）
 DOMAIN-SUFFIX,wechatpay.com
-# 支付宝
-DOMAIN-SUFFIX,alipay.com
-DOMAIN-SUFFIX,alipayobjects.com
-DOMAIN-SUFFIX,alicdn.com
-DOMAIN-SUFFIX,taobao.com
-DOMAIN-SUFFIX,tmall.com
-# 抖音/字节
-DOMAIN-SUFFIX,douyin.com
-DOMAIN-SUFFIX,iesdouyin.com
-DOMAIN-SUFFIX,bytedance.com
-DOMAIN-SUFFIX,toutiao.com
-# 美团
-DOMAIN-SUFFIX,meituan.com
-DOMAIN-SUFFIX,meituan.net
-DOMAIN-SUFFIX,dianping.com
-# 京东
-DOMAIN-SUFFIX,jd.com
-DOMAIN-SUFFIX,jingdong.com
-DOMAIN-SUFFIX,360buy.com
-# 拼多多
-DOMAIN-SUFFIX,pinduoduo.com
-DOMAIN-SUFFIX,yangkeduo.com
-# 百度
-DOMAIN-SUFFIX,baidu.com
-DOMAIN-SUFFIX,bdimg.com
-DOMAIN-SUFFIX,bdstatic.com
-# 网易云音乐/QQ音乐
-DOMAIN-SUFFIX,music.163.com
-DOMAIN-SUFFIX,yun.163.com
-DOMAIN-SUFFIX,qqmusic.qq.com
-# 视频平台
-DOMAIN-SUFFIX,bilibili.com
-DOMAIN-SUFFIX,youku.com
-DOMAIN-SUFFIX,iqiyi.com
-# 地图/出行
-DOMAIN-SUFFIX,amap.com
-DOMAIN-SUFFIX,autonavi.com
-DOMAIN-SUFFIX,didi.cn
-DOMAIN-SUFFIX,xiaojukeji.com
-# 云服务
-DOMAIN-SUFFIX,aliyun.com
-DOMAIN-SUFFIX,qcloud.com
-# 办公
-DOMAIN-SUFFIX,dingtalk.com
+# Freshdesk 客服系统
 DOMAIN-SUFFIX,freshdesk.com
