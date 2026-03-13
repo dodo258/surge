@@ -471,8 +471,18 @@ proxy-groups:
 
 # 规则（命名与代理组完全一致）
 rules:
-  # SSH 永远直连（避免被代理导致连接失败）
+  # 基础设施端口永远直连
+  # SSH
   - DST-PORT,22,DIRECT
+  # Docker
+  - DST-PORT,2375,DIRECT
+  - DST-PORT,2376,DIRECT
+  # Kubernetes
+  - DST-PORT,6443,DIRECT
+  # Databases (MySQL, PostgreSQL, Redis)
+  - DST-PORT,3306,DIRECT
+  - DST-PORT,5432,DIRECT
+  - DST-PORT,6379,DIRECT
 
   # 本地网络
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
