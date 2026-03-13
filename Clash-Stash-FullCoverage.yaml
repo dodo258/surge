@@ -471,6 +471,9 @@ proxy-groups:
 
 # 规则（命名与代理组完全一致）
 rules:
+  # SSH 永远直连（避免被代理导致连接失败）
+  - DST-PORT,22,DIRECT
+
   # 本地网络
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
