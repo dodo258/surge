@@ -152,3 +152,6 @@ DOMAIN-SUFFIX,portal.ifastglobalbank.com
 DOMAIN-SUFFIX,wechatpay.com
 # Freshdesk 客服系统
 DOMAIN-SUFFIX,freshdesk.com
+
+# 奶昔
+DOMAIN-SUFFIX,nxonearth.com
