@@ -41,7 +41,7 @@ DOMAIN-SUFFIX,boc.hk
 DOMAIN-SUFFIX,bankofchina.com
 DOMAIN,bocg.com
 # 恒生银行
-DOMAIN-SUFFIX,hengseng.com
+#（已在前文汇丰段落收录 hengseng.com，避免重复）
 # 花旗银行香港
 DOMAIN-SUFFIX,citibank.com.hk
 DOMAIN-SUFFIX,citibank.com

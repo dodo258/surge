@@ -3,31 +3,66 @@ name: Config Validation
 on:
   push:
     branches: [main]
+  pull_request:
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-  
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Check Surge Config
-      run: |
-        test -f Surge-Full-Overseas-FullCoverage.conf
-        test -f Clash-Stash-FullCoverage.yaml
-        echo "Config files exist"
-    
-    - name: Check YAML Syntax
-      run: |
-        python3 -c "import yaml; yaml.safe_load(open('Clash-Stash-FullCoverage.yaml'))"
-        echo "YAML syntax valid"
-    
-    - name: Check Rules Directory
-      run: |
-        test -d custom-rules
-        ls custom-rules/*.list
-        echo "Custom rules present"
-    
-    - name: Summary
-      run: |
-        echo "Validation passed"
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install pyyaml requests
+
+      - name: Basic file checks
+        run: |
+          test -f Surge-Full-Overseas-FullCoverage.conf
+          test -f Clash-Stash-FullCoverage.yaml
+          test -d custom-rules
+          ls custom-rules/*.list
+          echo "Basic files check passed"
+
+      - name: YAML syntax check
+        run: |
+          python3 -c "import yaml; yaml.safe_load(open('Clash-Stash-FullCoverage.yaml', encoding='utf-8'))"
+          echo "YAML syntax valid"
+
+      - name: Duplicate rule check (My-Direct.list)
+        run: |
+          python3 - <<'PY'
+          from collections import Counter
+          from pathlib import Path
+
+          p = Path('custom-rules/My-Direct.list')
+          lines = []
+          for raw in p.read_text(encoding='utf-8').splitlines():
+              s = raw.strip()
+              if not s or s.startswith('#'):
+                  continue
+              lines.append(s)
+
+          c = Counter(lines)
+          dup = [k for k, v in c.items() if v > 1]
+          if dup:
+              print('Duplicate rules found:')
+              for k in dup:
+                  print(f'- {k} (x{c[k]})')
+              raise SystemExit(1)
+
+          print(f'No duplicate rules (total={len(lines)}, unique={len(c)})')
+          PY
+
+      - name: Run local validation script
+        run: |
+          bash scripts/validate-local.sh
+
+      - name: Summary
+        run: echo "Validation passed"
