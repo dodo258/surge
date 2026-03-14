@@ -42,7 +42,7 @@ proxy-providers:
     url: https://sub.store/download/collection/all?target=Clash
     interval: 86400
     health-check:
-      url: http://www.gstatic.com/generate_204
+      url: http://www.google.com/generate_204
       interval: 300
 
 # 规则提供商
@@ -276,7 +276,7 @@ proxy-groups:
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🚀 手动切换
@@ -431,42 +431,42 @@ proxy-groups:
     type: url-test
     include-all: true
     filter: '(?i)(🇭🇰|港|Hong|HK|香港)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🇹🇼 台湾节点
     type: url-test
     include-all: true
     filter: '(?i)(🇹🇼|台|Tai|TW|台湾)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🇯🇵 日本节点
     type: url-test
     include-all: true
     filter: '(?i)(🇯🇵|日|Japan|JP|日本)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🇸🇬 狮城节点
     type: url-test
     include-all: true
     filter: '(?i)(🇸🇬|新|Singapore|SG|狮城)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🇺🇲 美国节点
     type: url-test
     include-all: true
     filter: '(?i)(🇺🇸|美|States|US|美国)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
   - name: 🇰🇷 韩国节点
     type: url-test
     include-all: true
     filter: '(?i)(🇰🇷|韩|Korea|KR|首尔)'
-    url: http://www.gstatic.com/generate_204
+    url: http://www.google.com/generate_204
     interval: 300
 
 # 规则（命名与代理组完全一致）
