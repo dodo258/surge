@@ -1,259 +1,365 @@
-# Clash-Stash 全量配置
-# 基于 Surge 配置重构
-# 优化：扁平化策略组 + 命名一致 + 流媒体偏好 SG/HK/TW
+# Clash-Stash 终极配置 · Ultimate Edition
+# 机场：🏢 机场A / 🏢 机场B / 🏢 机场C
+# VPS：🖥 MyVPS（新加坡，链式出口，搭好后取消注释相关行）
+# 基于 Stash 官方文档（stash.wiki）逐字段核查
 
+# ── 基础设置 ──────────────────────────────────────────────────
 port: 7890
 socks-port: 7891
 allow-lan: true
 mode: rule
 log-level: warning
 external-controller: :9090
+ipv6: false
 
-# 连接优化
+# ── 连接优化 ──────────────────────────────────────────────────
 tcp-concurrency: 8
 http-timeout: 30000
 
-# DNS 配置
+# ── DNS ──────────────────────────────────────────────────────
+# nameserver：只用国内 DNS，国内域名解析最准
+# fallback：境外域名兜底 DNS，fallback-filter 防止国内域名走 fallback 被污染
 dns:
   enable: true
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "*.localhost"
+    - localhost.ptlogin2.qq.com
+    - "*.weixin.qq.com"
+    - "*.wx.qq.com"
+    - "*.alipay.com"
+    - "*.taobao.com"
+    - "*.jd.com"
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://dns.cloudflare.com/dns-query
     - 223.5.5.5
     - 119.29.29.29
-  fallback:
     - https://dns.alidns.com/dns-query
-    - https://dns.cloudflare.com/dns-query
+  fallback:
     - 8.8.8.8
     - 1.1.1.1
+    - https://dns.cloudflare.com/dns-query
   fallback-filter:
     geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
 
-# 代理节点（订阅链接）
-# ⚠️ 重要：将下面的 url 替换为你自己的订阅链接！
-# 订阅链接通常在你的机场/代理服务商处获取
-# 格式示例：https://example.com/api/v1/client/subscribe?token=xxxxx
+
+# ══════════════════════════════════════════════════════════════
+# proxy-providers — 机场订阅
+#
+# ⚠️ 重要：Stash/Clash 需要 Clash 格式订阅，不能用 Surge 格式链接
+#
+# 获取 Clash 格式订阅的方法：
+#   方法1：登录机场官网，找「Clash」或「Clash Meta」订阅链接
+#   方法2：如果只有通用链接，在链接末尾加 &target=clash
+#   方法3：通过 Sub-Store 转换（新建订阅 → 目标格式选 Clash）
+#
+# 三个机场的订阅链接已预填（需要替换为 Clash 格式版本）
+# ══════════════════════════════════════════════════════════════
 proxy-providers:
-  🚀 节点:
+  🏢 机场A:
     type: http
-    # 👇👇👇 在这里粘贴你的订阅链接（替换下面这行）👇👇👇
-    url: https://sub.store/download/collection/all?target=Clash
-    interval: 86400
+    # 原 Surge 链接：target=surge → 改为 target=clash
+    url: "请在此填写自己的订阅链接"
+    interval: 3600
+    path: ./providers/proxy/airport-a.yaml
     health-check:
+      enable: true
       url: http://www.google.com/generate_204
       interval: 300
 
-# 规则提供商
+  🏢 机场B:
+    type: http
+    # 原 Surge 链接：type=surge → 改为 type=clash
+    url: "请在此填写自己的订阅链接"
+    interval: 3600
+    path: ./providers/proxy/airport-b.yaml
+    health-check:
+      enable: true
+      url: http://www.google.com/generate_204
+      interval: 300
+
+  🏢 机场C:
+    type: http
+    # 机场C的链接是 Base64 编码，解码后是 Surge 格式，需要向机场获取 Clash 格式链接
+    # 临时保留原链接，如无法使用请联系机场客服获取 Clash 订阅链接
+    url: "请在此填写自己的订阅链接"
+    interval: 3600
+    path: ./providers/proxy/airport-c.yaml
+    health-check:
+      enable: true
+      url: http://www.google.com/generate_204
+      interval: 300
+
+
+# ══════════════════════════════════════════════════════════════
+# proxies — VPS 节点（链式代理出口）
+#
+# 链式代理原理：
+#   设备 → 机场专线节点（穿越 GFW）→ 你的 VPS（干净出口 IP）→ 目标网站
+#
+# Stash 官方推荐使用 dialer-proxy（比旧版 relay 更强，支持 TCP+UDP）
+# dialer-proxy 引用策略组，可动态选择机场入口地区
+#
+# VPS 搭好后取消注释，填入真实参数：
+#   server: 你的VPS_IP
+#   port: 443
+#   uuid: 你的UUID
+#   servername: 你的SNI或留空
+#
+# ══════════════════════════════════════════════════════════════
+proxies: []
+# proxies:
+#   - name: 🖥 MyVPS
+#     type: vless
+#     server: 你的VPS_IP
+#     port: 443
+#     uuid: 你的UUID
+#     tls: true
+#     skip-cert-verify: false
+#     network: tcp
+#     # dialer-proxy 指向链式上游策略组，可动态切换入口地区
+#     dialer-proxy: 🔗 链式上游
+
+
+# ══════════════════════════════════════════════════════════════
+# rule-providers — 规则订阅
+# ══════════════════════════════════════════════════════════════
 rule-providers:
-  # 国内直连
-  BM7China:
+
+  # ── 广告拦截（保守版，误杀国内 SDK 概率更低）────────────────
+  Advertising:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list
-    path: ./providers/rule/bm7china.yaml
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising.list"
+    path: ./providers/rule/advertising.yaml
     interval: 86400
 
-  # 加密货币
-  Binance:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.list
-    path: ./providers/rule/binance.yaml
-    interval: 86400
-  OKX:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OKX/OKX.list
-    path: ./providers/rule/okx.yaml
-    interval: 86400
-  Crypto:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Crypto/Crypto.list
-    path: ./providers/rule/crypto.yaml
-    interval: 86400
-  Cryptocurrency:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cryptocurrency/Cryptocurrency.list
-    path: ./providers/rule/cryptocurrency.yaml
-    interval: 86400
-
-  # AI
-  OpenAI:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list
-    path: ./providers/rule/openai.yaml
-    interval: 86400
-  Claude:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list
-    path: ./providers/rule/claude.yaml
-    interval: 86400
-  Gemini:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list
-    path: ./providers/rule/gemini.yaml
-    interval: 86400
-
-  # 流媒体
-  Netflix:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list
-    path: ./providers/rule/netflix.yaml
-    interval: 86400
-  Disney:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.list
-    path: ./providers/rule/disney.yaml
-    interval: 86400
-  YouTube:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list
-    path: ./providers/rule/youtube.yaml
-    interval: 86400
-  TikTok:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list
-    path: ./providers/rule/tiktok.yaml
-    interval: 86400
-
-  # 社交媒体
-  Telegram:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list
-    path: ./providers/rule/telegram.yaml
-    interval: 86400
-  Discord:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.list
-    path: ./providers/rule/discord.yaml
-    interval: 86400
-  Twitter:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list
-    path: ./providers/rule/twitter.yaml
-    interval: 86400
-  Facebook:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.list
-    path: ./providers/rule/facebook.yaml
-    interval: 86400
-
-  # 购物支付
-  PayPal:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PayPal/PayPal.list
-    path: ./providers/rule/paypal.yaml
-    interval: 86400
-  Amazon:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.list
-    path: ./providers/rule/amazon.yaml
-    interval: 86400
-  # 注意：AliPay 和 WeChat 必须直连，否则国内支付会失败
-
-  # 游戏
-  Steam:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.list
-    path: ./providers/rule/steam.yaml
-    interval: 86400
-  Epic:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.list
-    path: ./providers/rule/epic.yaml
-    interval: 86400
-  PlayStation:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PlayStation/PlayStation.list
-    path: ./providers/rule/playstation.yaml
-    interval: 86400
-  Xbox:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Xbox/Xbox.list
-    path: ./providers/rule/xbox.yaml
-    interval: 86400
-  Nintendo:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.list
-    path: ./providers/rule/nintendo.yaml
-    interval: 86400
-
-  # 基础设施
-  Google:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list
-    path: ./providers/rule/google.yaml
-    interval: 86400
-  Microsoft:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list
-    path: ./providers/rule/microsoft.yaml
-    interval: 86400
-  Apple:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list
-    path: ./providers/rule/apple.yaml
-    interval: 86400
-
-  # 广告拦截
-  BanAD:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
-    path: ./providers/rule/banad.yaml
-    interval: 86400
-
-  # 用户直连白名单
+  # ── 用户直连白名单（香港银行、海外券商）──────────────────────
   MyDirect:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/dodo258/surge@main/custom-rules/My-Direct.list
+    url: "https://cdn.jsdelivr.net/gh/dodo258/surge@main/custom-rules/My-Direct.list"
     path: ./providers/rule/mydirect.yaml
     interval: 86400
 
-  # 券商（老虎）
+  # ── 国内直连 ──────────────────────────────────────────────
+  China:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list"
+    path: ./providers/rule/china.yaml
+    interval: 86400
+
+  # ── 加密货币 ──────────────────────────────────────────────
+  Binance:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.list"
+    path: ./providers/rule/binance.yaml
+    interval: 86400
+
+  OKX:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OKX/OKX.list"
+    path: ./providers/rule/okx.yaml
+    interval: 86400
+
+  Crypto:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Crypto/Crypto.list"
+    path: ./providers/rule/crypto.yaml
+    interval: 86400
+
+  Cryptocurrency:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cryptocurrency/Cryptocurrency.list"
+    path: ./providers/rule/cryptocurrency.yaml
+    interval: 86400
+
+  # ── GitHub ────────────────────────────────────────────────
+  GitHub:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.list"
+    path: ./providers/rule/github.yaml
+    interval: 86400
+
+  # ── AI 平台 ───────────────────────────────────────────────
+  OpenAI:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.list"
+    path: ./providers/rule/openai.yaml
+    interval: 86400
+
+  Claude:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.list"
+    path: ./providers/rule/claude.yaml
+    interval: 86400
+
+  Gemini:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.list"
+    path: ./providers/rule/gemini.yaml
+    interval: 86400
+
+  # ── 流媒体 ────────────────────────────────────────────────
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.list"
+    path: ./providers/rule/netflix.yaml
+    interval: 86400
+
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.list"
+    path: ./providers/rule/disney.yaml
+    interval: 86400
+
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.list"
+    path: ./providers/rule/youtube.yaml
+    interval: 86400
+
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.list"
+    path: ./providers/rule/tiktok.yaml
+    interval: 86400
+
+  # ── 社交媒体 ──────────────────────────────────────────────
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.list"
+    path: ./providers/rule/telegram.yaml
+    interval: 86400
+
+  Discord:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.list"
+    path: ./providers/rule/discord.yaml
+    interval: 86400
+
+  Twitter:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.list"
+    path: ./providers/rule/twitter.yaml
+    interval: 86400
+
+  Facebook:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.list"
+    path: ./providers/rule/facebook.yaml
+    interval: 86400
+
+  # ── 购物支付 ──────────────────────────────────────────────
+  PayPal:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PayPal/PayPal.list"
+    path: ./providers/rule/paypal.yaml
+    interval: 86400
+
+  Amazon:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.list"
+    path: ./providers/rule/amazon.yaml
+    interval: 86400
+
+  # ── 券商直连 ──────────────────────────────────────────────
   TigerFintech:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TigerFintech/TigerFintech.list
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TigerFintech/TigerFintech.list"
     path: ./providers/rule/tigerfintech.yaml
     interval: 86400
 
-# 代理组（扁平化，命名与规则一致）
-proxy-groups:
-  # ===== 主节点选择 =====
-  - name: 🐟 漏网之鱼
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
+  # ── 游戏平台 ──────────────────────────────────────────────
+  Steam:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.list"
+    path: ./providers/rule/steam.yaml
+    interval: 86400
 
+  Epic:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.list"
+    path: ./providers/rule/epic.yaml
+    interval: 86400
+
+  PlayStation:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PlayStation/PlayStation.list"
+    path: ./providers/rule/playstation.yaml
+    interval: 86400
+
+  Xbox:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Xbox/Xbox.list"
+    path: ./providers/rule/xbox.yaml
+    interval: 86400
+
+  Nintendo:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Nintendo/Nintendo.list"
+    path: ./providers/rule/nintendo.yaml
+    interval: 86400
+
+  # ── 基础设施 ──────────────────────────────────────────────
+  Google:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.list"
+    path: ./providers/rule/google.yaml
+    interval: 86400
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.list"
+    path: ./providers/rule/microsoft.yaml
+    interval: 86400
+
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.list"
+    path: ./providers/rule/apple.yaml
+    interval: 86400
+
+
+# ══════════════════════════════════════════════════════════════
+# proxy-groups — 策略组
+# ══════════════════════════════════════════════════════════════
+proxy-groups:
+
+  # ── 主节点选择 ──────────────────────────────────────────────
   - name: 🚀 节点选择
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
@@ -261,156 +367,200 @@ proxy-groups:
       - ♻️ 自动选择
       - 🌐 地区锁定
       - 🚀 手动切换
-
-  - name: 🌐 地区锁定
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
-    proxies:
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
+      - DIRECT
 
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
 
   - name: 🚀 手动切换
     type: select
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
 
-  # ===== 场景分流（扁平化，所有地区节点都可选择）====
+  - name: 🌐 地区锁定
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
+    proxies:
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇯🇵 日本
+      - 🇸🇬 狮城
+      - 🇺🇲 美国
+      - 🇰🇷 韩国
 
-  # 加密货币：所有地区可选
+  # ── 链式出口（VPS 搭好后取消注释）──────────────────────────
+  # Stash 官方推荐 dialer-proxy，比旧版 relay 更强，支持 TCP+UDP
+  # dialer-proxy 写在 proxies: 的节点定义里，不在策略组里
+  # 这里的「链式上游」策略组负责选择机场入口地区
+  #
+  # - name: 🔗 链式上游
+  #   type: select
+  #   icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png
+  #   proxies:
+  #     - 🔗🇸🇬 链式狮城
+  #     - 🔗🇺🇲 链式美国
+  #     - 🔗🇭🇰 链式香港
+  #     - 🔗🇯🇵 链式日本
+  #
+  # - name: 🔗 链式出口
+  #   type: select
+  #   icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+  #   proxies:
+  #     - 🖥 MyVPS
+  #
+  # - name: 🔗🇸🇬 链式狮城
+  #   type: url-test
+  #   include-all: true
+  #   filter: '(?i)(🇸🇬|新|Singapore|SG|狮城)'
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #
+  # - name: 🔗🇭🇰 链式香港
+  #   type: url-test
+  #   include-all: true
+  #   filter: '(?i)(🇭🇰|港|Hong|HK|香港)'
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #
+  # - name: 🔗🇯🇵 链式日本
+  #   type: url-test
+  #   include-all: true
+  #   filter: '(?i)(🇯🇵|日|Japan|JP|日本)'
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #
+  # - name: 🔗🇺🇲 链式美国
+  #   type: url-test
+  #   include-all: true
+  #   filter: '(?i)(🇺🇸|美|States|US|美国)'
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+
+  # ── 场景分流 ────────────────────────────────────────────────
+  # VPS 搭好后在加密货币和 AI 平台首位加入 "🔗 链式出口"
   - name: 📈 加密货币
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency.png
     proxies:
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
+      - 🇸🇬 狮城
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇰🇷 韩国
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # AI：所有地区可选
-  - name: 🤖 AI平台
+  - name: 🤖 AI 平台
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png
     proxies:
-      - 🇺🇲 美国节点
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
+      - 🇺🇲 美国
+      - 🇸🇬 狮城
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇯🇵 日本
+      - 🇰🇷 韩国
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # 流媒体：所有地区可选（中文资源偏好）
+  # 流媒体：手动锁定地区，避免 url-test 跨地区跳节点导致 Netflix/Disney+ 掉库
   - name: 📺 流媒体
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Streaming.png
     proxies:
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - ♻️ 自动选择
-      - 🚀 节点选择
+      - 🇺🇲 美国
+      - 🇯🇵 日本
+      - 🇸🇬 狮城
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇰🇷 韩国
 
-  # 社交媒体：所有地区可选
   - name: 📱 社交媒体
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/X.png
     proxies:
-      - 🇭🇰 香港节点
-      - 🇺🇲 美国节点
-      - 🇸🇬 狮城节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
+      - 🇭🇰 香港
+      - 🇺🇲 美国
+      - 🇸🇬 狮城
+      - 🇹🇼 台湾
+      - 🇯🇵 日本
+      - 🇰🇷 韩国
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # 购物支付：所有地区可选
   - name: 🛒 购物支付
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/PayPal.png
     proxies:
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇸🇬 狮城
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇰🇷 韩国
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # 游戏平台：所有地区可选
   - name: 🎮 游戏平台
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
     proxies:
-      - 🇯🇵 日本节点
-      - 🇭🇰 香港节点
-      - 🇰🇷 韩国节点
-      - 🇹🇼 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+      - 🇯🇵 日本
+      - 🇭🇰 香港
+      - 🇰🇷 韩国
+      - 🇹🇼 台湾
+      - 🇸🇬 狮城
+      - 🇺🇲 美国
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # ===== 基础设施 =====
-  - name: 🌐 谷歌服务
+  # ── 基础设施 ────────────────────────────────────────────────
+  - name: 🍎 苹果服务
     type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png
     proxies:
+      - DIRECT
+      - 🇭🇰 香港
+      - 🇺🇲 美国
+      - 🇯🇵 日本
+      - 🇸🇬 狮城
+      - 🇹🇼 台湾
       - ♻️ 自动选择
       - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - DIRECT
 
   - name: Ⓜ️ 微软服务
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Windows_11.png
     proxies:
       - DIRECT
+      - 🇺🇲 美国
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇸🇬 狮城
+      - 🇹🇼 台湾
       - ♻️ 自动选择
       - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
 
-  - name: 🍎 苹果服务
+  - name: 🌐 谷歌服务
     type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     proxies:
-      - DIRECT
       - ♻️ 自动选择
+      - 🇺🇲 美国
+      - 🇸🇬 狮城
+      - 🇯🇵 日本
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
       - 🚀 节点选择
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
-      - 🇹🇼 台湾节点
+      - DIRECT
 
-  # ===== 兜底 =====
+  # ── 兜底 ────────────────────────────────────────────────────
   - name: 🎯 全球直连
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
@@ -426,123 +576,161 @@ proxy-groups:
       - REJECT
       - DIRECT
 
-  # ===== 地区节点 =====
-  - name: 🇭🇰 香港节点
+  - name: 🐟 漏网之鱼
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  # ── 地区节点（三机场聚合 + 正则过滤 + 自动测速）────────────
+  - name: 🇭🇰 香港
     type: url-test
     include-all: true
-    filter: '(?i)(🇭🇰|港|Hong|HK|香港)'
+    filter: "(?i)(🇭🇰|港|Hong|HK|香港)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/HK.png
 
-  - name: 🇹🇼 台湾节点
+  - name: 🇹🇼 台湾
     type: url-test
     include-all: true
-    filter: '(?i)(🇹🇼|台|Tai|TW|台湾)'
+    filter: "(?i)(🇹🇼|台|Tai|TW|台湾)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TW.png
 
-  - name: 🇯🇵 日本节点
+  - name: 🇯🇵 日本
     type: url-test
     include-all: true
-    filter: '(?i)(🇯🇵|日|Japan|JP|日本)'
+    filter: "(?i)(🇯🇵|日|Japan|JP|日本)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/JP.png
 
-  - name: 🇸🇬 狮城节点
+  - name: 🇸🇬 狮城
     type: url-test
     include-all: true
-    filter: '(?i)(🇸🇬|新|Singapore|SG|狮城)'
+    filter: "(?i)(🇸🇬|新|Singapore|SG|狮城)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/SG.png
 
-  - name: 🇺🇲 美国节点
+  - name: 🇺🇲 美国
     type: url-test
     include-all: true
-    filter: '(?i)(🇺🇸|美|States|US|美国)'
+    filter: "(?i)(🇺🇸|美|States|US|美国)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/US.png
 
-  - name: 🇰🇷 韩国节点
+  - name: 🇰🇷 韩国
     type: url-test
     include-all: true
-    filter: '(?i)(🇰🇷|韩|Korea|KR|首尔)'
+    filter: "(?i)(🇰🇷|韩|Korea|KR|首尔)"
     url: http://www.google.com/generate_204
     interval: 300
+    lazy: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/KR.png
 
-# 规则（命名与代理组完全一致）
+
+# ══════════════════════════════════════════════════════════════
+# rules — 规则表（从上到下，命中即停止）
+#
+# 顺序：本地 → 广告 → 白名单 → Apple明确规则 → 微信支付宝 →
+#        国内直连 → 各场景代理规则 → GEOIP兜底 → MATCH
+# ⚠️ GEOIP CN 必须在所有代理规则之后！
+# ══════════════════════════════════════════════════════════════
 rules:
-  # 基础设施端口永远直连
-  # SSH
-  - DST-PORT,22,DIRECT
-  # Docker
-  - DST-PORT,2375,DIRECT
-  - DST-PORT,2376,DIRECT
-  # Kubernetes
-  - DST-PORT,6443,DIRECT
-  # Databases (MySQL, PostgreSQL, Redis)
-  - DST-PORT,3306,DIRECT
-  - DST-PORT,5432,DIRECT
-  - DST-PORT,6379,DIRECT
-
-  # 本地网络
+  # ── 本地网络 ──────────────────────────────────────────────
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
 
-  # 广告拦截（提前拦截，减少代理开销）
-  - RULE-SET,BanAD,🛑 广告拦截
+  # ── 广告拦截 ──────────────────────────────────────────────
+  - RULE-SET,Advertising,🛑 广告拦截
 
-  # 用户直连白名单
+  # ── 用户直连白名单（香港银行、海外券商）────────────────────
   - RULE-SET,MyDirect,DIRECT
 
-  # 国内直连
-  - RULE-SET,BM7China,DIRECT
-  - GEOIP,CN,DIRECT
+  # ── 苹果 / iCloud 明确规则（补充规则库未收录的动态子域名）──
+  # Apple.list 不含 p152-caldav.icloud.com 等动态子域名，需显式补充
+  - DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,icloud.com.cn,🍎 苹果服务
+  - DOMAIN-SUFFIX,apple.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,mzstatic.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,apple-cloudkit.com,🍎 苹果服务
 
-  # 加密货币
+  # ── 微信 / 支付宝明确直连 ───────────────────────────────────
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,mmbiz.qpic.cn,DIRECT
+  - DOMAIN-SUFFIX,mmbiz.qlogo.cn,DIRECT
+  - DOMAIN-SUFFIX,res.wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+  - DOMAIN-SUFFIX,alipayhk.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.hk,DIRECT
+
+  # ── 国内直连 ──────────────────────────────────────────────
+  - RULE-SET,China,DIRECT
+
+  # ── 加密货币 ──────────────────────────────────────────────
   - RULE-SET,Binance,📈 加密货币
   - RULE-SET,OKX,📈 加密货币
   - RULE-SET,Crypto,📈 加密货币
   - RULE-SET,Cryptocurrency,📈 加密货币
 
-  # AI
-  - RULE-SET,OpenAI,🤖 AI平台
-  - RULE-SET,Claude,🤖 AI平台
-  - RULE-SET,Gemini,🤖 AI平台
+  # ── GitHub ────────────────────────────────────────────────
+  - RULE-SET,GitHub,🚀 节点选择
 
-  # 流媒体
+  # ── AI 平台 ───────────────────────────────────────────────
+  - RULE-SET,OpenAI,🤖 AI 平台
+  - RULE-SET,Claude,🤖 AI 平台
+  - RULE-SET,Gemini,🤖 AI 平台
+
+  # ── 流媒体 ────────────────────────────────────────────────
   - RULE-SET,Netflix,📺 流媒体
   - RULE-SET,Disney,📺 流媒体
   - RULE-SET,YouTube,📺 流媒体
   - RULE-SET,TikTok,📺 流媒体
 
-  # 社交媒体
+  # ── 社交媒体 ──────────────────────────────────────────────
   - RULE-SET,Telegram,📱 社交媒体
   - RULE-SET,Discord,📱 社交媒体
   - RULE-SET,Twitter,📱 社交媒体
   - RULE-SET,Facebook,📱 社交媒体
 
-  # 购物支付
+  # ── 购物支付 ──────────────────────────────────────────────
   - RULE-SET,PayPal,🛒 购物支付
   - RULE-SET,Amazon,🛒 购物支付
-  # 注意：AliPay 和 WeChat 必须直连，否则国内支付会失败
 
-  # 游戏
+  # ── 券商直连 ──────────────────────────────────────────────
+  - RULE-SET,TigerFintech,DIRECT
+
+  # ── 游戏平台 ──────────────────────────────────────────────
   - RULE-SET,Steam,🎮 游戏平台
   - RULE-SET,Epic,🎮 游戏平台
   - RULE-SET,PlayStation,🎮 游戏平台
   - RULE-SET,Xbox,🎮 游戏平台
   - RULE-SET,Nintendo,🎮 游戏平台
 
-  # 基础设施
+  # ── 基础设施 ──────────────────────────────────────────────
   - RULE-SET,Google,🌐 谷歌服务
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
 
-  # 券商（老虎）
-  - RULE-SET,TigerFintech,DIRECT
-  # 注：其他券商（盈透/长桥/嘉信/富途）已加入 MyDirect 走直连
+  # ── GeoIP 兜底（必须在所有代理规则之后）────────────────────
+  - GEOIP,CN,DIRECT,no-resolve
 
-  # 兜底
+  # ── 最终兜底 ──────────────────────────────────────────────
   - MATCH,🐟 漏网之鱼
