@@ -681,6 +681,11 @@ rules:
   - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
   - DOMAIN-SUFFIX,alipayhk.com,DIRECT
   - DOMAIN-SUFFIX,alipay.hk,DIRECT
+  # ── 美团 / 大众点评明确直连 ──────────────────────────────────
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
+  - DOMAIN-SUFFIX,meituan.net,DIRECT
+  - DOMAIN-SUFFIX,dianping.com,DIRECT
+  - DOMAIN-SUFFIX,dpfile.com,DIRECT
 
   # ── 国内直连 ──────────────────────────────────────────────
   - RULE-SET,China,DIRECT
