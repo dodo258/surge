@@ -623,7 +623,7 @@ rules:
   - DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
   - DOMAIN-SUFFIX,mzstatic.com,🍎 苹果服务
   - DOMAIN-SUFFIX,apple-cloudkit.com,🍎 苹果服务
-  - DOMAIN-SUFFIX,safebrowsing.apple,🍎 苹果服务
+  - DOMAIN-SUFFIX,safebrowsing.apple,REJECT
 
   # ── 微信 / 支付宝明确直连 ───────────────────────────────────
   - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
