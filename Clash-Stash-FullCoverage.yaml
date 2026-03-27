@@ -74,7 +74,7 @@ dns:
 proxy-providers:
   🏢 机场A:
     type: http
-    url: "填写自己的订阅链接"
+    url: "请填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-a.yaml
     health-check:
@@ -84,7 +84,7 @@ proxy-providers:
 
   🏢 机场B:
     type: http
-    url: "填写自己的订阅链接"
+    url: "请填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-b.yaml
     health-check:
@@ -95,7 +95,7 @@ proxy-providers:
   🏢 机场C:
     type: http
     # 机场C需要向机场获取 Clash 格式订阅链接替换此处
-    url: "填写自己的订阅链接"
+    url: "请填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-c.yaml
     health-check:
@@ -358,8 +358,13 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
     proxies:
       - ♻️ 自动选择
-      - 🌐 地区锁定
       - 🚀 手动切换
+      - 🇭🇰 香港
+      - 🇹🇼 台湾
+      - 🇯🇵 日本
+      - 🇸🇬 狮城
+      - 🇺🇲 美国
+      - 🇰🇷 韩国
       - DIRECT
 
   - name: ♻️ 自动选择
@@ -374,17 +379,6 @@ proxy-groups:
     type: select
     include-all: true
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
-
-  - name: 🌐 地区锁定
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
-    proxies:
-      - 🇭🇰 香港
-      - 🇹🇼 台湾
-      - 🇯🇵 日本
-      - 🇸🇬 狮城
-      - 🇺🇲 美国
-      - 🇰🇷 韩国
 
   # ── 链式出口（VPS 搭好后取消注释）──────────────────────────
   # - name: 🔗 链式上游
@@ -442,8 +436,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇺🇲 美国
       - 🇰🇷 韩国
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 🤖 AI 平台
     type: select
@@ -455,8 +447,6 @@ proxy-groups:
       - 🇹🇼 台湾
       - 🇯🇵 日本
       - 🇰🇷 韩国
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 📺 流媒体
     type: select
@@ -479,8 +469,6 @@ proxy-groups:
       - 🇹🇼 台湾
       - 🇯🇵 日本
       - 🇰🇷 韩国
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 🛒 购物支付
     type: select
@@ -492,8 +480,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇺🇲 美国
       - 🇰🇷 韩国
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 🎮 游戏平台
     type: select
@@ -505,8 +491,6 @@ proxy-groups:
       - 🇹🇼 台湾
       - 🇸🇬 狮城
       - 🇺🇲 美国
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 🍎 苹果服务
     type: select
@@ -518,8 +502,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇸🇬 狮城
       - 🇹🇼 台湾
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: Ⓜ️ 微软服务
     type: select
@@ -531,8 +513,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇸🇬 狮城
       - 🇹🇼 台湾
-      - ♻️ 自动选择
-      - 🚀 节点选择
 
   - name: 🌐 谷歌服务
     type: select
@@ -544,16 +524,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇭🇰 香港
       - 🇹🇼 台湾
-      - 🚀 节点选择
-      - DIRECT
-
-  - name: 🎯 全球直连
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
 
   - name: 🛑 广告拦截
     type: select
