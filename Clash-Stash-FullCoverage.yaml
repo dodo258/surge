@@ -74,7 +74,7 @@ dns:
 proxy-providers:
   🏢 机场A:
     type: http
-    url: "填写机场clash订阅地址"
+    url: "请填写自己的 Clash 订阅的地址。"
     interval: 3600
     path: ./providers/proxy/airport-a.yaml
     health-check:
@@ -84,7 +84,7 @@ proxy-providers:
 
   🏢 机场B:
     type: http
-    url: "填写机场clash订阅地址"
+    url: "请填写自己的 Clash 订阅的地址"
     interval: 3600
     path: ./providers/proxy/airport-b.yaml
     health-check:
@@ -95,7 +95,7 @@ proxy-providers:
   🏢 机场C:
     type: http
     # 机场C需要向机场获取 Clash 格式订阅链接替换此处
-    url: "填写机场clash订阅地址"
+    url: "请填写自己的 Clash 订阅的地址"
     interval: 3600
     path: ./providers/proxy/airport-c.yaml
     health-check:
@@ -140,10 +140,7 @@ rule-providers:
     path: ./providers/rule/mydirect.yaml
     interval: 86400
 
-  # ⚠️ 自维护加密货币规则
-  # 需先在 GitHub 仓库建好 custom-rules/My-Crypto.list 文件才能生效
-  # 文件不存在时 Stash 会跳过此规则并持续提示加载失败，建好后即恢复正常
-  # 如暂时不想看到提示，可将此段注释掉，同时注释掉 rules 里的 MyCrypto 那行
+  # 自维护加密货币规则（GitHub 已建好）
   MyCrypto:
     type: http
     behavior: classical
@@ -518,12 +515,12 @@ proxy-groups:
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
     proxies:
-      - ♻️ 自动选择
-      - 🇺🇲 美国
       - 🇸🇬 狮城
-      - 🇯🇵 日本
       - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
       - 🇹🇼 台湾
+      - ♻️ 自动选择
 
   - name: 🛑 广告拦截
     type: select
@@ -663,7 +660,6 @@ rules:
   # ── 流媒体 ────────────────────────────────────────────────
   - RULE-SET,Netflix,📺 流媒体
   - RULE-SET,Disney,📺 流媒体
-  - RULE-SET,YouTube,📺 流媒体
   - RULE-SET,TikTok,📺 流媒体
 
   # ── 社交媒体 ──────────────────────────────────────────────
@@ -687,6 +683,7 @@ rules:
   - RULE-SET,Nintendo,🎮 游戏平台
 
   # ── 基础设施 ──────────────────────────────────────────────
+  - RULE-SET,YouTube,🌐 谷歌服务
   - RULE-SET,Google,🌐 谷歌服务
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
