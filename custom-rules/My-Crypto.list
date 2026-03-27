@@ -1,0 +1,17 @@
+# 自维护加密货币规则
+# 更新日期：2026-03
+
+# Hyperliquid
+DOMAIN-SUFFIX,hyperliquid.xyz
+DOMAIN-SUFFIX,app.hyperliquid.xyz
+
+# Lighter
+DOMAIN-SUFFIX,lighter.xyz
+DOMAIN-SUFFIX,app.lighter.xyz
+
+# 其他链上交易所/DeFi（遇到新的往下加）
+DOMAIN-SUFFIX,uniswap.org
+DOMAIN-SUFFIX,app.uniswap.org
+DOMAIN-SUFFIX,dydx.exchange
+DOMAIN-SUFFIX,aave.com
+DOMAIN-SUFFIX,compound.finance
