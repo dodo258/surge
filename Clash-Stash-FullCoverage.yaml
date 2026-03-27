@@ -42,19 +42,19 @@ dns:
     - https://dns.alidns.com/dns-query
   # nameserver-policy：高频国内域名固定走国内 DNS，比 fallback-filter 更精准快速
   nameserver-policy:
-    "+.cn": [223.5.5.5, 119.29.29.29]
-    "+.taobao.com": [223.5.5.5]
-    "+.tmall.com": [223.5.5.5]
-    "+.alipay.com": [223.5.5.5]
-    "+.aliyun.com": [223.5.5.5]
-    "+.baidu.com": [223.5.5.5]
-    "+.qq.com": [119.29.29.29]
-    "+.tencent.com": [119.29.29.29]
-    "+.weixin.qq.com": [119.29.29.29]
-    "+.jd.com": [119.29.29.29]
-    "+.meituan.com": [119.29.29.29]
-    "+.meituan.net": [119.29.29.29]
-    "+.bytedance.com": [119.29.29.29]
+    "+.cn": 223.5.5.5
+    "+.taobao.com": 223.5.5.5
+    "+.tmall.com": 223.5.5.5
+    "+.alipay.com": 223.5.5.5
+    "+.aliyun.com": 223.5.5.5
+    "+.baidu.com": 223.5.5.5
+    "+.qq.com": 119.29.29.29
+    "+.tencent.com": 119.29.29.29
+    "+.weixin.qq.com": 119.29.29.29
+    "+.jd.com": 119.29.29.29
+    "+.meituan.com": 119.29.29.29
+    "+.meituan.net": 119.29.29.29
+    "+.bytedance.com": 119.29.29.29
   fallback:
     - https://dns.cloudflare.com/dns-query
     - https://dns.google/dns-query
@@ -74,7 +74,7 @@ dns:
 proxy-providers:
   🏢 机场A:
     type: http
-    url: "请填写机场clash订阅地址"
+    url: "填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-a.yaml
     health-check:
@@ -84,7 +84,7 @@ proxy-providers:
 
   🏢 机场B:
     type: http
-    url: "请填写机场clash订阅地址"
+    url: "填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-b.yaml
     health-check:
@@ -95,7 +95,7 @@ proxy-providers:
   🏢 机场C:
     type: http
     # 机场C需要向机场获取 Clash 格式订阅链接替换此处
-    url: "请填写机场clash订阅地址"
+    url: "填写机场clash订阅地址"
     interval: 3600
     path: ./providers/proxy/airport-c.yaml
     health-check:
