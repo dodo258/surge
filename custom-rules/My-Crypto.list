@@ -24,6 +24,10 @@ DOMAIN-SUFFIX,asterdex.com
 DOMAIN-SUFFIX,injective.com
 DOMAIN-SUFFIX,injective.network
 DOMAIN-SUFFIX,heliosx.io
+# Lighter 后端域名
+DOMAIN-SUFFIX,zklighter.elliot.ai
+DOMAIN-SUFFIX,elliot.ai
+
 
 # ── Spot DEX（bm7 未覆盖的）─────────────────────────────────
 DOMAIN-SUFFIX,raydium.io
