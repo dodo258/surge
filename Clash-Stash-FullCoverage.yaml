@@ -156,6 +156,13 @@ rule-providers:
     interval: 86400
 
   # ── 加密货币 ──────────────────────────────────────────────
+  MyCrypto:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/dodo258/surge@main/custom-rules/My-Crypto.list"
+    path: ./providers/rule/mycrypto.yaml
+    interval: 86400
+
   Binance:
     type: http
     behavior: classical
@@ -691,6 +698,7 @@ rules:
   - RULE-SET,China,DIRECT
 
   # ── 加密货币 ──────────────────────────────────────────────
+  - RULE-SET,MyCrypto,📈 加密货币
   - RULE-SET,Binance,📈 加密货币
   - RULE-SET,OKX,📈 加密货币
   - RULE-SET,Crypto,📈 加密货币
