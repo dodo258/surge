@@ -15,3 +15,12 @@ DOMAIN-SUFFIX,app.uniswap.org
 DOMAIN-SUFFIX,dydx.exchange
 DOMAIN-SUFFIX,aave.com
 DOMAIN-SUFFIX,compound.finance
+
+# 预测市场平台
+DOMAIN-SUFFIX,polymarket.com
+DOMAIN-SUFFIX,augur.net
+DOMAIN-SUFFIX,gnosis.io
+DOMAIN-SUFFIX,gnosischain.com
+DOMAIN-SUFFIX,manifold.markets
+DOMAIN-SUFFIX,kalshi.com
+DOMAIN-SUFFIX,metaculus.com
