@@ -1,26 +1,74 @@
-# 自维护加密货币规则
-# 更新日期：2026-03
+# 自维护加密货币规则 · My-Crypto.list
+# 只收录 bm7 规则库未覆盖的平台
+# 更新：2026-03
 
-# Hyperliquid
+# ── Perp DEX（永续合约）──────────────────────────────────────
 DOMAIN-SUFFIX,hyperliquid.xyz
-DOMAIN-SUFFIX,app.hyperliquid.xyz
-
-# Lighter
 DOMAIN-SUFFIX,lighter.xyz
-DOMAIN-SUFFIX,app.lighter.xyz
-
-# 其他链上交易所/DeFi（遇到新的往下加）
-DOMAIN-SUFFIX,uniswap.org
-DOMAIN-SUFFIX,app.uniswap.org
 DOMAIN-SUFFIX,dydx.exchange
-DOMAIN-SUFFIX,aave.com
-DOMAIN-SUFFIX,compound.finance
+DOMAIN-SUFFIX,dydx.trade
+DOMAIN-SUFFIX,dydx.community
+DOMAIN-SUFFIX,gmx.io
+DOMAIN-SUFFIX,drift.trade
+DOMAIN-SUFFIX,vertexprotocol.com
+DOMAIN-SUFFIX,gains.trade
+DOMAIN-SUFFIX,gtrade.xyz
+DOMAIN-SUFFIX,mux.network
+DOMAIN-SUFFIX,aevo.xyz
+DOMAIN-SUFFIX,orderly.network
+DOMAIN-SUFFIX,synthetix.io
+DOMAIN-SUFFIX,kwenta.io
+DOMAIN-SUFFIX,intentx.io
+DOMAIN-SUFFIX,myx.finance
+DOMAIN-SUFFIX,asterdex.com
+DOMAIN-SUFFIX,injective.com
+DOMAIN-SUFFIX,injective.network
+DOMAIN-SUFFIX,heliosx.io
 
-# 预测市场平台
+# ── Spot DEX（bm7 未覆盖的）─────────────────────────────────
+DOMAIN-SUFFIX,raydium.io
+DOMAIN-SUFFIX,jup.ag
+DOMAIN-SUFFIX,orca.so
+DOMAIN-SUFFIX,aerodrome.finance
+DOMAIN-SUFFIX,velodrome.finance
+DOMAIN-SUFFIX,thorswap.finance
+DOMAIN-SUFFIX,thorchain.org
+DOMAIN-SUFFIX,cow.fi
+DOMAIN-SUFFIX,0x.org
+
+# ── 跨链桥 ───────────────────────────────────────────────────
+DOMAIN-SUFFIX,across.to
+DOMAIN-SUFFIX,stargate.finance
+DOMAIN-SUFFIX,orbiter.finance
+DOMAIN-SUFFIX,hop.exchange
+DOMAIN-SUFFIX,li.fi
+DOMAIN-SUFFIX,bungee.exchange
+
+# ── DeFi 收益 / 借贷（bm7 未覆盖的）────────────────────────
+DOMAIN-SUFFIX,morpho.org
+DOMAIN-SUFFIX,pendle.finance
+DOMAIN-SUFFIX,ethena.fi
+DOMAIN-SUFFIX,convexfinance.com
+DOMAIN-SUFFIX,lido.fi
+DOMAIN-SUFFIX,rocketpool.net
+
+# ── 预测市场 ──────────────────────────────────────────────────
 DOMAIN-SUFFIX,polymarket.com
-DOMAIN-SUFFIX,augur.net
-DOMAIN-SUFFIX,gnosis.io
-DOMAIN-SUFFIX,gnosischain.com
-DOMAIN-SUFFIX,manifold.markets
 DOMAIN-SUFFIX,kalshi.com
-DOMAIN-SUFFIX,metaculus.com
+DOMAIN-SUFFIX,manifold.markets
+
+# ── 数据分析（bm7 未覆盖的）─────────────────────────────────
+DOMAIN-SUFFIX,defillama.com
+DOMAIN-SUFFIX,dune.com
+DOMAIN-SUFFIX,nansen.ai
+DOMAIN-SUFFIX,messari.io
+DOMAIN-SUFFIX,theblock.co
+
+# ── 基础设施 ──────────────────────────────────────────────────
+DOMAIN-SUFFIX,rabby.io
+DOMAIN-SUFFIX,rainbow.me
+DOMAIN-SUFFIX,walletconnect.com
+DOMAIN-SUFFIX,walletconnect.org
+DOMAIN-SUFFIX,thegraph.com
+DOMAIN-SUFFIX,infura.io
+DOMAIN-SUFFIX,alchemy.com
