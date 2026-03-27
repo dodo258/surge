@@ -17,30 +17,47 @@ tcp-concurrency: 8
 http-timeout: 30000
 
 # ── DNS ──────────────────────────────────────────────────────
-# nameserver：只用国内 DNS，国内域名解析最准
-# fallback：境外域名兜底 DNS，fallback-filter 防止国内域名走 fallback 被污染
 dns:
   enable: true
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
+  # +. 前缀同时匹配根域名和所有子域名（Stash/Clash 正确写法）
+  # *.前缀只匹配子域名，不含根域名本身
   fake-ip-filter:
-    - "*.lan"
-    - "*.local"
-    - "*.localhost"
-    - localhost.ptlogin2.qq.com
-    - "*.weixin.qq.com"
-    - "*.wx.qq.com"
-    - "*.alipay.com"
-    - "*.taobao.com"
-    - "*.jd.com"
+    - "+.lan"
+    - "+.local"
+    - "+.localhost"
+    - "localhost.ptlogin2.qq.com"
+    - "+.weixin.qq.com"
+    - "+.wx.qq.com"
+    - "+.alipay.com"
+    - "+.taobao.com"
+    - "+.jd.com"
+    - "+.meituan.com"
+    - "+.meituan.net"
+    - "+.dianping.com"
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
     - https://dns.alidns.com/dns-query
+  # nameserver-policy：高频国内域名固定走国内 DNS，比 fallback-filter 更精准快速
+  nameserver-policy:
+    "+.cn": [223.5.5.5, 119.29.29.29]
+    "+.taobao.com": [223.5.5.5]
+    "+.tmall.com": [223.5.5.5]
+    "+.alipay.com": [223.5.5.5]
+    "+.aliyun.com": [223.5.5.5]
+    "+.baidu.com": [223.5.5.5]
+    "+.qq.com": [119.29.29.29]
+    "+.tencent.com": [119.29.29.29]
+    "+.weixin.qq.com": [119.29.29.29]
+    "+.jd.com": [119.29.29.29]
+    "+.meituan.com": [119.29.29.29]
+    "+.meituan.net": [119.29.29.29]
+    "+.bytedance.com": [119.29.29.29]
   fallback:
-    - 8.8.8.8
-    - 1.1.1.1
     - https://dns.cloudflare.com/dns-query
+    - https://dns.google/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -51,20 +68,13 @@ dns:
 # ══════════════════════════════════════════════════════════════
 # proxy-providers — 机场订阅
 #
-# ⚠️ 重要：Stash/Clash 需要 Clash 格式订阅，不能用 Surge 格式链接
-#
-# 获取 Clash 格式订阅的方法：
-#   方法1：登录机场官网，找「Clash」或「Clash Meta」订阅链接
-#   方法2：如果只有通用链接，在链接末尾加 &target=clash
-#   方法3：通过 Sub-Store 转换（新建订阅 → 目标格式选 Clash）
-#
-# 三个机场的订阅链接已预填（需要替换为 Clash 格式版本）
+# ⚠️ 需要 Clash 格式订阅链接，不能用 Surge 格式
+# 获取方法：机场官网找 Clash 链接，或在链接末尾加 &target=clash
 # ══════════════════════════════════════════════════════════════
 proxy-providers:
   🏢 机场A:
     type: http
-    # 原 Surge 链接：target=surge → 改为 target=clash
-    url: "请在此填写自己的订阅链接"
+    url: "填写自己的订阅链接"
     interval: 3600
     path: ./providers/proxy/airport-a.yaml
     health-check:
@@ -74,8 +84,7 @@ proxy-providers:
 
   🏢 机场B:
     type: http
-    # 原 Surge 链接：type=surge → 改为 type=clash
-    url: "请在此填写自己的订阅链接"
+    url: "填写自己的订阅链接"
     interval: 3600
     path: ./providers/proxy/airport-b.yaml
     health-check:
@@ -85,9 +94,8 @@ proxy-providers:
 
   🏢 机场C:
     type: http
-    # 机场C的链接是 Base64 编码，解码后是 Surge 格式，需要向机场获取 Clash 格式链接
-    # 临时保留原链接，如无法使用请联系机场客服获取 Clash 订阅链接
-    url: "请在此填写自己的订阅链接"
+    # 机场C需要向机场获取 Clash 格式订阅链接替换此处
+    url: "填写自己的订阅链接"
     interval: 3600
     path: ./providers/proxy/airport-c.yaml
     health-check:
@@ -98,19 +106,7 @@ proxy-providers:
 
 # ══════════════════════════════════════════════════════════════
 # proxies — VPS 节点（链式代理出口）
-#
-# 链式代理原理：
-#   设备 → 机场专线节点（穿越 GFW）→ 你的 VPS（干净出口 IP）→ 目标网站
-#
-# Stash 官方推荐使用 dialer-proxy（比旧版 relay 更强，支持 TCP+UDP）
-# dialer-proxy 引用策略组，可动态选择机场入口地区
-#
-# VPS 搭好后取消注释，填入真实参数：
-#   server: 你的VPS_IP
-#   port: 443
-#   uuid: 你的UUID
-#   servername: 你的SNI或留空
-#
+# VPS 搭好后取消注释，填入真实参数
 # ══════════════════════════════════════════════════════════════
 proxies: []
 # proxies:
@@ -122,7 +118,6 @@ proxies: []
 #     tls: true
 #     skip-cert-verify: false
 #     network: tcp
-#     # dialer-proxy 指向链式上游策略组，可动态切换入口地区
 #     dialer-proxy: 🔗 链式上游
 
 
@@ -131,7 +126,6 @@ proxies: []
 # ══════════════════════════════════════════════════════════════
 rule-providers:
 
-  # ── 广告拦截（保守版，误杀国内 SDK 概率更低）────────────────
   Advertising:
     type: http
     behavior: classical
@@ -139,7 +133,6 @@ rule-providers:
     path: ./providers/rule/advertising.yaml
     interval: 86400
 
-  # ── 用户直连白名单（香港银行、海外券商）──────────────────────
   MyDirect:
     type: http
     behavior: classical
@@ -147,20 +140,22 @@ rule-providers:
     path: ./providers/rule/mydirect.yaml
     interval: 86400
 
-  # ── 国内直连 ──────────────────────────────────────────────
-  China:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list"
-    path: ./providers/rule/china.yaml
-    interval: 86400
-
-  # ── 加密货币 ──────────────────────────────────────────────
+  # ⚠️ 自维护加密货币规则
+  # 需先在 GitHub 仓库建好 custom-rules/My-Crypto.list 文件才能生效
+  # 文件不存在时 Stash 会跳过此规则并持续提示加载失败，建好后即恢复正常
+  # 如暂时不想看到提示，可将此段注释掉，同时注释掉 rules 里的 MyCrypto 那行
   MyCrypto:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/dodo258/surge@main/custom-rules/My-Crypto.list"
     path: ./providers/rule/mycrypto.yaml
+    interval: 86400
+
+  China:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China.list"
+    path: ./providers/rule/china.yaml
     interval: 86400
 
   Binance:
@@ -191,7 +186,6 @@ rule-providers:
     path: ./providers/rule/cryptocurrency.yaml
     interval: 86400
 
-  # ── GitHub ────────────────────────────────────────────────
   GitHub:
     type: http
     behavior: classical
@@ -199,7 +193,6 @@ rule-providers:
     path: ./providers/rule/github.yaml
     interval: 86400
 
-  # ── AI 平台 ───────────────────────────────────────────────
   OpenAI:
     type: http
     behavior: classical
@@ -221,7 +214,6 @@ rule-providers:
     path: ./providers/rule/gemini.yaml
     interval: 86400
 
-  # ── 流媒体 ────────────────────────────────────────────────
   Netflix:
     type: http
     behavior: classical
@@ -250,7 +242,6 @@ rule-providers:
     path: ./providers/rule/tiktok.yaml
     interval: 86400
 
-  # ── 社交媒体 ──────────────────────────────────────────────
   Telegram:
     type: http
     behavior: classical
@@ -279,7 +270,6 @@ rule-providers:
     path: ./providers/rule/facebook.yaml
     interval: 86400
 
-  # ── 购物支付 ──────────────────────────────────────────────
   PayPal:
     type: http
     behavior: classical
@@ -294,7 +284,6 @@ rule-providers:
     path: ./providers/rule/amazon.yaml
     interval: 86400
 
-  # ── 券商直连 ──────────────────────────────────────────────
   TigerFintech:
     type: http
     behavior: classical
@@ -302,7 +291,6 @@ rule-providers:
     path: ./providers/rule/tigerfintech.yaml
     interval: 86400
 
-  # ── 游戏平台 ──────────────────────────────────────────────
   Steam:
     type: http
     behavior: classical
@@ -338,7 +326,6 @@ rule-providers:
     path: ./providers/rule/nintendo.yaml
     interval: 86400
 
-  # ── 基础设施 ──────────────────────────────────────────────
   Google:
     type: http
     behavior: classical
@@ -366,7 +353,6 @@ rule-providers:
 # ══════════════════════════════════════════════════════════════
 proxy-groups:
 
-  # ── 主节点选择 ──────────────────────────────────────────────
   - name: 🚀 节点选择
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png
@@ -401,10 +387,6 @@ proxy-groups:
       - 🇰🇷 韩国
 
   # ── 链式出口（VPS 搭好后取消注释）──────────────────────────
-  # Stash 官方推荐 dialer-proxy，比旧版 relay 更强，支持 TCP+UDP
-  # dialer-proxy 写在 proxies: 的节点定义里，不在策略组里
-  # 这里的「链式上游」策略组负责选择机场入口地区
-  #
   # - name: 🔗 链式上游
   #   type: select
   #   icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available.png
@@ -476,7 +458,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # 流媒体：手动锁定地区，避免 url-test 跨地区跳节点导致 Netflix/Disney+ 掉库
   - name: 📺 流媒体
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Streaming.png
@@ -527,7 +508,6 @@ proxy-groups:
       - ♻️ 自动选择
       - 🚀 节点选择
 
-  # ── 基础设施 ────────────────────────────────────────────────
   - name: 🍎 苹果服务
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_1.png
@@ -567,7 +547,6 @@ proxy-groups:
       - 🚀 节点选择
       - DIRECT
 
-  # ── 兜底 ────────────────────────────────────────────────────
   - name: 🎯 全球直连
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
@@ -590,7 +569,7 @@ proxy-groups:
       - 🚀 节点选择
       - DIRECT
 
-  # ── 地区节点（三机场聚合 + 正则过滤 + 自动测速）────────────
+  # ── 地区节点 ────────────────────────────────────────────────
   - name: 🇭🇰 香港
     type: url-test
     include-all: true
@@ -647,11 +626,10 @@ proxy-groups:
 
 
 # ══════════════════════════════════════════════════════════════
-# rules — 规则表（从上到下，命中即停止）
-#
-# 顺序：本地 → 广告 → 白名单 → Apple明确规则 → 微信支付宝 →
-#        国内直连 → 各场景代理规则 → GEOIP兜底 → MATCH
-# ⚠️ GEOIP CN 必须在所有代理规则之后！
+# rules — 规则表
+# 顺序：本地 → 广告 → 白名单 → Apple明确 → 微信支付宝 → 美团 →
+#        国内直连 → 各场景代理 → GEOIP → MATCH
+# ⚠️ GEOIP CN 必须在所有代理规则之后
 # ══════════════════════════════════════════════════════════════
 rules:
   # ── 本地网络 ──────────────────────────────────────────────
@@ -668,8 +646,7 @@ rules:
   # ── 用户直连白名单（香港银行、海外券商）────────────────────
   - RULE-SET,MyDirect,DIRECT
 
-  # ── 苹果 / iCloud 明确规则（补充规则库未收录的动态子域名）──
-  # Apple.list 不含 p152-caldav.icloud.com 等动态子域名，需显式补充
+  # ── 苹果 / iCloud 明确规则 ──────────────────────────────────
   - DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
   - DOMAIN-SUFFIX,icloud.com.cn,🍎 苹果服务
   - DOMAIN-SUFFIX,apple.com,🍎 苹果服务
@@ -688,7 +665,8 @@ rules:
   - DOMAIN-SUFFIX,alipayobjects.com,DIRECT
   - DOMAIN-SUFFIX,alipayhk.com,DIRECT
   - DOMAIN-SUFFIX,alipay.hk,DIRECT
-  # ── 美团 / 大众点评明确直连 ──────────────────────────────────
+
+  # ── 美团 / 大众点评明确直连 ─────────────────────────────────
   - DOMAIN-SUFFIX,meituan.com,DIRECT
   - DOMAIN-SUFFIX,meituan.net,DIRECT
   - DOMAIN-SUFFIX,dianping.com,DIRECT
@@ -697,7 +675,7 @@ rules:
   # ── 国内直连 ──────────────────────────────────────────────
   - RULE-SET,China,DIRECT
 
-  # ── 加密货币 ──────────────────────────────────────────────
+  # ── 加密货币（自维护规则优先）────────────────────────────────
   - RULE-SET,MyCrypto,📈 加密货币
   - RULE-SET,Binance,📈 加密货币
   - RULE-SET,OKX,📈 加密货币
@@ -743,7 +721,7 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
 
-  # ── GeoIP 兜底（必须在所有代理规则之后）────────────────────
+  # ── GeoIP 兜底 ────────────────────────────────────────────
   - GEOIP,CN,DIRECT,no-resolve
 
   # ── 最终兜底 ──────────────────────────────────────────────
