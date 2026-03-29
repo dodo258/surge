@@ -26,6 +26,16 @@ DOMAIN-SUFFIX,bybit.ae
 DOMAIN-SUFFIX,bybit.id
 DOMAIN-SUFFIX,bybitgeorgia.ge
 DOMAIN-SUFFIX,bybitglobal.com
+DOMAIN-SUFFIX,bybit.cloud
+DOMAIN-SUFFIX,bybits.org
+DOMAIN-SUFFIX,bybitgum.org
+DOMAIN-SUFFIX,bybits.io
+DOMAIN-SUFFIX,bybitx.global
+DOMAIN-SUFFIX,bybit.global
+DOMAIN-SUFFIX,bybitgum.com
+DOMAIN-SUFFIX,bybit-global.com
+DOMAIN-SUFFIX,bymj.io
+DOMAIN-SUFFIX,bycsi.com
 DOMAIN,monitor-frontend-collector.a.bybit-aws.com
 
 # ── Bitget 交易所 ─────────────────────────────────────────────
@@ -33,6 +43,22 @@ DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bitgetapi.com
 DOMAIN-SUFFIX,bg.exchange
 DOMAIN-SUFFIX,bitgetwallet.com
+
+# ── OKX 补充后端域名 ──────────────────────────────────────────
+# coinall.ltd 是 OKX 推送域名，必须加否则走 GEOIP CN 直连
+DOMAIN-SUFFIX,coinall.ltd
+DOMAIN-SUFFIX,okx-dns.com
+DOMAIN-SUFFIX,okx-dns1.com
+DOMAIN-SUFFIX,okx-dns2.com
+DOMAIN-SUFFIX,gihiji.com
+
+# ── Binance 补充后端域名 ──────────────────────────────────────
+DOMAIN-SUFFIX,mokexapp.org
+DOMAIN-SUFFIX,mokexapp.me
+DOMAIN-SUFFIX,saasexch.info
+DOMAIN-SUFFIX,saasexch.co
+DOMAIN-SUFFIX,saasexch.com
+DOMAIN-SUFFIX,bsappapi.com
 
 # ── Bitget Wallet（原 BitKeep）Web3 钱包 ─────────────────────
 DOMAIN-SUFFIX,bitkeep.com
