@@ -1,78 +1,235 @@
 # 自维护加密货币规则 · My-Crypto.list
-# 只收录 bm7 规则库未覆盖的平台
 # 更新：2026-03
+# 说明：仅收录 bm7 规则库未覆盖的平台，避免重复
+# bm7 已收录（无需重复添加）：
+#   Binance、OKX、bybit.com、coinbase.com、bitfinex.com、bitmex.com
+#   coingecko.com、coinmarketcap.com、Uniswap、1inch、Curve、Aave
+#   Compound、MetaMask、OpenSea
 
-# ── Perp DEX（永续合约）──────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
+# CEX 中心化交易所
+# ══════════════════════════════════════════════════════════════
+
+# ── Bybit 后端域名（抓包验证，bm7 未收录）──────────────────
+DOMAIN-SUFFIX,bytick.com
+DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bybit.biz
+DOMAIN-SUFFIX,bybdc6.com
+DOMAIN-SUFFIX,byabcde.com
+DOMAIN-SUFFIX,byd3c3.com
+DOMAIN-SUFFIX,byhkbit.com
+DOMAIN-SUFFIX,bybit-tr.com
+DOMAIN-SUFFIX,bybit.kz
+DOMAIN-SUFFIX,bybit.nl
+DOMAIN-SUFFIX,bybit.eu
+DOMAIN-SUFFIX,bybit.ae
+DOMAIN-SUFFIX,bybit.id
+DOMAIN-SUFFIX,bybitgeorgia.ge
+DOMAIN-SUFFIX,bybitglobal.com
+DOMAIN,monitor-frontend-collector.a.bybit-aws.com
+
+# ── Bitget 交易所 ─────────────────────────────────────────────
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,bitgetapi.com
+DOMAIN-SUFFIX,bg.exchange
+DOMAIN-SUFFIX,bitgetwallet.com
+
+# ── Bitget Wallet（原 BitKeep）Web3 钱包 ─────────────────────
+DOMAIN-SUFFIX,bitkeep.com
+DOMAIN-SUFFIX,bitkeep.life
+DOMAIN-SUFFIX,bitkeep.app
+DOMAIN-SUFFIX,bitkeep.io
+
+# ── Gate.io ───────────────────────────────────────────────────
+DOMAIN-SUFFIX,gate.io
+DOMAIN-SUFFIX,gate.com
+DOMAIN-SUFFIX,gateio.ws
+DOMAIN-SUFFIX,gateio.ch
+DOMAIN-SUFFIX,gatecdn.com
+
+# ── KuCoin ────────────────────────────────────────────────────
+DOMAIN-SUFFIX,kucoin.com
+DOMAIN-SUFFIX,kucoincdn.com
+DOMAIN-SUFFIX,kucoin-assets.com
+
+# ── MEXC ──────────────────────────────────────────────────────
+DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,mexc-cdn.com
+DOMAIN-SUFFIX,mexc.co
+DOMAIN-SUFFIX,mexcpush.com
+
+# ── HTX（原火币 Huobi）───────────────────────────────────────
+DOMAIN-SUFFIX,htx.com
+DOMAIN-SUFFIX,huobi.com
+DOMAIN-SUFFIX,huobigroup.com
+DOMAIN-SUFFIX,hbfile.net
+DOMAIN-SUFFIX,hbdm.com
+DOMAIN-SUFFIX,hbcdn.com
+
+# ── Kraken ────────────────────────────────────────────────────
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,krakenfutures.com
+
+# ── Crypto.com ────────────────────────────────────────────────
+DOMAIN-SUFFIX,crypto.com
+DOMAIN-SUFFIX,crypto.org
+DOMAIN-SUFFIX,cryptocom.io
+
+# ── Gemini ────────────────────────────────────────────────────
+DOMAIN-SUFFIX,gemini.com
+
+# ── Phemex ────────────────────────────────────────────────────
+DOMAIN-SUFFIX,phemex.com
+
+# ── Pionex ────────────────────────────────────────────────────
+DOMAIN-SUFFIX,pionex.com
+
+# ══════════════════════════════════════════════════════════════
+# Perp DEX 永续合约去中心化交易所
+# ══════════════════════════════════════════════════════════════
+
+# ── Hyperliquid ───────────────────────────────────────────────
 DOMAIN-SUFFIX,hyperliquid.xyz
+
+# ── Lighter ───────────────────────────────────────────────────
 DOMAIN-SUFFIX,lighter.xyz
-DOMAIN-SUFFIX,dydx.exchange
-DOMAIN-SUFFIX,dydx.trade
-DOMAIN-SUFFIX,dydx.community
-DOMAIN-SUFFIX,gmx.io
-DOMAIN-SUFFIX,drift.trade
-DOMAIN-SUFFIX,vertexprotocol.com
-DOMAIN-SUFFIX,gains.trade
-DOMAIN-SUFFIX,gtrade.xyz
-DOMAIN-SUFFIX,mux.network
-DOMAIN-SUFFIX,aevo.xyz
-DOMAIN-SUFFIX,orderly.network
-DOMAIN-SUFFIX,synthetix.io
-DOMAIN-SUFFIX,kwenta.io
-DOMAIN-SUFFIX,intentx.io
-DOMAIN-SUFFIX,myx.finance
-DOMAIN-SUFFIX,asterdex.com
-DOMAIN-SUFFIX,injective.com
-DOMAIN-SUFFIX,injective.network
-DOMAIN-SUFFIX,heliosx.io
-# Lighter 后端域名
 DOMAIN-SUFFIX,zklighter.elliot.ai
 DOMAIN-SUFFIX,elliot.ai
 
+# ── dYdX ──────────────────────────────────────────────────────
+DOMAIN-SUFFIX,dydx.exchange
+DOMAIN-SUFFIX,dydx.trade
+DOMAIN-SUFFIX,dydx.community
 
-# ── Spot DEX（bm7 未覆盖的）─────────────────────────────────
+# ── GMX ───────────────────────────────────────────────────────
+DOMAIN-SUFFIX,gmx.io
+
+# ── Drift（Solana）────────────────────────────────────────────
+DOMAIN-SUFFIX,drift.trade
+
+# ── Vertex Protocol ───────────────────────────────────────────
+DOMAIN-SUFFIX,vertexprotocol.com
+
+# ── Gains Network（gTrade）───────────────────────────────────
+DOMAIN-SUFFIX,gains.trade
+DOMAIN-SUFFIX,gtrade.xyz
+
+# ── MUX Protocol ──────────────────────────────────────────────
+DOMAIN-SUFFIX,mux.network
+
+# ── Aevo ──────────────────────────────────────────────────────
+DOMAIN-SUFFIX,aevo.xyz
+
+# ── Orderly Network ───────────────────────────────────────────
+DOMAIN-SUFFIX,orderly.network
+
+# ── Injective ─────────────────────────────────────────────────
+DOMAIN-SUFFIX,injective.com
+DOMAIN-SUFFIX,injective.network
+DOMAIN-SUFFIX,helix.trade
+
+# ── MYX Finance ───────────────────────────────────────────────
+DOMAIN-SUFFIX,myx.finance
+
+# ── Aster DEX ─────────────────────────────────────────────────
+DOMAIN-SUFFIX,asterdex.com
+
+# ══════════════════════════════════════════════════════════════
+# Spot DEX（bm7 未覆盖的）
+# ══════════════════════════════════════════════════════════════
+
+# ── Raydium（Solana）──────────────────────────────────────────
 DOMAIN-SUFFIX,raydium.io
-DOMAIN-SUFFIX,jup.ag
-DOMAIN-SUFFIX,orca.so
-DOMAIN-SUFFIX,aerodrome.finance
-DOMAIN-SUFFIX,velodrome.finance
-DOMAIN-SUFFIX,thorswap.finance
-DOMAIN-SUFFIX,thorchain.org
-DOMAIN-SUFFIX,cow.fi
-DOMAIN-SUFFIX,0x.org
 
-# ── 跨链桥 ───────────────────────────────────────────────────
+# ── Jupiter（Solana 聚合器）──────────────────────────────────
+DOMAIN-SUFFIX,jup.ag
+
+# ── Orca（Solana）─────────────────────────────────────────────
+DOMAIN-SUFFIX,orca.so
+
+# ── Aerodrome（Base）─────────────────────────────────────────
+DOMAIN-SUFFIX,aerodrome.finance
+
+# ── Velodrome（Optimism）─────────────────────────────────────
+DOMAIN-SUFFIX,velodrome.finance
+
+# ── THORChain ─────────────────────────────────────────────────
+DOMAIN-SUFFIX,thorchain.org
+DOMAIN-SUFFIX,thorswap.finance
+
+# ── CoW Swap ──────────────────────────────────────────────────
+DOMAIN-SUFFIX,cow.fi
+
+# ── 0x Protocol / Matcha ──────────────────────────────────────
+DOMAIN-SUFFIX,0x.org
+DOMAIN-SUFFIX,matcha.xyz
+
+# ── PancakeSwap ───────────────────────────────────────────────
+DOMAIN-SUFFIX,pancakeswap.finance
+
+# ── SushiSwap ─────────────────────────────────────────────────
+DOMAIN-SUFFIX,sushi.com
+
+# ── Balancer ──────────────────────────────────────────────────
+DOMAIN-SUFFIX,balancer.fi
+
+# ══════════════════════════════════════════════════════════════
+# 跨链桥
+# ══════════════════════════════════════════════════════════════
 DOMAIN-SUFFIX,across.to
 DOMAIN-SUFFIX,stargate.finance
 DOMAIN-SUFFIX,orbiter.finance
 DOMAIN-SUFFIX,hop.exchange
 DOMAIN-SUFFIX,li.fi
 DOMAIN-SUFFIX,bungee.exchange
+DOMAIN-SUFFIX,synapseprotocol.com
+DOMAIN-SUFFIX,celer.network
 
-# ── DeFi 收益 / 借贷（bm7 未覆盖的）────────────────────────
+# ══════════════════════════════════════════════════════════════
+# DeFi 借贷 / 收益（bm7 未覆盖的）
+# ══════════════════════════════════════════════════════════════
 DOMAIN-SUFFIX,morpho.org
 DOMAIN-SUFFIX,pendle.finance
 DOMAIN-SUFFIX,ethena.fi
 DOMAIN-SUFFIX,convexfinance.com
 DOMAIN-SUFFIX,lido.fi
 DOMAIN-SUFFIX,rocketpool.net
+DOMAIN-SUFFIX,sky.money
+DOMAIN-SUFFIX,makerdao.com
 
-# ── 预测市场 ──────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
+# 预测市场
+# ══════════════════════════════════════════════════════════════
 DOMAIN-SUFFIX,polymarket.com
 DOMAIN-SUFFIX,kalshi.com
 DOMAIN-SUFFIX,manifold.markets
 
-# ── 数据分析（bm7 未覆盖的）─────────────────────────────────
+# ══════════════════════════════════════════════════════════════
+# 数据分析（bm7 未覆盖的）
+# ══════════════════════════════════════════════════════════════
 DOMAIN-SUFFIX,defillama.com
 DOMAIN-SUFFIX,dune.com
 DOMAIN-SUFFIX,nansen.ai
 DOMAIN-SUFFIX,messari.io
 DOMAIN-SUFFIX,theblock.co
+DOMAIN-SUFFIX,glassnode.com
 
-# ── 基础设施 ──────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
+# 钱包 / 基础设施（bm7 未覆盖的）
+# ══════════════════════════════════════════════════════════════
 DOMAIN-SUFFIX,rabby.io
 DOMAIN-SUFFIX,rainbow.me
 DOMAIN-SUFFIX,walletconnect.com
 DOMAIN-SUFFIX,walletconnect.org
+DOMAIN-SUFFIX,phantom.app
 DOMAIN-SUFFIX,thegraph.com
 DOMAIN-SUFFIX,infura.io
 DOMAIN-SUFFIX,alchemy.com
+DOMAIN-SUFFIX,quicknode.com
+
+# ══════════════════════════════════════════════════════════════
+# NEAR Protocol
+# ══════════════════════════════════════════════════════════════
+DOMAIN-SUFFIX,near.org
+DOMAIN-SUFFIX,mynearwallet.com
+DOMAIN-SUFFIX,chainnear.com
