@@ -1,6 +1,10 @@
 # 自维护加密货币规则 · My-Crypto.list
 # 更新：2026-03
 # 说明：仅收录 bm7 规则库未覆盖的平台，避免重复
+# 规则：
+# 1. 不允许收录主配置已有域名
+# 2. 仅允许日志命中但未被覆盖的域名
+# 3. 禁止加入高频核心站点（如 tradingview / debank）
 # bm7 已收录（无需重复添加）：
 #   Binance、OKX、bybit.com、coinbase.com、bitfinex.com、bitmex.com
 #   coingecko.com、coinmarketcap.com、Uniswap、1inch、Curve、Aave
