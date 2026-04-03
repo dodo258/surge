@@ -265,3 +265,6 @@ DOMAIN-SUFFIX,mynearwallet.com
 DOMAIN-SUFFIX,chainnear.com
 DOMAIN-SUFFIX,okex.org
 DOMAIN-SUFFIX,ouxyi.cash
+
+#补充
+DOMAIN-SUFFIX,coinglass.io
