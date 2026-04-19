@@ -1,0 +1,481 @@
+# Stash v4 clean rebuild
+# rebuilt from scratch for a practical personal setup
+# focus areas: AI, google, microsoft, apple, streaming, music, tiktok, social, crypto, ad filtering
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+    TLS:
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+        - 8443
+  skip-domain:
+    - Mijia Cloud
+    - '+.push.apple.com'
+    - '+.apple.com'
+    - '+.icloud.com'
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - tls://8.8.8.8:853
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  fake-ip-filter:
+    - '*.lan'
+    - '*.local'
+    - 'localhost.ptlogin2.qq.com'
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - 'stun.l.google.com'
+    - 'stun.cloudflare.com'
+    - 'time.apple.com'
+    - 'time-ios.apple.com'
+    - '*.ntp.org'
+
+http:
+  url-rewrite: []
+  script: []
+
+proxies:
+  - name: '🖥 JP自建-DMIT'
+    type: vless
+    server: 154.31.116.61
+    port: 443
+    uuid: 9dc70306-4769-437e-a95b-0b0ce99a58c2
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: true
+    sni: www.u-can.co.jp
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: y0LIgoGtLtxRblGfveTG11E6iHG5_LIRu6jNOpWafCU
+      short-id: 2db61e6b62c9e3e6
+    udp: true
+
+  - name: '🖥 US自建-Lisa'
+    type: vless
+    server: 38.97.249.92
+    port: 443
+    uuid: 40848c9a-ec00-49e5-a248-f18100b7bfcd
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: true
+    sni: www.officedepot.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: A8a5v83LHqMSexx0CcDtjQcxGaWibNd_0h-N-leo9n8
+      short-id: cf1c3a9516c9990f
+    udp: true
+
+  - name: '🖥 US自建-AI'
+    type: vless
+    server: 154.17.13.41
+    port: 443
+    uuid: 731a10ba-4b79-4831-ab77-c554dd3904c4
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: true
+    sni: www.calstatela.edu
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 7fjUaNEshqoZT6YITfF05Ee0CSSmhiSX01Lb-Qk5L0w
+      short-id: 29fd354b47daf804
+    udp: true
+
+  - name: '🖥 US自建-Netflix-SG'
+    type: vless
+    server: 154.17.13.41
+    port: 2443
+    uuid: 38fd1393-55b7-4029-84c8-8cae08bdf932
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: true
+    sni: www.uline.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 24Vz986Wh2kmGyu7Ln-RN79HG2l4KKMAKkKwRv8CWkI
+      short-id: 72c965a2c6e790a5
+    udp: true
+
+proxy-groups:
+  - name: 节点选择
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - '🖥 US自建-AI'
+      - '🖥 US自建-Lisa'
+      - DIRECT
+
+  - name: AI故障切换
+    type: fallback
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - '🖥 US自建-AI'
+      - '🖥 US自建-Lisa'
+
+  - name: AI服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png
+    proxies:
+      - AI故障切换
+      - '🖥 US自建-AI'
+      - '🖥 US自建-Lisa'
+      - DIRECT
+
+  - name: 谷歌服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - '🖥 US自建-AI'
+      - '🖥 US自建-Lisa'
+      - DIRECT
+
+  - name: 微软服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+    proxies:
+      - DIRECT
+      - '🖥 JP自建-DMIT'
+
+  - name: 苹果服务
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    proxies:
+      - DIRECT
+      - '🖥 JP自建-DMIT'
+
+  - name: 流媒体
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    proxies:
+      - '🖥 US自建-Netflix-SG'
+      - '🖥 US自建-AI'
+
+  - name: 音乐媒体
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - '🖥 US自建-AI'
+
+  - name: TikTok
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - '🖥 US自建-AI'
+
+  - name: 社交媒体
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - '🖥 US自建-Lisa'
+      - '🖥 US自建-AI'
+      - DIRECT
+
+  - name: 加密货币
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cryptocurrency.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - DIRECT
+
+  - name: 漏网之鱼
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    proxies:
+      - '🖥 JP自建-DMIT'
+      - 节点选择
+      - DIRECT
+
+  - name: 广告过滤
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+    proxies:
+      - REJECT
+      - DIRECT
+
+rule-providers:
+  bm7_advertising_lite:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
+    path: ./rule_providers/bm7_advertising_lite.yaml
+    interval: 86400
+
+  bm7_openai:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./rule_providers/bm7_openai.yaml
+    interval: 86400
+
+  bm7_claude:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
+    path: ./rule_providers/bm7_claude.yaml
+    interval: 86400
+
+  bm7_gemini:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+    path: ./rule_providers/bm7_gemini.yaml
+    interval: 86400
+
+  bm7_google:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+    path: ./rule_providers/bm7_google.yaml
+    interval: 86400
+
+  bm7_youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
+    path: ./rule_providers/bm7_youtube.yaml
+    interval: 86400
+
+  bm7_microsoft:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./rule_providers/bm7_microsoft.yaml
+    interval: 86400
+
+  bm7_apple:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
+    path: ./rule_providers/bm7_apple.yaml
+    interval: 86400
+
+  bm7_netflix:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
+    path: ./rule_providers/bm7_netflix.yaml
+    interval: 86400
+
+  bm7_disney:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
+    path: ./rule_providers/bm7_disney.yaml
+    interval: 86400
+
+  bm7_amazon:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml
+    path: ./rule_providers/bm7_amazon.yaml
+    interval: 86400
+
+  bm7_primevideo:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrimeVideo/PrimeVideo.yaml
+    path: ./rule_providers/bm7_primevideo.yaml
+    interval: 86400
+
+  bm7_hbo:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/HBO/HBO.yaml
+    path: ./rule_providers/bm7_hbo.yaml
+    interval: 86400
+
+  bm7_hulu:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hulu/Hulu.yaml
+    path: ./rule_providers/bm7_hulu.yaml
+    interval: 86400
+
+  bm7_bahamut:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml
+    path: ./rule_providers/bm7_bahamut.yaml
+    interval: 86400
+
+  bm7_spotify:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
+    path: ./rule_providers/bm7_spotify.yaml
+    interval: 86400
+
+  bm7_twitch:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitch/Twitch.yaml
+    path: ./rule_providers/bm7_twitch.yaml
+    interval: 86400
+
+  bm7_tiktok:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
+    path: ./rule_providers/bm7_tiktok.yaml
+    interval: 86400
+
+  bm7_telegram:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+    path: ./rule_providers/bm7_telegram.yaml
+    interval: 86400
+
+  bm7_discord:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.yaml
+    path: ./rule_providers/bm7_discord.yaml
+    interval: 86400
+
+  bm7_twitter:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
+    path: ./rule_providers/bm7_twitter.yaml
+    interval: 86400
+
+  bm7_facebook:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml
+    path: ./rule_providers/bm7_facebook.yaml
+    interval: 86400
+
+  bm7_reddit:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.yaml
+    path: ./rule_providers/bm7_reddit.yaml
+    interval: 86400
+
+  bm7_binance:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Binance/Binance.yaml
+    path: ./rule_providers/bm7_binance.yaml
+    interval: 86400
+
+  bm7_okx:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OKX/OKX.yaml
+    path: ./rule_providers/bm7_okx.yaml
+    interval: 86400
+
+  bm7_cryptocurrency:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cryptocurrency/Cryptocurrency.yaml
+    path: ./rule_providers/bm7_cryptocurrency.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,bm7_openai,AI服务
+  - RULE-SET,bm7_claude,AI服务
+  - RULE-SET,bm7_gemini,AI服务
+
+  - RULE-SET,bm7_google,谷歌服务
+  - RULE-SET,bm7_youtube,谷歌服务
+  - RULE-SET,bm7_microsoft,微软服务
+  - RULE-SET,bm7_apple,苹果服务
+
+  - RULE-SET,bm7_netflix,流媒体
+  - RULE-SET,bm7_disney,流媒体
+  - RULE-SET,bm7_amazon,流媒体
+  - RULE-SET,bm7_primevideo,流媒体
+  - RULE-SET,bm7_hbo,流媒体
+  - RULE-SET,bm7_hulu,流媒体
+  - RULE-SET,bm7_bahamut,流媒体
+  - RULE-SET,bm7_twitch,流媒体
+
+  - RULE-SET,bm7_spotify,音乐媒体
+  - RULE-SET,bm7_tiktok,TikTok
+
+  - RULE-SET,bm7_telegram,社交媒体
+  - RULE-SET,bm7_discord,社交媒体
+  - RULE-SET,bm7_twitter,社交媒体
+  - RULE-SET,bm7_facebook,社交媒体
+  - RULE-SET,bm7_reddit,社交媒体
+
+  - RULE-SET,bm7_binance,加密货币
+  - RULE-SET,bm7_okx,加密货币
+  - RULE-SET,bm7_cryptocurrency,加密货币
+
+  - RULE-SET,bm7_advertising_lite,广告过滤
+
+  - GEOIP,CN,DIRECT
+  - MATCH,漏网之鱼
