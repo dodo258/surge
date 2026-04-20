@@ -92,69 +92,6 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
-  - name: 香港节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
-    filter: '(?i)(🇭🇰|香港|\bHK\b|Hong\s?Kong|HongKong)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 日本节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
-    filter: '(?i)(🇯🇵|日本|\bJP\b|Japan)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 新加坡节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
-    filter: '(?i)(🇸🇬|新加坡|\bSG\b|Singapore)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 美国节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
-    filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America|Los\sAngeles|Seattle|San\sJose|San\sFrancisco|Chicago|New\sYork)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 台湾节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
-    filter: '(?i)(🇹🇼|台湾|\bTW\b|Taiwan)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 韩国节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
-    filter: '(?i)(🇰🇷|韩国|\bKR\b|Korea|Seoul)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 英国节点
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
-    filter: '(?i)(🇬🇧|英国|\bUK\b|United\sKingdom|Britain|London)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: 节点选择
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
@@ -263,6 +200,69 @@ proxy-groups:
       - 日本节点
       - 香港节点
       - DIRECT
+
+  - name: 香港节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    filter: '(?i)(🇭🇰|香港|\bHK\b|Hong\s?Kong|HongKong)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 日本节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    filter: '(?i)(🇯🇵|日本|\bJP\b|Japan)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 新加坡节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    filter: '(?i)(🇸🇬|新加坡|\bSG\b|Singapore)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 美国节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America|Los\sAngeles|Seattle|San\sJose|San\sFrancisco|Chicago|New\sYork)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 台湾节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    filter: '(?i)(🇹🇼|台湾|\bTW\b|Taiwan)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 韩国节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+    filter: '(?i)(🇰🇷|韩国|\bKR\b|Korea|Seoul)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 英国节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
+    filter: '(?i)(🇬🇧|英国|\bUK\b|United\sKingdom|Britain|London)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
 rule-providers:
   bm7_advertising_lite:
