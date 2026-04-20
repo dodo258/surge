@@ -1,6 +1,6 @@
 # Stash v4 public airport edition
 # public-share version for direct import
-# source config rebuilt from the private clean version, but replaces self-hosted nodes with two airport subscriptions
+# region-based auto selection inside each region group
 
 mixed-port: 7890
 allow-lan: false
@@ -92,98 +92,6 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
-  - name: 节点选择
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
-    include-all: true
-    proxies:
-      - 自动优选
-      - DIRECT
-
-  - name: 自动优选
-    type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: AI故障切换
-    type: fallback
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
-    filter: '(?i)(美|us|usa|united states|jp|日本|japan|sg|新加坡)'
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-
-  - name: AI服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
-    proxies:
-      - AI故障切换
-      - 自动优选
-      - DIRECT
-
-  - name: 谷歌服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png
-    proxies:
-      - 自动优选
-      - DIRECT
-
-  - name: 微软服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
-    proxies:
-      - DIRECT
-      - 自动优选
-
-  - name: 苹果服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
-    proxies:
-      - DIRECT
-      - 自动优选
-
-  - name: 流媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
-    proxies:
-      - 自动优选
-
-  - name: 音乐媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
-    proxies:
-      - 自动优选
-
-  - name: TikTok
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
-    proxies:
-      - 自动优选
-
-  - name: 社交媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
-    proxies:
-      - 自动优选
-      - DIRECT
-
-  - name: 加密货币
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency.png
-    proxies:
-      - 自动优选
-      - DIRECT
-
-  - name: 广告过滤
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
-    proxies:
-      - REJECT
-      - DIRECT
-
   - name: 香港节点
     type: url-test
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
@@ -220,20 +128,148 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
+  - name: 台湾节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    filter: '(?i)(台|tw|taiwan)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 韩国节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+    filter: '(?i)(韩|kr|korea)'
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 英国节点
+    type: url-test
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
+    filter: '(?i)(英|uk|united kingdom|britain)' 
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
   - name: 其他地区
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
     include-all: true
     proxies:
-      - 自动优选
+      - DIRECT
+
+  - name: 节点选择
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+    proxies:
+      - 香港节点
+      - 日本节点
+      - 新加坡节点
+      - 美国节点
+      - 台湾节点
+      - 韩国节点
+      - 英国节点
+      - 其他地区
+      - DIRECT
+
+  - name: AI服务
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 新加坡节点
+      - 香港节点
+      - DIRECT
+
+  - name: 谷歌服务
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png
+    proxies:
+      - 日本节点
+      - 美国节点
+      - 新加坡节点
+      - 香港节点
+      - DIRECT
+
+  - name: 微软服务
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
+    proxies:
+      - DIRECT
+      - 日本节点
+      - 香港节点
+
+  - name: 苹果服务
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
+    proxies:
+      - DIRECT
+      - 日本节点
+      - 香港节点
+
+  - name: 流媒体
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    proxies:
+      - 新加坡节点
+      - 日本节点
+      - 美国节点
+      - 香港节点
+
+  - name: 音乐媒体
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
+    proxies:
+      - 日本节点
+      - 美国节点
+      - 香港节点
+
+  - name: TikTok
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
+    proxies:
+      - 日本节点
+      - 美国节点
+      - 新加坡节点
+
+  - name: 社交媒体
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
+    proxies:
+      - 日本节点
+      - 美国节点
+      - 香港节点
+      - 新加坡节点
+      - DIRECT
+
+  - name: 加密货币
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency.png
+    proxies:
+      - 日本节点
+      - 香港节点
+      - 美国节点
+      - DIRECT
+
+  - name: 广告过滤
+    type: select
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
+    proxies:
+      - REJECT
       - DIRECT
 
   - name: 漏网之鱼
     type: select
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     proxies:
-      - 自动优选
       - 节点选择
+      - 日本节点
+      - 香港节点
       - DIRECT
 
 rule-providers:
