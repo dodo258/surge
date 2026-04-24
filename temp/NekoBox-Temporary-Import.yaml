@@ -1,6 +1,6 @@
-# Stash v4 public airport edition
-# public-share version for direct import
-# region-based auto selection inside each region group
+# Stash / Clash public airport edition (Android-friendly)
+# rebuilt for better Clash Meta for Android compatibility
+# key change: region groups use `use:` on proxy-providers instead of include-all
 
 mixed-port: 7890
 allow-lan: false
@@ -203,63 +203,77 @@ proxy-groups:
 
   - name: 香港节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇭🇰|香港|\bHK\b|Hong\s?Kong|HongKong)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 日本节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇯🇵|日本|\bJP\b|Japan)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 新加坡节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇸🇬|新加坡|\bSG\b|Singapore)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 美国节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America|Los\sAngeles|Seattle|San\sJose|San\sFrancisco|Chicago|New\sYork)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 台湾节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇹🇼|台湾|\bTW\b|Taiwan)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 韩国节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇰🇷|韩国|\bKR\b|Korea|Seoul)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 英国节点
     type: url-test
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
+    use:
+      - 花云机场
+      - KineticBloom
     filter: '(?i)(🇬🇧|英国|\bUK\b|United\sKingdom|Britain|London)'
-    include-all: true
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
