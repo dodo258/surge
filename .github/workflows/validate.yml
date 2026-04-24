@@ -24,40 +24,51 @@ jobs:
 
       - name: Basic file checks
         run: |
-          test -f Surge-Full-Overseas-FullCoverage.conf
-          test -f Clash-Stash-FullCoverage.yaml
-          test -d custom-rules
-          ls custom-rules/*.list
+          test -f stash/Stash-v4-public-airport.yaml
+          test -f stash/Stash-v4-public-airport-android.yaml
+          test -f custom-rules/My-Crypto.list
+          test -f custom-rules/My-Finance-Direct.list
+          test -f custom-rules-clash/My-Crypto.yaml
+          test -f custom-rules-clash/My-Finance-Direct.yaml
           echo "Basic files check passed"
 
       - name: YAML syntax check
         run: |
-          python3 -c "import yaml; yaml.safe_load(open('Clash-Stash-FullCoverage.yaml', encoding='utf-8'))"
-          echo "YAML syntax valid"
+          python3 - <<'PY'
+          import yaml
+          for path in [
+              'stash/Stash-v4-public-airport.yaml',
+              'stash/Stash-v4-public-airport-android.yaml',
+              'custom-rules-clash/My-Crypto.yaml',
+              'custom-rules-clash/My-Finance-Direct.yaml',
+          ]:
+              with open(path, encoding='utf-8') as f:
+                  yaml.safe_load(f)
+              print('YAML OK:', path)
+          PY
 
-      - name: Duplicate rule check (My-Direct.list)
+      - name: Duplicate rule check (active custom lists)
         run: |
           python3 - <<'PY'
           from collections import Counter
           from pathlib import Path
 
-          p = Path('custom-rules/My-Direct.list')
-          lines = []
-          for raw in p.read_text(encoding='utf-8').splitlines():
-              s = raw.strip()
-              if not s or s.startswith('#'):
-                  continue
-              lines.append(s)
-
-          c = Counter(lines)
-          dup = [k for k, v in c.items() if v > 1]
-          if dup:
-              print('Duplicate rules found:')
-              for k in dup:
-                  print(f'- {k} (x{c[k]})')
-              raise SystemExit(1)
-
-          print(f'No duplicate rules (total={len(lines)}, unique={len(c)})')
+          for rel in ['custom-rules/My-Crypto.list', 'custom-rules/My-Finance-Direct.list']:
+              p = Path(rel)
+              lines = []
+              for raw in p.read_text(encoding='utf-8').splitlines():
+                  s = raw.strip()
+                  if not s or s.startswith('#'):
+                      continue
+                  lines.append(s)
+              c = Counter(lines)
+              dup = [k for k, v in c.items() if v > 1]
+              if dup:
+                  print(f'Duplicate rules found in {rel}:')
+                  for k in dup:
+                      print(f'- {k} (x{c[k]})')
+                  raise SystemExit(1)
+              print(f'No duplicate rules in {rel} (total={len(lines)}, unique={len(c)})')
           PY
 
       - name: Run local validation script
