@@ -1,0 +1,11 @@
+payload:
+  - DOMAIN,www.airstarbank.com
+  - DOMAIN,www.zabank.com
+  - DOMAIN-SUFFIX,airstarbank.com
+  - DOMAIN-SUFFIX,airstarbank.com.hk
+  - DOMAIN-SUFFIX,antbank.com
+  - DOMAIN-SUFFIX,antbank.hk
+  - DOMAIN-SUFFIX,za.group
+  - DOMAIN-SUFFIX,zabank.com
+  - DOMAIN-SUFFIX,zabank.com.hk
+  - DOMAIN-SUFFIX,zabank.hk
