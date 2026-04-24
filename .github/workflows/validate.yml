@@ -24,8 +24,8 @@ jobs:
 
       - name: Basic file checks
         run: |
-          test -f stash/Stash-v4-public-airport.yaml
           test -f stash/Stash-v4-public-airport-android.yaml
+          test -f temp/NekoBox-Temporary-Import.yaml
           test -f custom-rules/My-Crypto.list
           test -f custom-rules/My-Finance-Direct.list
           test -f custom-rules-clash/My-Crypto.yaml
@@ -37,8 +37,8 @@ jobs:
           python3 - <<'PY'
           import yaml
           for path in [
-              'stash/Stash-v4-public-airport.yaml',
               'stash/Stash-v4-public-airport-android.yaml',
+              'temp/NekoBox-Temporary-Import.yaml',
               'custom-rules-clash/My-Crypto.yaml',
               'custom-rules-clash/My-Finance-Direct.yaml',
           ]:
@@ -52,7 +52,6 @@ jobs:
           python3 - <<'PY'
           from collections import Counter
           from pathlib import Path
-
           for rel in ['custom-rules/My-Crypto.list', 'custom-rules/My-Finance-Direct.list']:
               p = Path(rel)
               lines = []

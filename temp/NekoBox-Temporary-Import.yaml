@@ -1,74 +1,12 @@
-# Stash / Clash public airport edition (Android-friendly)
-# rebuilt for better Clash Meta for Android compatibility
-# key change: region groups use `use:` on proxy-providers instead of include-all
+# NekoBox temporary import version
+# lightweight provider-based config for easier Android import
+# purpose: give friends a simpler config than the full rule-heavy Clash/Stash version
 
 mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
 ipv6: false
-unified-delay: true
-
-profile:
-  store-selected: true
-  store-fake-ip: true
-
-sniffer:
-  enable: true
-  sniff:
-    HTTP:
-      ports:
-        - 80
-        - 8080-8880
-    TLS:
-      ports:
-        - 443
-        - 8443
-    QUIC:
-      ports:
-        - 443
-        - 8443
-  skip-domain:
-    - Mijia Cloud
-    - '+.push.apple.com'
-    - '+.apple.com'
-    - '+.icloud.com'
-
-dns:
-  enable: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  fallback:
-    - https://1.1.1.1/dns-query
-    - https://1.0.0.1/dns-query
-    - tls://8.8.8.8:853
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-  fake-ip-filter:
-    - '*.lan'
-    - '*.local'
-    - 'localhost.ptlogin2.qq.com'
-    - '+.srv.nintendo.net'
-    - '+.stun.playstation.net'
-    - 'stun.l.google.com'
-    - 'stun.cloudflare.com'
-    - 'time.apple.com'
-    - 'time-ios.apple.com'
-    - '*.ntp.org'
-
-http:
-  url-rewrite: []
-  script: []
 
 proxy-providers:
   花云机场:
@@ -94,112 +32,20 @@ proxy-providers:
 proxy-groups:
   - name: 节点选择
     type: select
+    use:
+      - 花云机场
+      - KineticBloom
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
-    proxies:
-      - 香港节点
-      - 日本节点
-      - 新加坡节点
-      - 美国节点
-      - 台湾节点
-      - 韩国节点
-      - 英国节点
-      - DIRECT
 
-  - name: AI服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
-    proxies:
-      - 美国节点
-      - 日本节点
-      - 新加坡节点
-      - 香港节点
-      - DIRECT
-
-  - name: 谷歌服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png
-    proxies:
-      - 日本节点
-      - 美国节点
-      - 新加坡节点
-      - 香港节点
-      - DIRECT
-
-  - name: 微软服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
-    proxies:
-      - DIRECT
-      - 日本节点
-      - 香港节点
-
-  - name: 苹果服务
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
-    proxies:
-      - DIRECT
-      - 日本节点
-      - 香港节点
-
-  - name: 流媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
-    proxies:
-      - 新加坡节点
-      - 日本节点
-      - 美国节点
-      - 香港节点
-
-  - name: 音乐媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png
-    proxies:
-      - 日本节点
-      - 美国节点
-      - 香港节点
-
-  - name: TikTok
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
-    proxies:
-      - 日本节点
-      - 美国节点
-      - 新加坡节点
-
-  - name: 社交媒体
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
-    proxies:
-      - 日本节点
-      - 美国节点
-      - 香港节点
-      - 新加坡节点
-      - DIRECT
-
-  - name: 加密货币
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cryptocurrency.png
-    proxies:
-      - 日本节点
-      - 香港节点
-      - 美国节点
-      - DIRECT
-
-  - name: 广告过滤
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png
-    proxies:
-      - REJECT
-      - DIRECT
-
-  - name: 漏网之鱼
-    type: select
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
-    proxies:
-      - 节点选择
-      - 日本节点
-      - 香港节点
-      - DIRECT
+  - name: 自动选择
+    type: url-test
+    use:
+      - 花云机场
+      - KineticBloom
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
 
   - name: 香港节点
     type: url-test
@@ -207,10 +53,10 @@ proxy-groups:
       - 花云机场
       - KineticBloom
     filter: '(?i)(🇭🇰|香港|\bHK\b|Hong\s?Kong|HongKong)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
 
   - name: 日本节点
     type: url-test
@@ -218,10 +64,10 @@ proxy-groups:
       - 花云机场
       - KineticBloom
     filter: '(?i)(🇯🇵|日本|\bJP\b|Japan)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
 
   - name: 新加坡节点
     type: url-test
@@ -229,301 +75,24 @@ proxy-groups:
       - 花云机场
       - KineticBloom
     filter: '(?i)(🇸🇬|新加坡|\bSG\b|Singapore)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
 
   - name: 美国节点
     type: url-test
     use:
       - 花云机场
       - KineticBloom
-    filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America|Los\sAngeles|Seattle|San\sJose|San\sFrancisco|Chicago|New\sYork)'
+    filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America)'
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 台湾节点
-    type: url-test
-    use:
-      - 花云机场
-      - KineticBloom
-    filter: '(?i)(🇹🇼|台湾|\bTW\b|Taiwan)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 韩国节点
-    type: url-test
-    use:
-      - 花云机场
-      - KineticBloom
-    filter: '(?i)(🇰🇷|韩国|\bKR\b|Korea|Seoul)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: 英国节点
-    type: url-test
-    use:
-      - 花云机场
-      - KineticBloom
-    filter: '(?i)(🇬🇧|英国|\bUK\b|United\sKingdom|Britain|London)'
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-rule-providers:
-  bm7_advertising_lite:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
-    path: ./rule_providers/bm7_advertising_lite.yaml
-    interval: 86400
-
-  bm7_openai:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
-    path: ./rule_providers/bm7_openai.yaml
-    interval: 86400
-
-  bm7_claude:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml
-    path: ./rule_providers/bm7_claude.yaml
-    interval: 86400
-
-  bm7_gemini:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
-    path: ./rule_providers/bm7_gemini.yaml
-    interval: 86400
-
-  bm7_google:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml
-    path: ./rule_providers/bm7_google.yaml
-    interval: 86400
-
-  bm7_youtube:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml
-    path: ./rule_providers/bm7_youtube.yaml
-    interval: 86400
-
-  bm7_microsoft:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
-    path: ./rule_providers/bm7_microsoft.yaml
-    interval: 86400
-
-  bm7_apple:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
-    path: ./rule_providers/bm7_apple.yaml
-    interval: 86400
-
-  bm7_netflix:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml
-    path: ./rule_providers/bm7_netflix.yaml
-    interval: 86400
-
-  bm7_disney:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml
-    path: ./rule_providers/bm7_disney.yaml
-    interval: 86400
-
-  bm7_amazon:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Amazon/Amazon.yaml
-    path: ./rule_providers/bm7_amazon.yaml
-    interval: 86400
-
-  bm7_primevideo:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrimeVideo/PrimeVideo.yaml
-    path: ./rule_providers/bm7_primevideo.yaml
-    interval: 86400
-
-  bm7_hbo:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/HBO/HBO.yaml
-    path: ./rule_providers/bm7_hbo.yaml
-    interval: 86400
-
-  bm7_hulu:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Hulu/Hulu.yaml
-    path: ./rule_providers/bm7_hulu.yaml
-    interval: 86400
-
-  bm7_bahamut:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bahamut/Bahamut.yaml
-    path: ./rule_providers/bm7_bahamut.yaml
-    interval: 86400
-
-  bm7_spotify:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
-    path: ./rule_providers/bm7_spotify.yaml
-    interval: 86400
-
-  bm7_twitch:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitch/Twitch.yaml
-    path: ./rule_providers/bm7_twitch.yaml
-    interval: 86400
-
-  bm7_tiktok:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml
-    path: ./rule_providers/bm7_tiktok.yaml
-    interval: 86400
-
-  bm7_telegram:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml
-    path: ./rule_providers/bm7_telegram.yaml
-    interval: 86400
-
-  bm7_discord:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Discord/Discord.yaml
-    path: ./rule_providers/bm7_discord.yaml
-    interval: 86400
-
-  bm7_twitter:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml
-    path: ./rule_providers/bm7_twitter.yaml
-    interval: 86400
-
-  bm7_facebook:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Facebook/Facebook.yaml
-    path: ./rule_providers/bm7_facebook.yaml
-    interval: 86400
-
-  bm7_reddit:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Reddit/Reddit.yaml
-    path: ./rule_providers/bm7_reddit.yaml
-    interval: 86400
-
-  bm7_binance:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Binance/Binance.yaml
-    path: ./rule_providers/bm7_binance.yaml
-    interval: 86400
-
-  bm7_okx:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OKX/OKX.yaml
-    path: ./rule_providers/bm7_okx.yaml
-    interval: 86400
-
-  bm7_cryptocurrency:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cryptocurrency/Cryptocurrency.yaml
-    path: ./rule_providers/bm7_cryptocurrency.yaml
-    interval: 86400
 
 rules:
   - DOMAIN-SUFFIX,api-huacloud.dev,DIRECT
   - DOMAIN-SUFFIX,api.xmancdn.com,DIRECT
   - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
-
-  - RULE-SET,bm7_openai,AI服务
-  - RULE-SET,bm7_claude,AI服务
-  - RULE-SET,bm7_gemini,AI服务
-
-  - RULE-SET,bm7_google,谷歌服务
-  - RULE-SET,bm7_youtube,谷歌服务
-  - RULE-SET,bm7_microsoft,微软服务
-  - RULE-SET,bm7_apple,苹果服务
-
-  - RULE-SET,bm7_netflix,流媒体
-  - RULE-SET,bm7_disney,流媒体
-  - RULE-SET,bm7_amazon,流媒体
-  - RULE-SET,bm7_primevideo,流媒体
-  - RULE-SET,bm7_hbo,流媒体
-  - RULE-SET,bm7_hulu,流媒体
-  - RULE-SET,bm7_bahamut,流媒体
-  - RULE-SET,bm7_twitch,流媒体
-
-  - RULE-SET,bm7_spotify,音乐媒体
-  - RULE-SET,bm7_tiktok,TikTok
-
-  - RULE-SET,bm7_telegram,社交媒体
-  - RULE-SET,bm7_discord,社交媒体
-  - RULE-SET,bm7_twitter,社交媒体
-  - RULE-SET,bm7_facebook,社交媒体
-  - RULE-SET,bm7_reddit,社交媒体
-
-  - RULE-SET,bm7_binance,加密货币
-  - RULE-SET,bm7_okx,加密货币
-  - RULE-SET,bm7_cryptocurrency,加密货币
-
-  - RULE-SET,bm7_advertising_lite,广告过滤
-
-  - GEOIP,CN,DIRECT
-  - MATCH,漏网之鱼
+  - MATCH,自动选择
