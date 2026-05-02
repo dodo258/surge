@@ -71,20 +71,22 @@ http:
   script: []
 
 proxy-providers:
-  花云机场:
+  机场A:
     type: http
-    url: "https://api-huacloud.dev/sub?target=clash&insert=true&emoji=true&udp=true&clash.doh=true&new_name=true&filename=Flower_SS.yaml&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Ftoken2%3Djnyzwgvq-b96e381978yi1ieppa%26sip002%3D1"
-    path: ./proxy_providers/huacloud.yaml
+    # 已删除公开机场订阅地址，请替换为你自己的 Clash 订阅链接
+    url: "请填写你自己的 Clash 订阅地址"
+    path: ./proxy_providers/airport-a.yaml
     interval: 21600
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
 
-  KineticBloom:
+  机场B:
     type: http
-    url: "https://cdn.kineticbloom.org/?L2Rvd25sb2FkQ29uZmlnL0NsYXNoLmFzcHg/dD1jMjAyMiZlcT13aW5kb3dzJnVyaz0zNDc4ZWJhYi0wYjA2LTRmMjUtYTE5Mi04ZGExYzg5MzU1ZjcmbW09NDE1MzIma3RtbT01eUlZZ1hKSmpOc3BxbUYlMmZmVjhHckElM2QlM2QmMTBmNTIxNTJkNDAwNGNkOQ=="
-    path: ./proxy_providers/kineticbloom.yaml
+    # 已删除公开机场订阅地址，请替换为你自己的 Clash 订阅链接
+    url: "请填写你自己的 Clash 订阅地址"
+    path: ./proxy_providers/airport-b.yaml
     interval: 21600
     health-check:
       enable: true
@@ -204,8 +206,8 @@ proxy-groups:
   - name: 香港节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇭🇰|香港|\bHK\b|Hong\s?Kong|HongKong)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     url: https://www.gstatic.com/generate_204
@@ -215,8 +217,8 @@ proxy-groups:
   - name: 日本节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇯🇵|日本|\bJP\b|Japan)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     url: https://www.gstatic.com/generate_204
@@ -226,8 +228,8 @@ proxy-groups:
   - name: 新加坡节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇸🇬|新加坡|\bSG\b|Singapore)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     url: https://www.gstatic.com/generate_204
@@ -237,8 +239,8 @@ proxy-groups:
   - name: 美国节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇺🇸|美国|\bUS\b|\bUSA\b|United\sStates|America|Los\sAngeles|Seattle|San\sJose|San\sFrancisco|Chicago|New\sYork)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     url: https://www.gstatic.com/generate_204
@@ -248,8 +250,8 @@ proxy-groups:
   - name: 台湾节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇹🇼|台湾|\bTW\b|Taiwan)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
     url: https://www.gstatic.com/generate_204
@@ -259,8 +261,8 @@ proxy-groups:
   - name: 韩国节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇰🇷|韩国|\bKR\b|Korea|Seoul)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     url: https://www.gstatic.com/generate_204
@@ -270,8 +272,8 @@ proxy-groups:
   - name: 英国节点
     type: url-test
     use:
-      - 花云机场
-      - KineticBloom
+      - 机场A
+      - 机场B
     filter: '(?i)(🇬🇧|英国|\bUK\b|United\sKingdom|Britain|London)'
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png
     url: https://www.gstatic.com/generate_204
@@ -488,10 +490,6 @@ rule-providers:
     interval: 86400
 
 rules:
-  - DOMAIN-SUFFIX,api-huacloud.dev,DIRECT
-  - DOMAIN-SUFFIX,api.xmancdn.com,DIRECT
-  - DOMAIN-SUFFIX,cdn.kineticbloom.org,DIRECT
-
   - RULE-SET,bm7_openai,AI服务
   - RULE-SET,bm7_claude,AI服务
   - RULE-SET,bm7_gemini,AI服务

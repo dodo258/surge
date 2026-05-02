@@ -8,7 +8,6 @@ python3 - <<'PY'
 import yaml
 for path in [
     'stash/Stash-v4-public-airport-android.yaml',
-    'temp/NekoBox-Temporary-Import.yaml',
     'custom-rules-clash/My-Crypto.yaml',
     'custom-rules-clash/My-Finance-Direct.yaml',
 ]:
@@ -18,7 +17,7 @@ for path in [
 PY
 
 echo "📋 检查重复策略组..."
-for f in stash/Stash-v4-public-airport-android.yaml temp/NekoBox-Temporary-Import.yaml; do
+for f in stash/Stash-v4-public-airport-android.yaml; do
   DUPS=$(grep "^  - name:" "$f" 2>/dev/null | sort | uniq -d)
   if [ -n "$DUPS" ]; then
     echo "❌ 存在重复策略组: $f"
@@ -37,7 +36,6 @@ done
 echo "📋 测试关键 URL 可访问性..."
 FAILED=0
 TEST_URLS=(
-  "https://raw.githubusercontent.com/dodo258/surge/main/temp/NekoBox-Temporary-Import.yaml"
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Crypto.yaml"
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Finance-Direct.yaml"
 )

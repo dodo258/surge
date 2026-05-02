@@ -4,11 +4,7 @@
 
 ## 当前保留内容
 
-### 1. 公开可拉取的 Stash 配置
-- `stash/Stash-v4-public-airport.yaml`
-- `stash/Stash-v4-public-airport-android.yaml`
-
-### 2. 自维护规则源
+### 自维护规则源
 #### Surge/List 版本
 - `custom-rules/My-Crypto.list`
 - `custom-rules/My-Finance-Direct.list`
@@ -24,5 +20,5 @@
 - Surge 保留 list 规则源
 
 ## 说明
-- Android 端优先尝试 `Stash-v4-public-airport-android.yaml`
 - 公开仓库不再承担私有自建节点配置用途
+- 仓库内公开配置不再内置任何机场订阅地址，使用前请自行填写
