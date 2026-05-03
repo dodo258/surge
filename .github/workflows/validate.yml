@@ -25,7 +25,6 @@ jobs:
       - name: Basic file checks
         run: |
           test -f stash/Stash-v4-public-airport-android.yaml
-          test -f temp/NekoBox-Temporary-Import.yaml
           test -f custom-rules/My-Crypto.list
           test -f custom-rules/My-Finance-Direct.list
           test -f custom-rules-clash/My-Crypto.yaml
@@ -38,7 +37,6 @@ jobs:
           import yaml
           for path in [
               'stash/Stash-v4-public-airport-android.yaml',
-              'temp/NekoBox-Temporary-Import.yaml',
               'custom-rules-clash/My-Crypto.yaml',
               'custom-rules-clash/My-Finance-Direct.yaml',
           ]:
