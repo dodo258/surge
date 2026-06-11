@@ -8,10 +8,12 @@
 #### Surge/List 版本
 - `custom-rules/My-Crypto.list`
 - `custom-rules/My-Finance-Direct.list`
+- `custom-rules/My-AI.list`
 
 #### Clash/YAML 版本
 - `custom-rules-clash/My-Crypto.yaml`
 - `custom-rules-clash/My-Finance-Direct.yaml`
+- `custom-rules-clash/My-AI.yaml`
 
 ## 设计原则
 - 公开仓库只保留对外分享仍然有价值的配置与规则

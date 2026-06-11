@@ -10,6 +10,7 @@ for path in [
     'stash/Stash-v4-public-airport-android.yaml',
     'custom-rules-clash/My-Crypto.yaml',
     'custom-rules-clash/My-Finance-Direct.yaml',
+    'custom-rules-clash/My-AI.yaml',
 ]:
     with open(path, encoding='utf-8') as f:
         yaml.safe_load(f)
@@ -28,7 +29,7 @@ done
 echo "✅ 无重复策略组"
 
 echo "📋 检查自维护规则文件..."
-for f in custom-rules/My-Crypto.list custom-rules/My-Finance-Direct.list custom-rules-clash/My-Crypto.yaml custom-rules-clash/My-Finance-Direct.yaml; do
+for f in custom-rules/My-Crypto.list custom-rules/My-Finance-Direct.list custom-rules/My-AI.list custom-rules-clash/My-Crypto.yaml custom-rules-clash/My-Finance-Direct.yaml custom-rules-clash/My-AI.yaml; do
   test -f "$f"
   echo "  ✅ $f"
 done
@@ -38,6 +39,7 @@ FAILED=0
 TEST_URLS=(
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Crypto.yaml"
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Finance-Direct.yaml"
+  "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-AI.yaml"
 )
 for url in "${TEST_URLS[@]}"; do
   HTTP_CODE=$(curl -L -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null)

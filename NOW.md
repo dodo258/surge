@@ -8,5 +8,7 @@
 - `stash/Stash-v4-public-airport-android.yaml`
 - `custom-rules/My-Crypto.list`
 - `custom-rules/My-Finance-Direct.list`
+- `custom-rules/My-AI.list`
 - `custom-rules-clash/My-Crypto.yaml`
 - `custom-rules-clash/My-Finance-Direct.yaml`
+- `custom-rules-clash/My-AI.yaml`
