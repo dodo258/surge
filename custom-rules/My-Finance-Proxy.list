@@ -81,12 +81,40 @@ DOMAIN-SUFFIX,portal.ifastglobalbank.com
 DOMAIN-SUFFIX,sc.com
 DOMAIN-SUFFIX,sc.com.hk
 
+# Hong Kong banks / 香港银行
+DOMAIN-SUFFIX,asia.ccb.com
+DOMAIN-SUFFIX,ccb.com
+DOMAIN-SUFFIX,ccb.com.hk
+DOMAIN-SUFFIX,chbank.com
+DOMAIN-SUFFIX,chiyubank.com
+DOMAIN-SUFFIX,cncbinternational.com
+DOMAIN-SUFFIX,dahsing.com
+DOMAIN-SUFFIX,dahsing.com.cn
+DOMAIN-SUFFIX,elebank.com
+DOMAIN-SUFFIX,fubonbank.com.hk
+DOMAIN-SUFFIX,fusionbank.com
+DOMAIN-SUFFIX,livibank.com
+DOMAIN-SUFFIX,ncb.com.hk
+DOMAIN-SUFFIX,ocbc.com
+DOMAIN-SUFFIX,ocbc.com.hk
+DOMAIN-SUFFIX,paob.com.hk
+DOMAIN-SUFFIX,pingandb.com
+DOMAIN-SUFFIX,publicbank.com.hk
+DOMAIN-SUFFIX,publicbank.com
+DOMAIN-SUFFIX,shacombank.com.hk
+DOMAIN-SUFFIX,welab.bank
+DOMAIN-SUFFIX,welab.co
+
 # Charles Schwab / 嘉信
+DOMAIN-SUFFIX,aboutschwab.com
 DOMAIN-SUFFIX,schwab.com
 DOMAIN-SUFFIX,schwab.com.hk
+DOMAIN-SUFFIX,schwab.co.uk
+DOMAIN-SUFFIX,schwab.wallst.com
 DOMAIN-SUFFIX,schwabcdn.com
 DOMAIN-SUFFIX,schwabplan.com
 DOMAIN-SUFFIX,streetsmartcentral.com
+DOMAIN-SUFFIX,tdameritrade.com
 DOMAIN-SUFFIX,thinkorswim.com
 DOMAIN-SUFFIX,tos.mx
 
