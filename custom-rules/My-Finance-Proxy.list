@@ -19,21 +19,17 @@ DOMAIN-SUFFIX,app.ifastglobalbank.com
 DOMAIN-SUFFIX,app.usmart.com
 DOMAIN-SUFFIX,bankcomm.com
 DOMAIN-SUFFIX,bankcomm.com.hk
-DOMAIN-SUFFIX,bankofchina.com
 DOMAIN-SUFFIX,bea.com.hk
 DOMAIN-SUFFIX,boc.hk
-DOMAIN-SUFFIX,boc.cn
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,citibank.com
 DOMAIN-SUFFIX,citibank.com.hk
 DOMAIN-SUFFIX,citi.com
 DOMAIN-SUFFIX,citigroup.com
-DOMAIN-SUFFIX,cmbchina.com
 DOMAIN-SUFFIX,cmbchk.com
 DOMAIN-SUFFIX,cmbhl.com
 DOMAIN-SUFFIX,cmbwinglungbank.com
 DOMAIN-SUFFIX,dbs.com
-DOMAIN-SUFFIX,dbs.com.cn
 DOMAIN-SUFFIX,dbs.com.hk
 DOMAIN-SUFFIX,dbs.com.sg
 DOMAIN-SUFFIX,dbs.com.tw
@@ -53,7 +49,6 @@ DOMAIN-SUFFIX,hsbc.ae
 DOMAIN-SUFFIX,hsbc.ca
 DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,hsbc.com.au
-DOMAIN-SUFFIX,hsbc.com.cn
 DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN-SUFFIX,hsbc.com.mx
 DOMAIN-SUFFIX,hsbc.fr
@@ -106,14 +101,12 @@ DOMAIN-SUFFIX,chbank.com
 DOMAIN-SUFFIX,chiyubank.com
 DOMAIN-SUFFIX,cncbinternational.com
 DOMAIN-SUFFIX,dahsing.com
-DOMAIN-SUFFIX,dahsing.com.cn
 DOMAIN-SUFFIX,elebank.com
 DOMAIN-SUFFIX,fubonbank.com.hk
 DOMAIN-SUFFIX,fusionbank.com
 DOMAIN-SUFFIX,livibank.com
 DOMAIN-SUFFIX,ncb.com.hk
 DOMAIN-SUFFIX,ocbc.com
-DOMAIN-SUFFIX,ocbc.com.cn
 DOMAIN-SUFFIX,ocbc.com.hk
 DOMAIN-SUFFIX,ocbc.com.my
 DOMAIN-SUFFIX,ocbccr.com.hk
@@ -126,22 +119,12 @@ DOMAIN-SUFFIX,publicbank.com
 DOMAIN-SUFFIX,shacombank.com.hk
 DOMAIN-SUFFIX,welab.bank
 DOMAIN-SUFFIX,welab.co
-DOMAIN-SUFFIX,standardchartered.com
 
-# China / regional bank global official domains
-DOMAIN-SUFFIX,hangseng.com.cn
-DOMAIN-SUFFIX,hkbea.com.cn
-DOMAIN-SUFFIX,icbc.com
-DOMAIN-SUFFIX,icbc.com.cn
-DOMAIN-SUFFIX,icbc-ltd.com
+# Regional bank non-mainland official domains
 DOMAIN-SUFFIX,icbc-us.com
 DOMAIN-SUFFIX,icbclondon.com
 DOMAIN-SUFFIX,fubon.com
-DOMAIN-SUFFIX,fubon.com.tw
-DOMAIN-SUFFIX,pbebank.com
 DOMAIN-SUFFIX,publicbankgroup.com
-DOMAIN-SUFFIX,publicbank.com.my
-DOMAIN-SUFFIX,publicbank.com.la
 
 # Charles Schwab / 嘉信
 DOMAIN-SUFFIX,aboutschwab.com
@@ -188,10 +171,8 @@ DOMAIN-SUFFIX,chieftrade.com
 
 # Interactive Brokers / IBKR / 盈透
 DOMAIN-SUFFIX,ibkr.com
-DOMAIN-SUFFIX,ibkr.com.cn
 DOMAIN-SUFFIX,ibkrcampus.com
 DOMAIN-SUFFIX,ibllc.com
-DOMAIN-SUFFIX,ibllc.com.cn
 DOMAIN-SUFFIX,interactivebrokers.ca
 DOMAIN-SUFFIX,interactivebrokers.co.in
 DOMAIN-SUFFIX,interactivebrokers.co.jp
