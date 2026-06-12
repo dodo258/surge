@@ -29,7 +29,7 @@ done
 echo "✅ 无重复策略组"
 
 echo "📋 检查自维护规则文件..."
-for f in custom-rules/My-Crypto.list custom-rules/My-Finance-Direct.list custom-rules/My-AI.list custom-rules-clash/My-Crypto.yaml custom-rules-clash/My-Finance-Direct.yaml custom-rules-clash/My-AI.yaml; do
+for f in custom-rules/My-Crypto.list custom-rules/My-Finance-Direct.list custom-rules/My-Finance-Proxy.list custom-rules/My-AI.list custom-rules-clash/My-Crypto.yaml custom-rules-clash/My-Finance-Direct.yaml custom-rules-clash/My-AI.yaml; do
   test -f "$f"
   echo "  ✅ $f"
 done

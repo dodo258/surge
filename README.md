@@ -8,6 +8,7 @@
 #### Surge/List 版本
 - `custom-rules/My-Crypto.list`
 - `custom-rules/My-Finance-Direct.list`
+- `custom-rules/My-Finance-Proxy.list`
 - `custom-rules/My-AI.list`
 
 #### Clash/YAML 版本
