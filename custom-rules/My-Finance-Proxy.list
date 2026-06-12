@@ -22,13 +22,25 @@ DOMAIN-SUFFIX,bankcomm.com.hk
 DOMAIN-SUFFIX,bankofchina.com
 DOMAIN-SUFFIX,bea.com.hk
 DOMAIN-SUFFIX,boc.hk
+DOMAIN-SUFFIX,boc.cn
+DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,citibank.com
 DOMAIN-SUFFIX,citibank.com.hk
+DOMAIN-SUFFIX,citi.com
+DOMAIN-SUFFIX,citigroup.com
 DOMAIN-SUFFIX,cmbchina.com
 DOMAIN-SUFFIX,cmbchk.com
 DOMAIN-SUFFIX,cmbhl.com
+DOMAIN-SUFFIX,cmbwinglungbank.com
 DOMAIN-SUFFIX,dbs.com
+DOMAIN-SUFFIX,dbs.com.cn
 DOMAIN-SUFFIX,dbs.com.hk
+DOMAIN-SUFFIX,dbs.com.sg
+DOMAIN-SUFFIX,dbs.com.tw
+DOMAIN-SUFFIX,dbs.bank.in
+DOMAIN-SUFFIX,dbs.id
+DOMAIN-SUFFIX,dbsvickers.com
+DOMAIN-SUFFIX,dbsvonline.com
 DOMAIN-SUFFIX,futu.com
 DOMAIN-SUFFIX,futuhk.com
 DOMAIN-SUFFIX,futuinc.com
@@ -37,10 +49,14 @@ DOMAIN-SUFFIX,hangseng.com
 DOMAIN-SUFFIX,hengseng.com
 DOMAIN-SUFFIX,hkbea.com
 DOMAIN-SUFFIX,hsbc.co.uk
+DOMAIN-SUFFIX,hsbc.ae
+DOMAIN-SUFFIX,hsbc.ca
 DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,hsbc.com.au
 DOMAIN-SUFFIX,hsbc.com.cn
 DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com.mx
+DOMAIN-SUFFIX,hsbc.fr
 DOMAIN-SUFFIX,hsbc.com.sg
 DOMAIN-SUFFIX,hsbcnet.com
 DOMAIN-SUFFIX,icbc.com.hk
@@ -54,6 +70,7 @@ DOMAIN-SUFFIX,lbkrs.com
 DOMAIN-SUFFIX,longbridge.com
 DOMAIN-SUFFIX,longbridge.com.hk
 DOMAIN-SUFFIX,longbridge.hk
+DOMAIN-SUFFIX,longbridge.sg
 DOMAIN-SUFFIX,longbridgehk.com
 DOMAIN-SUFFIX,longbridgeapp.com
 
@@ -81,7 +98,7 @@ DOMAIN-SUFFIX,portal.ifastglobalbank.com
 DOMAIN-SUFFIX,sc.com
 DOMAIN-SUFFIX,sc.com.hk
 
-# Hong Kong banks / 香港银行
+# Global banks / 全球银行
 DOMAIN-SUFFIX,asia.ccb.com
 DOMAIN-SUFFIX,ccb.com
 DOMAIN-SUFFIX,ccb.com.hk
@@ -96,7 +113,12 @@ DOMAIN-SUFFIX,fusionbank.com
 DOMAIN-SUFFIX,livibank.com
 DOMAIN-SUFFIX,ncb.com.hk
 DOMAIN-SUFFIX,ocbc.com
+DOMAIN-SUFFIX,ocbc.com.cn
 DOMAIN-SUFFIX,ocbc.com.hk
+DOMAIN-SUFFIX,ocbc.com.my
+DOMAIN-SUFFIX,ocbccr.com.hk
+DOMAIN-SUFFIX,ocbcnisp.com
+DOMAIN-SUFFIX,iocbc.com
 DOMAIN-SUFFIX,paob.com.hk
 DOMAIN-SUFFIX,pingandb.com
 DOMAIN-SUFFIX,publicbank.com.hk
@@ -104,6 +126,22 @@ DOMAIN-SUFFIX,publicbank.com
 DOMAIN-SUFFIX,shacombank.com.hk
 DOMAIN-SUFFIX,welab.bank
 DOMAIN-SUFFIX,welab.co
+DOMAIN-SUFFIX,standardchartered.com
+
+# China / regional bank global official domains
+DOMAIN-SUFFIX,hangseng.com.cn
+DOMAIN-SUFFIX,hkbea.com.cn
+DOMAIN-SUFFIX,icbc.com
+DOMAIN-SUFFIX,icbc.com.cn
+DOMAIN-SUFFIX,icbc-ltd.com
+DOMAIN-SUFFIX,icbc-us.com
+DOMAIN-SUFFIX,icbclondon.com
+DOMAIN-SUFFIX,fubon.com
+DOMAIN-SUFFIX,fubon.com.tw
+DOMAIN-SUFFIX,pbebank.com
+DOMAIN-SUFFIX,publicbankgroup.com
+DOMAIN-SUFFIX,publicbank.com.my
+DOMAIN-SUFFIX,publicbank.com.la
 
 # Charles Schwab / 嘉信
 DOMAIN-SUFFIX,aboutschwab.com
@@ -162,4 +200,5 @@ DOMAIN-SUFFIX,interactivebrokers.com
 DOMAIN-SUFFIX,interactivebrokers.com.au
 DOMAIN-SUFFIX,interactivebrokers.com.hk
 DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,interactivebrokers.eu
 DOMAIN-SUFFIX,interactivebrokers.ie
