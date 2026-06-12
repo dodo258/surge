@@ -48,12 +48,26 @@ DOMAIN-SUFFIX,icbcasia.com
 DOMAIN-SUFFIX,ifastglobalbank.co.uk
 DOMAIN-SUFFIX,ifastglobalbank.com
 DOMAIN-SUFFIX,lbpkg.com
+
+# Longbridge / 長橋
+DOMAIN-SUFFIX,lbkrs.com
 DOMAIN-SUFFIX,longbridge.com
 DOMAIN-SUFFIX,longbridge.com.hk
 DOMAIN-SUFFIX,longbridge.hk
+DOMAIN-SUFFIX,longbridgehk.com
 DOMAIN-SUFFIX,longbridgeapp.com
+
+# Futu / 富途 / moomoo
+DOMAIN-SUFFIX,futufin.com
+DOMAIN-SUFFIX,futuholdings.com
+DOMAIN-SUFFIX,futuie.com
+DOMAIN-SUFFIX,futustatic.com
+DOMAIN-SUFFIX,fututrustee.com
 DOMAIN-SUFFIX,moomoo.com
+DOMAIN-SUFFIX,moomoo.com.au
 DOMAIN-SUFFIX,moomoo.com.hk
+DOMAIN-SUFFIX,moomoo.com.my
+DOMAIN-SUFFIX,moomoo.com.sg
 DOMAIN-SUFFIX,moomoo.io
 DOMAIN-SUFFIX,moomoo.sg
 DOMAIN-SUFFIX,mox.com
@@ -66,11 +80,29 @@ DOMAIN-SUFFIX,openapi.longbridge.com
 DOMAIN-SUFFIX,portal.ifastglobalbank.com
 DOMAIN-SUFFIX,sc.com
 DOMAIN-SUFFIX,sc.com.hk
+
+# Charles Schwab / 嘉信
+DOMAIN-SUFFIX,schwab.com
+DOMAIN-SUFFIX,schwab.com.hk
+DOMAIN-SUFFIX,schwabcdn.com
+DOMAIN-SUFFIX,schwabplan.com
+DOMAIN-SUFFIX,streetsmartcentral.com
+DOMAIN-SUFFIX,thinkorswim.com
+DOMAIN-SUFFIX,tos.mx
+
+# Tiger / 老虎
 DOMAIN-SUFFIX,tiger.com
 DOMAIN-SUFFIX,tigerbrokers.com
 DOMAIN-SUFFIX,tigerfintech.hk
 DOMAIN-SUFFIX,tigersecurities.com
+
+# uSMART / 盈立
 DOMAIN-SUFFIX,usmart.com
+DOMAIN-SUFFIX,usmart.hk
+DOMAIN-SUFFIX,usmart8.com
+DOMAIN-SUFFIX,usmart66.com
+DOMAIN-SUFFIX,usmartcapital.com
+DOMAIN-SUFFIX,usmartglobal.com
 DOMAIN-SUFFIX,usmartgroup.com
 DOMAIN-SUFFIX,usmarthk.com
 DOMAIN-SUFFIX,usmartmobile.com
@@ -82,3 +114,24 @@ DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,zabank.com
 DOMAIN-SUFFIX,zabank.com.hk
 DOMAIN-SUFFIX,zabank.hk
+
+# Chief / 致富
+DOMAIN-SUFFIX,chiefgroup.com.hk
+DOMAIN-SUFFIX,chiefsecurities.com.hk
+DOMAIN-SUFFIX,chieftrade.com
+
+# Interactive Brokers / IBKR / 盈透
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibkr.com.cn
+DOMAIN-SUFFIX,ibkrcampus.com
+DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,ibllc.com.cn
+DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,interactivebrokers.co.jp
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,interactivebrokers.ie

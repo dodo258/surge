@@ -40,6 +40,7 @@ TEST_URLS=(
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Crypto.yaml"
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-Finance-Direct.yaml"
   "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules-clash/My-AI.yaml"
+  "https://raw.githubusercontent.com/dodo258/surge/main/custom-rules/My-Finance-Proxy.list"
 )
 for url in "${TEST_URLS[@]}"; do
   HTTP_CODE=$(curl -L -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null)
