@@ -4,7 +4,6 @@
 # - Wise is intentionally kept in My-Finance-Direct.list.
 # - alipay.hk and wechatpay.com remain excluded; they are handled by the base direct layer.
 
-DOMAIN,bocg.com
 DOMAIN,www.airstarbank.com
 DOMAIN,www.mox.com
 DOMAIN,www.zabank.com
@@ -20,8 +19,6 @@ DOMAIN-SUFFIX,app.usmart.com
 DOMAIN-SUFFIX,bankcomm.com
 DOMAIN-SUFFIX,bankcomm.com.hk
 DOMAIN-SUFFIX,bea.com.hk
-DOMAIN-SUFFIX,boc.hk
-DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,citibank.com
 DOMAIN-SUFFIX,citibank.com.hk
 DOMAIN-SUFFIX,citi.com
@@ -54,8 +51,6 @@ DOMAIN-SUFFIX,hsbc.com.mx
 DOMAIN-SUFFIX,hsbc.fr
 DOMAIN-SUFFIX,hsbc.com.sg
 DOMAIN-SUFFIX,hsbcnet.com
-DOMAIN-SUFFIX,icbc.com.hk
-DOMAIN-SUFFIX,icbcasia.com
 DOMAIN-SUFFIX,ifastglobalbank.co.uk
 DOMAIN-SUFFIX,ifastglobalbank.com
 DOMAIN-SUFFIX,lbpkg.com
@@ -98,8 +93,6 @@ DOMAIN-SUFFIX,asia.ccb.com
 DOMAIN-SUFFIX,ccb.com
 DOMAIN-SUFFIX,ccb.com.hk
 DOMAIN-SUFFIX,chbank.com
-DOMAIN-SUFFIX,chiyubank.com
-DOMAIN-SUFFIX,cncbinternational.com
 DOMAIN-SUFFIX,dahsing.com
 DOMAIN-SUFFIX,elebank.com
 DOMAIN-SUFFIX,fubonbank.com.hk
@@ -121,8 +114,6 @@ DOMAIN-SUFFIX,welab.bank
 DOMAIN-SUFFIX,welab.co
 
 # Regional bank non-mainland official domains
-DOMAIN-SUFFIX,icbc-us.com
-DOMAIN-SUFFIX,icbclondon.com
 DOMAIN-SUFFIX,fubon.com
 DOMAIN-SUFFIX,publicbankgroup.com
 
