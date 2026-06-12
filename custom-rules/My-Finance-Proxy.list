@@ -89,9 +89,6 @@ DOMAIN-SUFFIX,sc.com
 DOMAIN-SUFFIX,sc.com.hk
 
 # Global banks / 全球银行
-DOMAIN-SUFFIX,asia.ccb.com
-DOMAIN-SUFFIX,ccb.com
-DOMAIN-SUFFIX,ccb.com.hk
 DOMAIN-SUFFIX,chbank.com
 DOMAIN-SUFFIX,dahsing.com
 DOMAIN-SUFFIX,elebank.com
